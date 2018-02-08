@@ -1,0 +1,56 @@
+    "switch.funksteckdose_licht_*":
+      icon: mdi:lightbulb-on-outline
+      
+    "switch.funksteckdose_*":
+      assumed_state: false
+
+    "automation.push_*":
+      icon: mdi:signal-variant
+
+    "switch.firmwareupdate_*":
+      icon: mdi:cloud-download
+      #friendly_name: Firmwareupdate
+      
+    "switch.neustart_*":
+      icon: mdi:restart
+      
+    "switch.heizungsansteuerung_erlaubt_*":
+      icon: mdi:checkbox-marked-outline
+      #friendly_name: Heizungssteuerung
+      
+    "sensor.luftfeuchtigkeit_*":
+      icon: mdi:water-percent
+      #friendly_name: Luftfeuchtigkeit
+      
+    "sensor.temperatur_*":
+      icon: mdi:thermometer
+      #friendly_name: Temperatur
+ 
+    "sensor.solltemperatur_*":
+      icon: mdi:thermometer-lines
+      #friendly_name: Solltemperatur
+
+    #"binary_sensor.heizung_*":
+      #friendly_name: Heizung an?
+      
+    "binary_sensor.sensorfehler_*":
+      icon: mdi:comment-alert-outline
+      #friendly_name: Sensorfehler
+      
+    "binary_sensor.thermostat_online_*":
+      icon: mdi:wifi
+      #friendly_name: Online Status
+    "binary_sensor.steckdose_online_*":
+      icon: mdi:wifi
+      
+    "sensor.skalierung_*":
+      icon: mdi:percent
+
+    "sensor.offset_*":
+      icon: mdi:temperature-celsius
+
+    "sensor.ip_*":
+      icon: mdi:fingerprint
+      
+    "climate.*":
+      target_temp_step: 0.5

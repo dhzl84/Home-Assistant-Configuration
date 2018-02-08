@@ -1,0 +1,25 @@
+  - alias: 'Aussensteckdose Ein'
+    trigger:
+      platform: sun
+      event: sunset
+      offset: '-02:00:00'
+    condition:
+      condition: state
+      entity_id: input_boolean.aussensteckdose_automation
+      state: 'on'
+    action:
+      service: switch.turn_on
+      entity_id: switch.funksteckdose_aussen
+
+  - alias: 'Aussensteckdose Aus'
+    trigger:
+      platform: sun
+      event: sunrise
+      offset: '+02:00:00'
+    condition:
+      condition: state
+      entity_id: input_boolean.aussensteckdose_automation
+      state: 'on'
+    action:
+      service: switch.turn_off
+      entity_id: switch.funksteckdose_aussen

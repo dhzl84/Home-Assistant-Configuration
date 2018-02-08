@@ -1,0 +1,15 @@
+  marderschreck_auto_group:
+    name: Zeitsteuerung Marderschreck
+    control: hidden
+    entities:
+      - input_boolean.aussensteckdose_automation
+
+  beleuchtung_auto_group:
+    name: Zeitsteuerung Beleuchtung
+    control: hidden
+    entities:
+      - input_boolean.beleuchtung_automation
+      - input_datetime.beleuchtung_morgens_an
+      - input_datetime.beleuchtung_morgens_aus
+      - input_datetime.beleuchtung_abends_an
+      - input_datetime.beleuchtung_abends_aus

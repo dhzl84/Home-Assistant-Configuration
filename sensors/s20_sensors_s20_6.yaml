@@ -1,0 +1,5 @@
+  #S20_6
+  - platform: mqtt
+    state_topic: '/sonoff/s20_6/deviceIP'
+    name: 'IP S20_6'
+    value_template: '{{ value }}'

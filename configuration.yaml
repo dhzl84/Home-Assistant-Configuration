@@ -1,0 +1,158 @@
+﻿homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 50.387985
+  longitude: 8.457349
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 350
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Berlin
+
+  customize_glob: !include customize_glob.yaml
+
+  customize: !include customize.yaml
+
+camera: !include_dir_merge_list camera/
+climate: !include_dir_merge_list climate/
+light: !include_dir_merge_list light/
+switch: !include_dir_merge_list switch/
+input_number: !include_dir_merge_named input_number/
+input_datetime: !include_dir_merge_named input_datetime/
+sensor: !include_dir_merge_list sensors/
+shell_command: !include_dir_merge_named shell_commands/
+binary_sensor: !include_dir_merge_list binary_sensors/
+input_boolean: !include_dir_merge_named input_boolean/
+group: !include_dir_merge_named group/
+scene: !include_dir_merge_list scenes/
+automation: !include_dir_merge_list automation/
+
+# Enables the frontend
+frontend:
+  javascript_version: latest
+# Enables configuration UI
+config:
+hassio:
+
+http:
+  ssl_certificate: !secret http_ssl_certificate
+  ssl_key: !secret http_ssl_key
+  base_url: !secret http_base_url
+  trusted_networks: !secret http_trusted_networks
+  api_password: !secret http_api_password
+
+alexa:
+  smart_home:
+    filter:
+      include_entities:
+        - input_boolean.beleuchtung_scene
+        - input_boolean.fernsehabend_scene
+        - switch.funksteckdose_aussen
+        - switch.steckdose_hs100_1
+        - switch.steckdose_s20_1
+        - switch.steckdose_s20_2
+        - switch.steckdose_s20_3
+        - switch.steckdose_s20_4
+        - switch.steckdose_s20_5
+        - switch.steckdose_s20_6
+        - climate.thermostat_buero
+        - climate.thermostat_wohnzimmer
+#      include_domains:
+#        - climate
+#      exclude_entities:
+#        - switch.outside
+    entity_config:
+#scenes
+      input_boolean.beleuchtung_scene:
+        description: Ambiente Beleuchtung im Haus
+        display_categories: LIGHT
+
+      input_boolean.fernsehabend_scene:
+        description: Ambiente Beleuchtung im Wohnzimmer
+        display_categories: LIGHT
+#climate
+      climate.thermostat_buero:
+        description: Fussbodenheizung im Buero
+        display_categories: THERMOSTAT
+
+      climate.thermostat_wohnzimmer:
+        description: Fußbodenheizung im Wohnzimmer
+        display_categories: THERMOSTAT
+#switch 433 MHz
+      switch.funksteckdose_aussen:
+        display_categories: SWITCH
+# TP-Link HS100
+      switch.steckdose_hs100_1:
+        display_categories: LIGHT
+# Sonoff S20
+      switch.steckdose_s20_1:
+        display_categories: LIGHT
+  
+      switch.steckdose_s20_2:
+        display_categories: LIGHT
+        
+      switch.steckdose_s20_3:
+        display_categories: LIGHT
+        
+      switch.steckdose_s20_4:
+        display_categories: LIGHT
+  
+      switch.steckdose_s20_5:
+        display_categories: SWITCH
+  
+      switch.steckdose_s20_6:
+        display_categories: LIGHT
+
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  reporting: False
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+#discovery:
+
+recorder:
+  purge_interval: 1
+  purge_keep_days: 7
+
+# Enables support for tracking state changes over time
+history:
+  include:
+    entities: !include_dir_merge_list history/
+
+# View all events in a logbook
+#logbook:
+
+# Track the sun
+sun:
+
+notify:
+  - name: dominik
+    platform: simplepush
+    device_key: !secret simplepush_device_key
+    
+#MQTT
+mqtt:
+  broker: !secret mqtt_broker
+  port: !secret mqtt_port
+  client_id: !secret mqtt_client_id
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+#Octoprint
+octoprint:
+  host: !secret octoprint_host
+  api_key: !secret octoprint_api_key
+  bed: True
+  number_of_tools: 1
+  
+enocean:
+  device: /dev/ttyUSB0

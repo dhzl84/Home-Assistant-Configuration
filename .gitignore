@@ -1,0 +1,4 @@
+*.project
+/known_devices.yaml
+/secrets.yaml
+/.pydevproject

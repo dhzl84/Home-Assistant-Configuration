@@ -1,0 +1,24 @@
+  #Wohnzimmer
+  wohnzimmer_group:
+    name: Wohnzimmer
+    control: hidden
+    entities:
+      - climate.thermostat_wohnzimmer
+      
+  #Wohnzimmer
+  wohnzimmer_admin_group:
+    name: Wohnzimmer
+    control: hidden
+    entities:
+      - climate.thermostat_wohnzimmer
+      - sensor.temperatur_wohnzimmer
+      - sensor.solltemperatur_wohnzimmer
+      - sensor.luftfeuchtigkeit_wohnzimmer
+      - binary_sensor.heizung_aktiv_wohnzimmer
+      - binary_sensor.thermostat_online_wohnzimmer
+      - binary_sensor.sensorfehler_wohnzimmer
+      - switch.firmwareupdate_wohnzimmer
+      - switch.neustart_wohnzimmer
+      - sensor.ip_wohnzimmer
+      - sensor.skalierung_wohnzimmer
+      - sensor.offset_wohnzimmer

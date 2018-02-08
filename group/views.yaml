@@ -1,0 +1,46 @@
+#Licht
+  lights_view:
+    name: Licht
+    view: yes
+    entities:
+      - group.lights_group
+      - group.lights_scenes_group
+      - group.custom_led_buero_group
+
+#Heizung
+  heating_view:
+    name: Heizung
+    view: yes
+    entities:
+      - group.buero_group
+      - group.wohnzimmer_group
+      #{{GROUP}}
+      
+  maker_view:
+    name: Maker
+    view: yes
+    entities:
+      - group.maker_group
+      - group.maker_camera_group
+
+  outdoor_view:
+    name: Outdoor
+    view: yes
+    entities:
+      - group.outdoor_group
+      
+  automation_view:
+    name: Automation
+    view: yes
+    entities:
+      - group.marderschreck_auto_group
+      - group.beleuchtung_auto_group
+      
+  admin_view:
+    name: Admin
+    view: yes
+    entities:
+      - group.general_admin_group
+      - group.thermo_admin_all_group
+      - group.s20_admin_all_group
+      - group.prototype_admin_group

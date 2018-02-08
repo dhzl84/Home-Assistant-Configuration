@@ -1,0 +1,7 @@
+  general_admin_group:
+    name: Admin General
+    control: hidden
+    entities:
+      - sensor.time
+      - input_boolean.update_thermostats
+      - input_boolean.update_s20

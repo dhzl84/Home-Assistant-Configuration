@@ -1,0 +1,2 @@
+      - sensor.temperatur_buero
+      - binary_sensor.heizung_aktiv_buero

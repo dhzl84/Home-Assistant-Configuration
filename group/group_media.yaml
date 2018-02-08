@@ -1,0 +1,9 @@
+#  media_group:
+#    name: Media Players
+#    entities:
+#      - media_player.denon_avrx3400h
+#      - media_player.tv_wohnzimmer
+#      - media_player.musik_kuche
+#      - media_player.musik_wohnzimmer_aux
+#      - media_player.video_wohnzimmer
+#      - media_player.standardgruppe

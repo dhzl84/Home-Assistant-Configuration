@@ -1,0 +1,4 @@
+  outdoor_group:
+    name: Outdoor
+    entities:
+      - switch.funksteckdose_aussen

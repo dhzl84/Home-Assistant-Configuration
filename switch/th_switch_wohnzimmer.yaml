@@ -1,0 +1,16 @@
+#Wohnzimmer
+  - platform: mqtt
+    name: "Firmwareupdate Wohnzimmer"
+    command_topic: "/heating/wohnzimmer/updateFirmware"
+    state_topic:   "/heating/wohnzimmer/updateFirmwareAccepted"
+    payload_on: "true"
+    payload_off: "false"
+    optimistic: false
+    
+  - platform: mqtt
+    name: "Neustart Wohnzimmer"
+    command_topic: "/heating/wohnzimmer/systemRestartRequest"
+    state_topic:   "/heating/wohnzimmer/systemRestartRequest"
+    payload_on: "1"
+    payload_off: "0"
+    optimistic: false

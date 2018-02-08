@@ -1,0 +1,13 @@
+  #S20_2
+  #Trigger firmware update if central update switch is pressed
+  - alias: Update S20 firmware by central switch S20_2
+    trigger:
+     platform: state
+     entity_id: input_boolean.update_s20
+     from: 'off'
+     to: 'on'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.firmwareupdate_s20_2
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.update_s20

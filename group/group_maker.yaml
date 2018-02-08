@@ -1,0 +1,12 @@
+  maker_group:
+    name: Maker
+    control: hidden
+    entities:
+      - switch.steckdose_s20_5
+      - switch.steckdose_s20_6
+      - sensor.octoprint_actual_bed_temp
+      - sensor.octoprint_target_bed_temp
+      - sensor.octoprint_actual_tool0_temp
+      - sensor.octoprint_target_tool0_temp
+      - sensor.octoprint_current_state
+      - sensor.octoprint_job_percentage

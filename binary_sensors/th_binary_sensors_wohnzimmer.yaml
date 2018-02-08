@@ -1,0 +1,19 @@
+  #Wohnzimmer
+  - platform: mqtt
+    state_topic: '/heating/wohnzimmer/heatingState'
+    name: 'Heizung aktiv Wohnzimmer'
+    payload_on: "on"
+    payload_off: "off"
+    
+  - platform: mqtt
+    state_topic: '/heating/wohnzimmer/sensorStatus'
+    name: 'Sensorfehler Wohnzimmer'
+    payload_on: "1"
+    payload_off: "0"
+    
+  - platform: mqtt
+    state_topic: '/heating/wohnzimmer/online'
+    name: 'Thermostat online Wohnzimmer'
+    payload_on: "online"
+    payload_off: "offline"
+    device_class: connectivity

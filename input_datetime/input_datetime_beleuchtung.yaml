@@ -1,0 +1,23 @@
+  beleuchtung_morgens_an:
+    name: Beleuchtung an
+    has_time: true
+    has_date: false
+    icon: mdi:lightbulb-on-outline
+
+  beleuchtung_morgens_aus:
+    name: Beleuchtung aus
+    has_time: true
+    has_date: false
+    icon: mdi:lightbulb-outline
+
+  beleuchtung_abends_an:
+    name: Beleuchtung an
+    has_time: true
+    has_date: false
+    icon: mdi:lightbulb-on-outline
+
+  beleuchtung_abends_aus:
+    name: Beleuchtung aus
+    has_time: true
+    has_date: false
+    icon: mdi:lightbulb-outline

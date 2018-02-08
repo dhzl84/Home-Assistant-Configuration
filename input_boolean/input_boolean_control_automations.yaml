@@ -1,0 +1,9 @@
+  beleuchtung_automation:
+    name: Beleuchtung
+    initial: on
+    icon: mdi:home-automation
+
+  aussensteckdose_automation:
+    name: Außensteckdose
+    initial: on
+    icon: mdi:home-automation

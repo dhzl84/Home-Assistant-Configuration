@@ -1,0 +1,92 @@
+  #views
+    group.lights_view:
+      order: 2
+    group.heating_view:
+      order: 3
+    group.maker_view:
+      order: 4
+    group.outdoor_view:
+      order: 5
+    group.automation_view:
+      order: 6
+    group.admin_view:
+      order: 7
+
+  #groups
+    group.lights_group:
+      order: 2
+
+    group.lights_scenes_group:
+      order: 3
+
+    group.buro_group:
+      order: 4
+
+    group.outdoor_group:
+      order: 5
+
+    group.marderschreck_auto_group:
+      order: 6
+      
+    group.beleuchtung_auto_group:
+      order: 7
+
+# Scenes
+#    input_boolean.beleuchtung_scene:
+#      haaska_name: Beleuchtung
+#      haaska_hidden: false
+#
+#    input_boolean.fernsehabend_scene:
+#      haaska_name: Fernsehabend
+#      haaska_hidden: false
+
+# climate
+#    climate.thermostat_buero:
+#      haaska_name: Buero Thermostat
+#      haaska_hidden: false
+#
+#    climate.thermostat_wohnzimmer:
+#      haaska_name: Wohnzimmer Thermostat
+#      haaska_hidden: false
+
+# 433 MHz
+    switch.funksteckdose_aussen:
+      friendly_name: Marderschreck
+      icon: mdi:skull
+
+# TP-Link HS100
+    switch.steckdose_hs100_1:
+      icon: mdi:lightbulb-on-outline
+      friendly_name: Beleuchtung Esszimmer
+      #haaska_hidden: false
+
+# Sonoff S20
+    switch.steckdose_s20_1:
+      icon: mdi:lightbulb-on-outline
+      friendly_name: Stehlampe Wohnzimmer
+      #haaska_hidden: false
+
+    switch.steckdose_s20_2:
+      icon: mdi:lightbulb-on-outline
+      friendly_name: Vitrine
+      #haaska_hidden: false
+      
+    switch.steckdose_s20_3:
+      icon: mdi:lightbulb-on-outline
+      friendly_name: Treppe
+      #haaska_hidden: false
+      
+    switch.steckdose_s20_4:
+      icon: mdi:lightbulb-on-outline
+      friendly_name: Stehlampe Esszimmer
+      #haaska_hidden: false
+
+    switch.steckdose_s20_5:
+      icon: mdi:printer-3d
+      friendly_name: 3D-Drucker
+      #haaska_hidden: false
+
+    switch.steckdose_s20_6:
+      icon: mdi:lightbulb-on-outline
+      friendly_name: Bürolampe
+      #haaska_hidden: false

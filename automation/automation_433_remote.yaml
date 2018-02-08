@@ -1,0 +1,77 @@
+#433 MHz Remote
+
+#Switch Nr. A
+  - alias: '433 MHz Handfernbedienung Taste A On'
+    trigger:
+      platform: mqtt
+      topic: "sensors/rf/receiver"
+      payload: '1394001'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.steckdose_s20_1
+        
+  - alias: '433 MHz Handfernbedienung Taste A Off'
+    trigger:
+      platform: mqtt
+      topic: "sensors/rf/receiver"
+      payload: '1394004'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.steckdose_s20_1
+        
+#Switch Nr. B
+  - alias: '433 MHz Handfernbedienung Taste B On'
+    trigger:
+      platform: mqtt
+      topic: "sensors/rf/receiver"
+      payload: '1397073'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.steckdose_s20_2
+        
+  - alias: '433 MHz Handfernbedienung Taste B Off'
+    trigger:
+      platform: mqtt
+      topic: "sensors/rf/receiver"
+      payload: '1397076'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.steckdose_s20_2
+        
+#Switch Nr. C
+  - alias: '433 MHz Handfernbedienung Taste C On'
+    trigger:
+      platform: mqtt
+      topic: "sensors/rf/receiver"
+      payload: '1397841'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.steckdose_s20_3
+        
+  - alias: '433 MHz Handfernbedienung Taste C Off'
+    trigger:
+      platform: mqtt
+      topic: "sensors/rf/receiver"
+      payload: '1397844'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.steckdose_s20_3
+        
+#Switch Nr. D
+  - alias: '433 MHz Handfernbedienung Taste D On'
+    trigger:
+      platform: mqtt
+      topic: "sensors/rf/receiver"
+      payload: '1398033'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.steckdose_s20_4
+        
+  - alias: '433 MHz Handfernbedienung Taste D Off'
+    trigger:
+      platform: mqtt
+      topic: "sensors/rf/receiver"
+      payload: '1398036'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.steckdose_s20_4

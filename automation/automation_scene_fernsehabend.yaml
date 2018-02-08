@@ -1,0 +1,19 @@
+# an
+  - alias: 'Fernsehabend an'
+    trigger:
+      platform: state
+      entity_id: input_boolean.fernsehabend_scene
+      to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.fernsehabend_an
+
+# aus
+  - alias: 'Fernsehabend aus'
+    trigger:
+      platform: state
+      entity_id: input_boolean.fernsehabend_scene
+      to: 'off'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.fernsehabend_aus

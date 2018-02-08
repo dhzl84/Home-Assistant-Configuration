@@ -1,0 +1,75 @@
+# morgens an
+  - alias: 'Beleuchtung morgens an'
+    trigger:
+      platform: time
+      minutes: '/1'
+      seconds: 0
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.beleuchtung_automation
+          state: 'on'
+        - condition: template
+          value_template: '{{ states.sensor.time.state == (states.input_datetime.beleuchtung_morgens_an.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
+    action:
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.beleuchtung_scene
+
+# morgens aus
+  - alias: 'Beleuchtung morgens aus'
+    trigger:
+      platform: time
+      minutes: '/1'
+      seconds: 0
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.beleuchtung_automation
+          state: 'on'
+        - condition: template
+          value_template: '{{ states.sensor.time.state == (states.input_datetime.beleuchtung_morgens_aus.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
+    action:
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.beleuchtung_scene
+
+# abends an
+  - alias: 'Beleuchtung abends an'
+    trigger:
+      platform: time
+      minutes: '/1'
+      seconds: 0
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.beleuchtung_automation
+          state: 'on'
+        - condition: template
+          value_template: '{{ states.sensor.time.state == (states.input_datetime.beleuchtung_abends_an.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
+    action:
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.beleuchtung_scene
+
+# abends aus
+  - alias: 'Beleuchtung abends aus'
+    trigger:
+      platform: time
+      minutes: '/1'
+      seconds: 0
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.beleuchtung_automation
+          state: 'on'
+        - condition: template
+          value_template: '{{ states.sensor.time.state == (states.input_datetime.beleuchtung_abends_aus.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
+    action:
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.beleuchtung_scene

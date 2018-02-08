@@ -1,0 +1,15 @@
+  #Prototype
+  - platform: mqtt
+    name: 'Thermostat Prototype'
+    modes:
+      - "on"
+      - "off"
+    min_temp: 15.0
+    max_temp: 25.0
+    current_temperature_topic: '/heating/prototype/temp'
+    temperature_command_topic: '/heating/prototype/targetTempCmd'
+    temperature_state_topic: '/heating/prototype/targetTempState'
+    mode_command_topic: '/heating/prototype/heatingAllowedCmd'
+    mode_state_topic: '/heating/prototype/heatingAllowedState'
+    payload_on: "on"
+    payload_off: "off"

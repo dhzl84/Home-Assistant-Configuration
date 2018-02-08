@@ -1,0 +1,6 @@
+  - platform: rpi_rf
+    gpio: 17
+    switches:
+      funksteckdose_aussen:
+        code_on: 4433
+        code_off: 4436

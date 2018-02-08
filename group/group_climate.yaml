@@ -1,0 +1,8 @@
+  #MK1
+  climate_group:
+    name: Thermostate
+    control: hidden
+    entities:
+      - climate.thermostat_buero
+      - climate.thermostat_wohnzimmer
+      #{{CLIMATE}}

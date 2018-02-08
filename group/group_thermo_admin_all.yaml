@@ -1,0 +1,7 @@
+  thermo_admin_all_group:
+    name: Thermostate
+    control: hidden
+    entities:
+      - group.buero_admin_group
+      - group.wohnzimmer_admin_group
+      #{{ADMINGROUP}}

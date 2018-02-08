@@ -1,0 +1,57 @@
+#Enocean FMH4
+
+#Switch Nr. 1
+  - alias: 'Enocean Handfernbedienung Taste 1'
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data:
+        id: [0xFE,0xF8,0xB3,0xB0]
+        pushed: 1
+        which: 1
+        onoff: 0
+    action:
+      - service: switch.toggle
+        entity_id: switch.steckdose_s20_1
+        
+#Switch Nr. 2
+  - alias: 'Enocean Handfernbedienung Taste 2'
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data:
+        id: [0xFE,0xF8,0xB3,0xB0]
+        pushed: 1
+        which: 1
+        onoff: 1
+    action:
+      - service: switch.toggle
+        entity_id: switch.steckdose_s20_2
+
+#Switch Nr. 3
+  - alias: 'Enocean Handfernbedienung Taste 3'
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data:
+        id: [0xFE,0xF8,0xB3,0xB0]
+        pushed: 1
+        which: 0
+        onoff: 0
+    action:
+      - service: switch.toggle
+        entity_id: switch.steckdose_s20_3
+
+#Switch Nr. 4
+  - alias: 'Enocean Handfernbedienung Taste 4'
+    trigger:
+      platform: event
+      event_type: button_pressed
+      event_data:
+        id: [0xFE,0xF8,0xB3,0xB0]
+        pushed: 1
+        which: 0
+        onoff: 1
+    action:
+      - service: switch.toggle
+        entity_id: switch.steckdose_s20_4

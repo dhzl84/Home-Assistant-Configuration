@@ -1,0 +1,15 @@
+  #{{NAME}}
+  - platform: mqtt
+    name: 'Thermostat {{NAME}}'
+    modes:
+      - "on"
+      - "off"
+    min_temp: 15.0
+    max_temp: 25.0
+    current_temperature_topic: '/heating/{{ID}}/temp'
+    temperature_command_topic: '/heating/{{ID}}/targetTempCmd'
+    temperature_state_topic: '/heating/{{ID}}/targetTempState'
+    mode_command_topic: '/heating/{{ID}}/heatingAllowedCmd'
+    mode_state_topic: '/heating/{{ID}}/heatingAllowedState'
+    payload_on: "on"
+    payload_off: "off"

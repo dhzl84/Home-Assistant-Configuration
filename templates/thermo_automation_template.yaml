@@ -1,0 +1,27 @@
+  #{{NAME}}
+  #Trigger firmware update if central update switch is pressed
+  - alias: Update thermostat firmware by central switch {{NAME}}
+    trigger:
+     platform: state
+     entity_id: input_boolean.update_thermostats
+     from: 'off'
+     to: 'on'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.firmwareupdate_{{ID}}
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.update_thermostats
+        
+# Trigger notification if heating is on for more that 12h
+  - alias: 'heating anomaly {{NAME}}'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.heizung_aktiv_{{ID}}
+      from: 'off'
+      to: 'on'
+      for:
+        hours: 12
+    action:
+      service: notify.dominik
+      data:
+        message: 'Heizung im {{NAME}} seit 12 Stunden an'

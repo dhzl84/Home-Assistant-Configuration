@@ -1,0 +1,2 @@
+      - sensor.temperatur_wohnzimmer
+      - binary_sensor.heizung_aktiv_wohnzimmer

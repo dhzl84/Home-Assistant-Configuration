@@ -1,0 +1,24 @@
+#S20_1
+  - platform: mqtt
+    name: "Firmwareupdate S20_1"
+    command_topic: "/sonoff/s20_1/updateFirmware"
+    state_topic:   "/sonoff/s20_1/updateFirmwareAccepted"
+    payload_on: "true"
+    payload_off: "false"
+    optimistic: false
+    
+  - platform: mqtt
+    name: "Steckdose S20_1"
+    command_topic: "/sonoff/s20_1/command"
+    state_topic:   "/sonoff/s20_1/state"
+    payload_on: "1"
+    payload_off: "0"
+    optimistic: false
+    
+  - platform: mqtt
+    name: "Neustart S20_1"
+    command_topic: "/sonoff/s20_1/systemRestartRequest"
+    state_topic:   "/sonoff/s20_1/systemRestartRequest"
+    payload_on: "1"
+    payload_off: "0"
+    optimistic: false

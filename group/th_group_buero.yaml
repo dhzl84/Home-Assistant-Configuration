@@ -1,0 +1,24 @@
+  #Buero
+  buero_group:
+    name: Buero
+    control: hidden
+    entities:
+      - climate.thermostat_buero
+      
+  #Buero
+  buero_admin_group:
+    name: Buero
+    control: hidden
+    entities:
+      - climate.thermostat_buero
+      - sensor.temperatur_buero
+      - sensor.solltemperatur_buero
+      - sensor.luftfeuchtigkeit_buero
+      - binary_sensor.heizung_aktiv_buero
+      - binary_sensor.thermostat_online_buero
+      - binary_sensor.sensorfehler_buero
+      - switch.firmwareupdate_buero
+      - switch.neustart_buero
+      - sensor.ip_buero
+      - sensor.skalierung_buero
+      - sensor.offset_buero

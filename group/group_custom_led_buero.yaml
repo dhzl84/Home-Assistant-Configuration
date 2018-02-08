@@ -1,0 +1,6 @@
+  custom_led_buero_group:
+    name: Bürolicht
+    control: hidden
+    entities:
+      - light.buerolicht
+      - input_number.buerolicht_animation_speed

@@ -1,0 +1,28 @@
+  #Prototype
+  - platform: mqtt
+    state_topic: '/heating/prototype/temp'
+    name: 'Temperatur Prototype'
+    unit_of_measurement: '°C'
+    value_template: '{{ float(value) }}'
+  - platform: mqtt
+    state_topic: '/heating/prototype/targetTempState'
+    name: 'Solltemperatur Prototype'
+    unit_of_measurement: '°C'
+    value_template: '{{ float(value) }}'
+  - platform: mqtt
+    state_topic: '/heating/prototype/hum'
+    name: 'Luftfeuchtigkeit Prototype'
+    unit_of_measurement: '%'
+    value_template: '{{ float(value) / 10 }}'
+  - platform: mqtt
+    state_topic: '/heating/prototype/deviceIP'
+    name: 'IP Prototype'
+    value_template: '{{ value }}'
+  - platform: mqtt
+    state_topic: '/heating/prototype/sensorCalibFactor'
+    name: 'Skalierung Prototype'
+    value_template: '{{ value }}'
+  - platform: mqtt
+    state_topic: '/heating/prototype/sensorCalibOffset'
+    name: 'Offset Prototype'
+    value_template: '{{ float(value) / 10 }}'

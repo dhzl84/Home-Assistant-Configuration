@@ -1,0 +1,19 @@
+# an
+  - alias: 'Beleuchtung an'
+    trigger:
+      platform: state
+      entity_id: input_boolean.beleuchtung_scene
+      to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.beleuchtung_an
+
+# aus
+  - alias: 'Beleuchtung aus'
+    trigger:
+      platform: state
+      entity_id: input_boolean.beleuchtung_scene
+      to: 'off'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.beleuchtung_aus

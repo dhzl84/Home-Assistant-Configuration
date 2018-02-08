@@ -1,0 +1,6 @@
+  default_view:
+    name: Home
+    view: yes
+    entities:
+      - group.lights_group
+      - group.climate_group

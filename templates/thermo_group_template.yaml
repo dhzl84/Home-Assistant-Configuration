@@ -1,0 +1,24 @@
+  #{{NAME}}
+  {{ID}}_group:
+    name: {{NAME}}
+    control: hidden
+    entities:
+      - climate.thermostat_{{ID}}
+      
+  #{{NAME}}
+  {{ID}}_admin_group:
+    name: {{NAME}}
+    control: hidden
+    entities:
+      - climate.thermostat_{{ID}}
+      - sensor.temperatur_{{ID}}
+      - sensor.solltemperatur_{{ID}}
+      - sensor.luftfeuchtigkeit_{{ID}}
+      - binary_sensor.heizung_aktiv_{{ID}}
+      - binary_sensor.thermostat_online_{{ID}}
+      - binary_sensor.sensorfehler_{{ID}}
+      - switch.firmwareupdate_{{ID}}
+      - switch.neustart_{{ID}}
+      - sensor.ip_{{ID}}
+      - sensor.skalierung_{{ID}}
+      - sensor.offset_{{ID}}

@@ -1,0 +1,28 @@
+  #Wohnzimmer
+  - platform: mqtt
+    state_topic: '/heating/wohnzimmer/temp'
+    name: 'Temperatur Wohnzimmer'
+    unit_of_measurement: '°C'
+    value_template: '{{ float(value) }}'
+  - platform: mqtt
+    state_topic: '/heating/wohnzimmer/targetTempState'
+    name: 'Solltemperatur Wohnzimmer'
+    unit_of_measurement: '°C'
+    value_template: '{{ float(value) }}'
+  - platform: mqtt
+    state_topic: '/heating/wohnzimmer/hum'
+    name: 'Luftfeuchtigkeit Wohnzimmer'
+    unit_of_measurement: '%'
+    value_template: '{{ float(value) / 10 }}'
+  - platform: mqtt
+    state_topic: '/heating/wohnzimmer/deviceIP'
+    name: 'IP Wohnzimmer'
+    value_template: '{{ value }}'
+  - platform: mqtt
+    state_topic: '/heating/wohnzimmer/sensorCalibFactor'
+    name: 'Skalierung Wohnzimmer'
+    value_template: '{{ value }}'
+  - platform: mqtt
+    state_topic: '/heating/wohnzimmer/sensorCalibOffset'
+    name: 'Offset Wohnzimmer'
+    value_template: '{{ float(value) / 10 }}'

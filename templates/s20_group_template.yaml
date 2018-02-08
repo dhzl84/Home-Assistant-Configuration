@@ -1,0 +1,10 @@
+  #{{NAME}}
+  {{ID}}_admin_group:
+    name: {{NAME}}
+    control: hidden
+    entities:
+      - switch.steckdose_{{ID}}
+      - switch.firmwareupdate_{{ID}}
+      - switch.neustart_{{ID}}
+      - binary_sensor.steckdose_online_{{ID}}
+      - sensor.ip_{{ID}}

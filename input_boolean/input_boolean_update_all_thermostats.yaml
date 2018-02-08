@@ -1,0 +1,4 @@
+  update_thermostats:
+    name: FW Update alle Thermostate
+    initial: off
+    icon: mdi:cloud-upload

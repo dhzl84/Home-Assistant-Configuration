@@ -1,0 +1,10 @@
+  #S20_2
+  s20_2_admin_group:
+    name: S20_2
+    control: hidden
+    entities:
+      - switch.steckdose_s20_2
+      - switch.firmwareupdate_s20_2
+      - switch.neustart_s20_2
+      - binary_sensor.steckdose_online_s20_2
+      - sensor.ip_s20_2

@@ -1,0 +1,15 @@
+  #Wohnzimmer
+  - platform: mqtt
+    name: 'Thermostat Wohnzimmer'
+    modes:
+      - "on"
+      - "off"
+    min_temp: 15.0
+    max_temp: 25.0
+    current_temperature_topic: '/heating/wohnzimmer/temp'
+    temperature_command_topic: '/heating/wohnzimmer/targetTempCmd'
+    temperature_state_topic: '/heating/wohnzimmer/targetTempState'
+    mode_command_topic: '/heating/wohnzimmer/heatingAllowedCmd'
+    mode_state_topic: '/heating/wohnzimmer/heatingAllowedState'
+    payload_on: "on"
+    payload_off: "off"
