@@ -44,3 +44,4 @@
       - group.thermo_admin_all_group
       - group.s20_admin_all_group
       - group.prototype_admin_group
+      - media_player.denon_avr_x3400h

@@ -2,10 +2,10 @@
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: 50.387985
-  longitude: 8.457349
+  latitude:  !secret lat
+  longitude: !secret long
   # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 350
+  elevation: !secret ele
   # metric for Metric, imperial for Imperial
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -156,3 +156,8 @@ octoprint:
   
 enocean:
   device: /dev/ttyUSB0
+  
+media_player:
+  - platform: denonavr
+    host: 192.168.178.25
+    name: Denon AVR X3400H
