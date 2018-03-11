@@ -3,5 +3,9 @@
     control: hidden
     entities:
       - sensor.time
+      - sensor.cpu_used
+      - sensor.ram_available
+      - sensor.disk_free_
+      - sensor.last_boot
       - input_boolean.update_thermostats
       - input_boolean.update_s20

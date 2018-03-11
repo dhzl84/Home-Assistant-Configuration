@@ -4,12 +4,20 @@
     entities:
       - input_boolean.aussensteckdose_automation
 
-  beleuchtung_auto_group:
+  beleuchtung_timer_auto_group:
     name: Zeitsteuerung Beleuchtung
     control: hidden
     entities:
-      - input_boolean.beleuchtung_automation
+      - input_boolean.beleuchtung_automation_timer
       - input_datetime.beleuchtung_morgens_an
       - input_datetime.beleuchtung_morgens_aus
       - input_datetime.beleuchtung_abends_an
       - input_datetime.beleuchtung_abends_aus
+      
+  beleuchtung_sonne_auto_group:
+    name: 'Zeitsteuerung Sonnenaufgang / Sonnenuntergang'
+    control: hidden
+    entities:
+      - input_boolean.beleuchtung_automation_sonne
+      - sensor.sunrise_time
+      - sensor.sunset_time

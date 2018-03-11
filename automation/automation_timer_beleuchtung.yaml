@@ -8,7 +8,7 @@
       condition: and
       conditions:
         - condition: state
-          entity_id: input_boolean.beleuchtung_automation
+          entity_id: input_boolean.beleuchtung_automation_timer
           state: 'on'
         - condition: template
           value_template: '{{ states.sensor.time.state == (states.input_datetime.beleuchtung_morgens_an.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
@@ -27,7 +27,7 @@
       condition: and
       conditions:
         - condition: state
-          entity_id: input_boolean.beleuchtung_automation
+          entity_id: input_boolean.beleuchtung_automation_timer
           state: 'on'
         - condition: template
           value_template: '{{ states.sensor.time.state == (states.input_datetime.beleuchtung_morgens_aus.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
@@ -46,7 +46,7 @@
       condition: and
       conditions:
         - condition: state
-          entity_id: input_boolean.beleuchtung_automation
+          entity_id: input_boolean.beleuchtung_automation_timer
           state: 'on'
         - condition: template
           value_template: '{{ states.sensor.time.state == (states.input_datetime.beleuchtung_abends_an.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
@@ -65,7 +65,7 @@
       condition: and
       conditions:
         - condition: state
-          entity_id: input_boolean.beleuchtung_automation
+          entity_id: input_boolean.beleuchtung_automation_timer
           state: 'on'
         - condition: template
           value_template: '{{ states.sensor.time.state == (states.input_datetime.beleuchtung_abends_aus.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'

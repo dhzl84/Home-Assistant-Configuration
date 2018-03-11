@@ -34,7 +34,8 @@
     view: yes
     entities:
       - group.marderschreck_auto_group
-      - group.beleuchtung_auto_group
+      - group.beleuchtung_timer_auto_group
+      - group.beleuchtung_sonne_auto_group
       
   admin_view:
     name: Admin
@@ -44,4 +45,3 @@
       - group.thermo_admin_all_group
       - group.s20_admin_all_group
       - group.prototype_admin_group
-      - media_player.denon_avr_x3400h

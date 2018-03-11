@@ -157,7 +157,8 @@ octoprint:
 enocean:
   device: /dev/ttyUSB0
   
-media_player:
-  - platform: denonavr
-    host: 192.168.178.25
-    name: Denon AVR X3400H
+panel_iframe:
+  nodered:
+    title: 'Node-Red'
+    icon: 'mdi:shuffle-variant'
+    url: 'https://extatic.duckdns.org:1880/'

@@ -28,8 +28,11 @@
     group.marderschreck_auto_group:
       order: 6
       
-    group.beleuchtung_auto_group:
+    group.beleuchtung_timer_auto_group:
       order: 7
+
+    group.beleuchtung_sonne_auto_group:
+      order: 8
 
 # Scenes
 #    input_boolean.beleuchtung_scene:
@@ -90,3 +93,9 @@
       icon: mdi:lightbulb-on-outline
       friendly_name: Bürolampe
       #haaska_hidden: false
+      
+    sensor.sunrise_time:
+      icon: mdi:weather-sunset-up
+      
+    sensor.sunset_time:
+      icon: mdi:weather-sunset-down

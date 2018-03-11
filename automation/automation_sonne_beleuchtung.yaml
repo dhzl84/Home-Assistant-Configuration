@@ -1,0 +1,44 @@
+  - alias: 'Beleuchtung an vor Sonnenaufgang'
+    trigger:
+      platform: sun
+      event: sunrise
+      offset: '-01:00:00'
+    condition:
+      condition: and
+      conditions:
+        - condition: state 
+          entity_id: input_boolean.beleuchtung_automation_sonne
+          state: 'on'
+        - condition: time
+          after: '04:00:00' #Sunrise after 05:00:00
+    action: #turn on for 2h
+      - service: switch.turn_on
+        entity_id: switch.beleuchtung_scene
+      - delay: '02:00:00'
+      - service: switch.turn_off
+        entity_id: switch.beleuchtung_scene
+
+  - alias: 'Beleuchtung an vor Sonnenuntergang'
+    trigger:
+      platform: sun
+      event: sunset
+      offset: '-01:00:00'
+    condition:
+      condition: state
+      entity_id: input_boolean.beleuchtung_automation_sonne
+      state: 'on'
+    action:
+      service: switch.turn_on
+      entity_id: switch.beleuchtung_scene
+      
+  - alias: 'Beleuchtung aus 22:30h'
+    trigger:
+      platform: time
+      at: '22:30:00'
+    condition:
+      condition: state
+      entity_id: input_boolean.beleuchtung_automation_sonne
+      state: 'on'
+    action:
+      service: switch.turn_off
+      entity_id: switch.beleuchtung_scene

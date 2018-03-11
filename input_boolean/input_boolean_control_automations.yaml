@@ -1,5 +1,10 @@
-  beleuchtung_automation:
-    name: Beleuchtung
+  beleuchtung_automation_timer:
+    name: Beleuchtung Zeitsteuerung
+    initial: off
+    icon: mdi:home-automation
+
+  beleuchtung_automation_sonne:
+    name: Beleuchtung Sonnensteuerung
     initial: on
     icon: mdi:home-automation
 
