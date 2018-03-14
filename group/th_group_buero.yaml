@@ -17,6 +17,7 @@
       - binary_sensor.heizung_aktiv_buero
       - binary_sensor.thermostat_online_buero
       - binary_sensor.sensorfehler_buero
+      - sensor.firmware_buero
       - switch.firmwareupdate_buero
       - switch.neustart_buero
       - sensor.ip_buero

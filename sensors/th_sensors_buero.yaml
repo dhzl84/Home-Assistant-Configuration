@@ -26,3 +26,7 @@
     state_topic: '/heating/buero/sensorCalibOffset'
     name: 'Offset Buero'
     value_template: '{{ float(value) / 10 }}'
+  - platform: mqtt
+    state_topic: '/heating/buero/firmwareVersion'
+    name: 'Firmware Buero'
+    value_template: '{{ value }}'

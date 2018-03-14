@@ -26,3 +26,7 @@
     state_topic: '/heating/prototype/sensorCalibOffset'
     name: 'Offset Prototype'
     value_template: '{{ float(value) / 10 }}'
+  - platform: mqtt
+    state_topic: '/heating/prototype/firmwareVersion'
+    name: 'Firmware Prototype'
+    value_template: '{{ value }}'

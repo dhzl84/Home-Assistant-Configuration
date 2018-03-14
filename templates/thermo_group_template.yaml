@@ -17,6 +17,7 @@
       - binary_sensor.heizung_aktiv_{{ID}}
       - binary_sensor.thermostat_online_{{ID}}
       - binary_sensor.sensorfehler_{{ID}}
+      - sensor.firmware_{{ID}}
       - switch.firmwareupdate_{{ID}}
       - switch.neustart_{{ID}}
       - sensor.ip_{{ID}}

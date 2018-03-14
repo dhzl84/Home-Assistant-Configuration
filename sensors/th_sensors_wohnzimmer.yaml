@@ -26,3 +26,7 @@
     state_topic: '/heating/wohnzimmer/sensorCalibOffset'
     name: 'Offset Wohnzimmer'
     value_template: '{{ float(value) / 10 }}'
+  - platform: mqtt
+    state_topic: '/heating/wohnzimmer/firmwareVersion'
+    name: 'Firmware Wohnzimmer'
+    value_template: '{{ value }}'

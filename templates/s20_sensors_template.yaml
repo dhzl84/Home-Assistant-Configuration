@@ -3,3 +3,7 @@
     state_topic: '/sonoff/{{ID}}/deviceIP'
     name: 'IP {{NAME}}'
     value_template: '{{ value }}'
+  - platform: mqtt
+    state_topic: '/heating/{{ID}}/firmwareVersion'
+    name: 'Firmware {{NAME}}'
+    value_template: '{{ value }}'

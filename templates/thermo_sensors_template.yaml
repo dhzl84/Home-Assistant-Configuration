@@ -26,3 +26,7 @@
     state_topic: '/heating/{{ID}}/sensorCalibOffset'
     name: 'Offset {{NAME}}'
     value_template: '{{ float(value) / 10 }}'
+  - platform: mqtt
+    state_topic: '/heating/{{ID}}/firmwareVersion'
+    name: 'Firmware {{NAME}}'
+    value_template: '{{ value }}'

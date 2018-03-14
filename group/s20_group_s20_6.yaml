@@ -4,6 +4,7 @@
     control: hidden
     entities:
       - switch.steckdose_s20_6
+      - sensor.firmware_s20_6
       - switch.firmwareupdate_s20_6
       - switch.neustart_s20_6
       - binary_sensor.steckdose_online_s20_6

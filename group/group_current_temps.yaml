@@ -4,4 +4,5 @@
     entities:
       - sensor.temperatur_buero
       - sensor.temperatur_wohnzimmer
+      - sensor.temperatur_prototype
       #{{TEMP}}
