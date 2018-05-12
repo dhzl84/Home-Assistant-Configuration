@@ -11,3 +11,17 @@
         entity_id: switch.firmwareupdate_s20_2
       - service: input_boolean.turn_off
         entity_id: input_boolean.update_s20
+        
+# Trigger notification if outlet is off for more than 5 minute
+  - alias: 'Steckdose offline S20_2'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.steckdose_online_s20_2
+      from: 'on'
+      to: 'off'
+      for:
+        minutes: 5
+    action:
+      service: notify.dominik
+      data:
+        message: 'Steckdose S20_2 offline'

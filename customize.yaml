@@ -99,3 +99,17 @@
       
     sensor.sunset_time:
       icon: mdi:weather-sunset-down
+
+# OctoPrint
+      sensor.octoprint_actual_bed_temp:
+        friendly_name: Druckbett Temperatur
+      sensor.octoprint_target_bed_temp:
+        friendly_name: Druckbett Solltemperatur
+      sensor.octoprint_actual_tool0_temp:
+        friendly_name: Druckkopf Temperatur
+      sensor.octoprint_target_tool0_temp:
+        friendly_name: Druckkopf Solltemperatur
+      sensor.octoprint_current_state:
+        friendly_name: Status
+      sensor.octoprint_job_percentage:
+        friendly_name: Druckfortschritt

@@ -1,0 +1,8 @@
+zeitsteuerung:
+  name: Beleuchtungssteuerung Stern
+  options:
+   - aus
+   - Zeit
+   - Zeit und Sonne
+  initial: Zeit und Sonne
+  icon: mdi:home-automation

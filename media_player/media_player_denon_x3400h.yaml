@@ -1,0 +1,5 @@
+  - platform: denonavr
+    host: 192.168.178.25
+    name: Denon AVR X3400H
+    show_all_sources: False
+    timeout: 5

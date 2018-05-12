@@ -16,10 +16,12 @@
   customize: !include customize.yaml
 
 camera: !include_dir_merge_list camera/
+media_player: !include_dir_merge_list media_player/
 climate: !include_dir_merge_list climate/
 light: !include_dir_merge_list light/
 switch: !include_dir_merge_list switch/
 input_number: !include_dir_merge_named input_number/
+input_select: !include_dir_merge_named input_select/
 input_datetime: !include_dir_merge_named input_datetime/
 sensor: !include_dir_merge_list sensors/
 shell_command: !include_dir_merge_named shell_commands/
@@ -29,6 +31,12 @@ group: !include_dir_merge_named group/
 scene: !include_dir_merge_list scenes/
 automation: !include_dir_merge_list automation/
 
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.178.145
+    token: 6b72505a65675139754e59416c466669
+    name: Mi Robot Vacuum
+    
 # Enables the frontend
 frontend:
   javascript_version: latest
@@ -156,9 +164,3 @@ octoprint:
   
 enocean:
   device: /dev/ttyUSB0
-  
-panel_iframe:
-  nodered:
-    title: 'Node-Red'
-    icon: 'mdi:shuffle-variant'
-    url: 'https://extatic.duckdns.org:1880/'

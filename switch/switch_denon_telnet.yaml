@@ -1,0 +1,9 @@
+  - platform: telnet
+    switches:
+      denon:
+        resource: "192.168.178.25"
+        port: 23
+        command_on: "PWON"
+        command_off: "PWSTANDBY"
+        command_state: "PW?"
+        value_template: '{{ value == "PW=01" }}'

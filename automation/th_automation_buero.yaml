@@ -12,7 +12,7 @@
       - service: input_boolean.turn_off
         entity_id: input_boolean.update_thermostats
         
-# Trigger notification if heating is on for more that 12h
+# Trigger notification if heating is on for more than 12h
   - alias: 'heating anomaly Buero'
     trigger:
       platform: state
@@ -25,3 +25,17 @@
       service: notify.dominik
       data:
         message: 'Heizung im Buero seit 12 Stunden an'
+        
+# Trigger notification if thermostat is off for more than 5 minute
+  - alias: 'thermostat offline Buero'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.thermostat_online_buero
+      from: 'on'
+      to: 'off'
+      for:
+        minutes: 5
+    action:
+      service: notify.dominik
+      data:
+        message: 'Thermostat im Buero offline'

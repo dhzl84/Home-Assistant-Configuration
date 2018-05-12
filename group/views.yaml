@@ -23,6 +23,12 @@
       - group.maker_group
       - group.maker_camera_group
 
+  media_player_view:
+    name: Media
+    view: yes
+    entities:
+      - group.media_group
+
   outdoor_view:
     name: Outdoor
     view: yes
@@ -34,6 +40,7 @@
     view: yes
     entities:
       - group.marderschreck_auto_group
+      - group.beleuchtung_auto_select_group
       - group.beleuchtung_timer_auto_group
       - group.beleuchtung_sonne_auto_group
       

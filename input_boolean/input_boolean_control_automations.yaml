@@ -1,14 +1,39 @@
-  beleuchtung_automation_timer:
-    name: Beleuchtung Zeitsteuerung
-    initial: off
-    icon: mdi:home-automation
-
-  beleuchtung_automation_sonne:
-    name: Beleuchtung Sonnensteuerung
-    initial: on
-    icon: mdi:home-automation
-
   aussensteckdose_automation:
     name: Außensteckdose
     initial: on
     icon: mdi:home-automation
+    
+#  montag_automation:
+#    name: Montag
+#    initial: on
+#    icon: mdi:calendar-clock
+#    
+#  dienstag_automation:
+#    name: Dienstag
+#    initial: on
+#    icon: mdi:calendar-clock
+#
+#  mitwoch_automation:
+#    name: Mittwoch
+#    initial: on
+#    icon: mdi:calendar-clock
+#
+#  donnerstag_automation:
+#    name: Donnerstag
+#    initial: on
+#    icon: mdi:calendar-clock
+#
+#  freitag_automation:
+#    name: Freitag
+#    initial: on
+#    icon: mdi:calendar-clock
+#
+#  samstag_automation:
+#    name: Samstag
+#    initial: off
+#    icon: mdi:calendar-clock
+#
+#  sonntag_automation:
+#    name: Sonntag
+#    initial: off
+#    icon: mdi:calendar-clock

@@ -1,4 +1,4 @@
-# morgens an
+# morgens an per Zeit
   - alias: 'Beleuchtung morgens an'
     trigger:
       platform: time
@@ -7,17 +7,29 @@
     condition:
       condition: and
       conditions:
-        - condition: state
-          entity_id: input_boolean.beleuchtung_automation_timer
-          state: 'on'
         - condition: template
           value_template: '{{ states.sensor.time.state == (states.input_datetime.beleuchtung_morgens_an.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
+        - condition: or
+          conditions:
+            - condition: state
+              entity_id: input_select.zeitsteuerung
+              state: 'Zeit und Sonne'
+            - condition: state
+              entity_id: input_select.zeitsteuerung
+              state: 'Zeit'
+        - condition: time 
+          weekday:
+            - mon
+            - tue
+            - wed
+            - thu
+            - fri
     action:
       - service: input_boolean.turn_on
         data:
           entity_id: input_boolean.beleuchtung_scene
 
-# morgens aus
+# morgens aus per Zeit
   - alias: 'Beleuchtung morgens aus'
     trigger:
       platform: time
@@ -27,16 +39,23 @@
       condition: and
       conditions:
         - condition: state
-          entity_id: input_boolean.beleuchtung_automation_timer
-          state: 'on'
+          entity_id: input_select.zeitsteuerung
+          state: 'Zeit'
         - condition: template
           value_template: '{{ states.sensor.time.state == (states.input_datetime.beleuchtung_morgens_aus.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
+        - condition: time 
+          weekday:
+            - mon
+            - tue
+            - wed
+            - thu
+            - fri
     action:
       - service: input_boolean.turn_off
         data:
           entity_id: input_boolean.beleuchtung_scene
 
-# abends an
+# abends an per Zeit
   - alias: 'Beleuchtung abends an'
     trigger:
       platform: time
@@ -46,16 +65,23 @@
       condition: and
       conditions:
         - condition: state
-          entity_id: input_boolean.beleuchtung_automation_timer
-          state: 'on'
+          entity_id: input_select.zeitsteuerung
+          state: 'Zeit'
         - condition: template
           value_template: '{{ states.sensor.time.state == (states.input_datetime.beleuchtung_abends_an.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
+        - condition: time 
+          weekday:
+            - mon
+            - tue
+            - wed
+            - thu
+            - fri
     action:
       - service: input_boolean.turn_on
         data:
           entity_id: input_boolean.beleuchtung_scene
 
-# abends aus
+# abends aus per Zeit
   - alias: 'Beleuchtung abends aus'
     trigger:
       platform: time
@@ -64,12 +90,68 @@
     condition:
       condition: and
       conditions:
-        - condition: state
-          entity_id: input_boolean.beleuchtung_automation_timer
-          state: 'on'
         - condition: template
           value_template: '{{ states.sensor.time.state == (states.input_datetime.beleuchtung_abends_aus.attributes.timestamp | int | timestamp_custom("%H:%M", False)) }}'
+        - condition: or
+          conditions:
+            - condition: state
+              entity_id: input_select.zeitsteuerung
+              state: 'Zeit und Sonne'
+            - condition: state
+              entity_id: input_select.zeitsteuerung
+              state: 'Zeit'
+        - condition: time 
+          weekday:
+            - mon
+            - tue
+            - wed
+            - thu
+            - fri
     action:
       - service: input_boolean.turn_off
         data:
           entity_id: input_boolean.beleuchtung_scene
+
+# aus nach Sonnenaufgang
+  - alias: 'Beleuchtung aus nach Sonnenaufgang'
+    trigger:
+      platform: sun
+      event: sunrise
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_select.zeitsteuerung
+          state: 'Zeit und Sonne'
+        - condition: time 
+          weekday:
+            - mon
+            - tue
+            - wed
+            - thu
+            - fri
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.beleuchtung_scene
+
+# an vor Sonnenuntergang
+  - alias: 'Beleuchtung an vor Sonnenuntergang'
+    trigger:
+      platform: sun
+      event: sunset
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_select.zeitsteuerung
+          state: 'Zeit und Sonne'
+        - condition: time 
+          weekday:
+            - mon
+            - tue
+            - wed
+            - thu
+            - fri
+    action:
+      service: input_boolean.turn_on
+      entity_id: input_boolean.beleuchtung_scene
