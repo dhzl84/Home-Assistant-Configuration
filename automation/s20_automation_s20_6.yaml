@@ -22,6 +22,9 @@
       for:
         minutes: 5
     action:
-      service: notify.dominik
-      data:
-        message: 'Steckdose S20_6 offline'
+      - service: notify.dominik
+        data:
+          message: 'Steckdose S20_6 offline'
+      - service: persistent_notification.create
+        data:
+          message: 'Steckdose S20_6 offline'

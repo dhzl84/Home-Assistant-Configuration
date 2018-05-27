@@ -1,6 +1,6 @@
   #Wohnzimmer
   - platform: mqtt
-    name: 'Wohnzimmer'
+    name: 'Wohnzimmer' #python script impact
     modes:
       - "on"
       - "off"

@@ -1,6 +1,6 @@
   #Buero
   - platform: mqtt
-    name: 'Buero'
+    name: 'Buero' #python script impact
     modes:
       - "on"
       - "off"

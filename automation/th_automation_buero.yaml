@@ -36,6 +36,9 @@
       for:
         minutes: 5
     action:
-      service: notify.dominik
-      data:
-        message: 'Thermostat im Buero offline'
+      - service: notify.dominik
+        data:
+          message: 'Thermostat im Buero offline'
+      - service: persistent_notification.create
+        data:
+          message: 'Thermostat im Buero offline'
