@@ -13,7 +13,7 @@
     
   - platform: mqtt
     state_topic: '/heating/prototype/online'
-    name: 'Thermostat online Prototype'
+    name: 'Verbindungsstatus Prototype'
     payload_on: "online"
     payload_off: "offline"
     device_class: connectivity

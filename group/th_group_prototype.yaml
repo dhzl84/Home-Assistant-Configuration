@@ -1,14 +1,21 @@
   #Prototype
+  prototype_group:
+    name: Prototype
+    control: hidden
+    entities:
+      - climate.prototype
+      
+  #Prototype
   prototype_admin_group:
     name: Prototype
     control: hidden
     entities:
-      - climate.thermostat_prototype
+      - climate.prototype
       - sensor.temperatur_prototype
       - sensor.solltemperatur_prototype
       - sensor.luftfeuchtigkeit_prototype
       - binary_sensor.heizung_aktiv_prototype
-      - binary_sensor.thermostat_online_prototype
+      - binary_sensor.verbindungsstatus_prototype
       - binary_sensor.sensorfehler_prototype
       - sensor.firmware_prototype
       - switch.firmwareupdate_prototype

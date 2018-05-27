@@ -1,5 +1,5 @@
 zeitsteuerung:
-  name: Beleuchtungssteuerung Stern
+  name: Beleuchtungssteuerung
   options:
    - aus
    - Zeit

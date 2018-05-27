@@ -3,6 +3,6 @@
     name: Thermostate
     control: hidden
     entities:
-      - climate.thermostat_buero
-      - climate.thermostat_wohnzimmer
+      - climate.buero
+      - climate.wohnzimmer
       #{{CLIMATE}}

@@ -30,7 +30,7 @@
   - alias: 'thermostat offline Wohnzimmer'
     trigger:
       platform: state
-      entity_id: binary_sensor.thermostat_online_wohnzimmer
+      entity_id: binary_sensor.verbindunsgstatus_wohnzimmer
       from: 'on'
       to: 'off'
       for:

@@ -34,24 +34,6 @@
     group.beleuchtung_sonne_auto_group:
       order: 8
 
-# Scenes
-#    input_boolean.beleuchtung_scene:
-#      haaska_name: Beleuchtung
-#      haaska_hidden: false
-#
-#    input_boolean.fernsehabend_scene:
-#      haaska_name: Fernsehabend
-#      haaska_hidden: false
-
-# climate
-#    climate.thermostat_buero:
-#      haaska_name: Buero Thermostat
-#      haaska_hidden: false
-#
-#    climate.thermostat_wohnzimmer:
-#      haaska_name: Wohnzimmer Thermostat
-#      haaska_hidden: false
-
 # 433 MHz
     switch.funksteckdose_aussen:
       friendly_name: Marderschreck
@@ -101,15 +83,15 @@
       icon: mdi:weather-sunset-down
 
 # OctoPrint
-      sensor.octoprint_actual_bed_temp:
-        friendly_name: Druckbett Temperatur
-      sensor.octoprint_target_bed_temp:
-        friendly_name: Druckbett Solltemperatur
-      sensor.octoprint_actual_tool0_temp:
-        friendly_name: Druckkopf Temperatur
-      sensor.octoprint_target_tool0_temp:
-        friendly_name: Druckkopf Solltemperatur
-      sensor.octoprint_current_state:
-        friendly_name: Status
-      sensor.octoprint_job_percentage:
-        friendly_name: Druckfortschritt
+    sensor.octoprint_actual_bed_temp:
+      friendly_name: Druckbett Temperatur
+    sensor.octoprint_target_bed_temp:
+      friendly_name: Druckbett Solltemperatur
+    sensor.octoprint_actual_tool0_temp:
+      friendly_name: Druckkopf Temperatur
+    sensor.octoprint_target_tool0_temp:
+      friendly_name: Druckkopf Solltemperatur
+    sensor.octoprint_current_state:
+      friendly_name: Status
+    sensor.octoprint_job_percentage:
+      friendly_name: Druckfortschritt

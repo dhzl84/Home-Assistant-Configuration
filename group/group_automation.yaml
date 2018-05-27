@@ -5,7 +5,7 @@
       - input_boolean.aussensteckdose_automation
 
   beleuchtung_auto_select_group:
-    name: Zeitsteuerung Stern
+    name: Zeitsteuerung Szene Beleuchtung
     control: hidden
     entities:
       - input_select.zeitsteuerung

@@ -16,7 +16,7 @@
   - alias: 'Steckdose offline S20_5'
     trigger:
       platform: state
-      entity_id: binary_sensor.steckdose_online_s20_5
+      entity_id: binary_sensor.verbindungsstatus_s20_5
       from: 'on'
       to: 'off'
       for:

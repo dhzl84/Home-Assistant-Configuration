@@ -1,6 +1,6 @@
   #Buero
   - platform: mqtt
-    name: 'Thermostat Buero'
+    name: 'Buero'
     modes:
       - "on"
       - "off"

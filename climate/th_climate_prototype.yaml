@@ -1,6 +1,6 @@
   #Prototype
   - platform: mqtt
-    name: 'Thermostat Prototype'
+    name: 'Prototype'
     modes:
       - "on"
       - "off"

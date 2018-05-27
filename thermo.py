@@ -54,7 +54,7 @@ newTempString       = '- sensor.temperatur_' + ID
 
 climateGroupfile      = 'group/group_climate.yaml'
 newClimateToken        = '#{{CLIMATE}}'
-newClimateString       = '- climate.thermostat_' + ID
+newClimateString       = '- climate.' + ID
 
 historyfolder       = 'history/'
 historyFile         = historyfolder + genFilePrefix + 'history_' + ID + '.yaml'

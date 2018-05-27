@@ -7,50 +7,52 @@
     "automation.push_*":
       icon: mdi:signal-variant
 
-    "switch.firmwareupdate_*":
-      icon: mdi:cloud-download
-      #friendly_name: Firmwareupdate
-      
-    "switch.neustart_*":
-      icon: mdi:restart
-      
-    "switch.heizungsansteuerung_erlaubt_*":
-      icon: mdi:checkbox-marked-outline
-      #friendly_name: Heizungssteuerung
-      
-    "sensor.luftfeuchtigkeit_*":
-      icon: mdi:water-percent
-      #friendly_name: Luftfeuchtigkeit
-      
+    "climate.*":
+      target_temp_step: 0.5
+
     "sensor.temperatur_*":
       icon: mdi:thermometer
-      #friendly_name: Temperatur
+      friendly_name: Temperatur
  
     "sensor.solltemperatur_*":
       icon: mdi:thermometer-lines
-      #friendly_name: Solltemperatur
+      friendly_name: Solltemperatur
 
-    #"binary_sensor.heizung_*":
-      #friendly_name: Heizung an?
+    "sensor.luftfeuchtigkeit_*":
+      icon: mdi:water-percent
+      friendly_name: Luftfeuchtigkeit
+
+    "binary_sensor.heizung_aktiv*":
+      friendly_name: Heizung aktiv
+
+    "binary_sensor.verbindungsstatus_*":
+      icon: mdi:wifi
+      friendly_name: Verbindungsstatus
       
     "binary_sensor.sensorfehler_*":
       icon: mdi:comment-alert-outline
-      #friendly_name: Sensorfehler
+      friendly_name: Sensorfehler
+
+    "sensor.firmware_*":
+      icon: mdi:matrix
+      friendly_name: Firmwareversion
+
+    "switch.firmwareupdate_*":
+      icon: mdi:cloud-download
+      friendly_name: Firmwareupdate
       
-    "binary_sensor.thermostat_online_*":
-      icon: mdi:wifi
-      #friendly_name: Online Status
-    "binary_sensor.steckdose_online_*":
-      icon: mdi:wifi
+    "switch.neustart_*":
+      icon: mdi:restart
+      friendly_name: Neustart
       
     "sensor.skalierung_*":
       icon: mdi:percent
-
+      friendly_name: Sensorwert Skalierung
+      
     "sensor.offset_*":
       icon: mdi:temperature-celsius
+      friendly_name: Sensorwert Offset
 
     "sensor.ip_*":
       icon: mdi:fingerprint
-      
-    "climate.*":
-      target_temp_step: 0.5
+      friendly_name: IP

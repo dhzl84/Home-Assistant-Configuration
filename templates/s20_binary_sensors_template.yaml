@@ -1,7 +1,7 @@
   #{{NAME}}
   - platform: mqtt
     state_topic: '/sonoff/{{ID}}/online'
-    name: 'Steckdose online {{NAME}}'
+    name: 'Verbindungsstatus {{NAME}}'
     payload_on: "online"
     payload_off: "offline"
     device_class: connectivity

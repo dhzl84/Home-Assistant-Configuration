@@ -30,7 +30,7 @@
   - alias: 'thermostat offline {{NAME}}'
     trigger:
       platform: state
-      entity_id: binary_sensor.thermostat_online_{{ID}}
+      entity_id: binary_sensor.verbindunsgstatus_{{ID}}
       from: 'on'
       to: 'off'
       for:

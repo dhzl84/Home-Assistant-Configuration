@@ -1,6 +1,6 @@
   #Wohnzimmer
   - platform: mqtt
-    name: 'Thermostat Wohnzimmer'
+    name: 'Wohnzimmer'
     modes:
       - "on"
       - "off"

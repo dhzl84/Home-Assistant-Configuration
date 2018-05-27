@@ -7,5 +7,5 @@
       - sensor.firmware_s20_6
       - switch.firmwareupdate_s20_6
       - switch.neustart_s20_6
-      - binary_sensor.steckdose_online_s20_6
+      - binary_sensor.verbindungsstatus_s20_6
       - sensor.ip_s20_6

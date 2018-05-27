@@ -1,7 +1,7 @@
   #S20_4
   - platform: mqtt
     state_topic: '/sonoff/s20_4/online'
-    name: 'Steckdose online S20_4'
+    name: 'Verbindungsstatus S20_4'
     payload_on: "online"
     payload_off: "offline"
     device_class: connectivity

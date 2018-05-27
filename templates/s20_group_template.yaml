@@ -7,5 +7,5 @@
       - sensor.firmware_{{ID}}
       - switch.firmwareupdate_{{ID}}
       - switch.neustart_{{ID}}
-      - binary_sensor.steckdose_online_{{ID}}
+      - binary_sensor.verbindungsstatus_{{ID}}
       - sensor.ip_{{ID}}

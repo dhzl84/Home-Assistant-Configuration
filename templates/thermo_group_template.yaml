@@ -3,19 +3,19 @@
     name: {{NAME}}
     control: hidden
     entities:
-      - climate.thermostat_{{ID}}
+      - climate.{{ID}}
       
   #{{NAME}}
   {{ID}}_admin_group:
     name: {{NAME}}
     control: hidden
     entities:
-      - climate.thermostat_{{ID}}
+      - climate.{{ID}}
       - sensor.temperatur_{{ID}}
       - sensor.solltemperatur_{{ID}}
       - sensor.luftfeuchtigkeit_{{ID}}
       - binary_sensor.heizung_aktiv_{{ID}}
-      - binary_sensor.thermostat_online_{{ID}}
+      - binary_sensor.verbindungsstatus_{{ID}}
       - binary_sensor.sensorfehler_{{ID}}
       - sensor.firmware_{{ID}}
       - switch.firmwareupdate_{{ID}}

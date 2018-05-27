@@ -23,11 +23,11 @@
       - group.maker_group
       - group.maker_camera_group
 
-  media_player_view:
-    name: Media
-    view: yes
-    entities:
-      - group.media_group
+#  media_player_view:
+#    name: Media
+#    view: yes
+#    entities:
+#      - group.media_group
 
   outdoor_view:
     name: Outdoor

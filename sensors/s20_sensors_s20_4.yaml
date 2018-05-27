@@ -4,6 +4,6 @@
     name: 'IP S20_4'
     value_template: '{{ value }}'
   - platform: mqtt
-    state_topic: '/heating/s20_4/firmwareVersion'
+    state_topic: '/sonoff/s20_4/firmwareVersion'
     name: 'Firmware S20_4'
     value_template: '{{ value }}'

@@ -1,6 +1,6 @@
   #{{NAME}}
   - platform: mqtt
-    name: 'Thermostat {{NAME}}'
+    name: '{{NAME}}' #python script impact
     modes:
       - "on"
       - "off"
