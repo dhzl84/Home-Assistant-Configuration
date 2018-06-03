@@ -1,5 +1,6 @@
 # an
   - alias: 'Beleuchtung an'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_boolean.beleuchtung_scene
@@ -10,6 +11,7 @@
 
 # aus
   - alias: 'Beleuchtung aus'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: input_boolean.beleuchtung_scene

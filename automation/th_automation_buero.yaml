@@ -1,6 +1,7 @@
   #Buero
   #Trigger firmware update if central update switch is pressed
   - alias: Update thermostat firmware by central switch Buero
+    initial_state: 'on'
     trigger:
      platform: state
      entity_id: input_boolean.update_thermostats
@@ -14,6 +15,7 @@
         
 # Trigger notification if heating is on for more than 12h
   - alias: 'heating anomaly Buero'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: binary_sensor.heizung_aktiv_buero
@@ -28,6 +30,7 @@
         
 # Trigger notification if thermostat is off for more than 5 minute
   - alias: 'thermostat offline Buero'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: binary_sensor.verbindunsgstatus_buero

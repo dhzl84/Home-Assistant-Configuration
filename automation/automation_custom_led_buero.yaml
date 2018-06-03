@@ -1,5 +1,5 @@
   - alias: "Bürolicht Animationsgeschwindigkeit"
-    initial_state: True
+    initial_state: 'on'
     hide_entity: False
     trigger:
       - platform: state

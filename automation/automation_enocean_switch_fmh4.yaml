@@ -2,6 +2,7 @@
 
 #Switch Nr. 1
   - alias: 'Enocean Handfernbedienung Taste 1'
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: button_pressed
@@ -16,6 +17,7 @@
         
 #Switch Nr. 2
   - alias: 'Enocean Handfernbedienung Taste 2'
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: button_pressed
@@ -30,6 +32,7 @@
 
 #Switch Nr. 3
   - alias: 'Enocean Handfernbedienung Taste 3'
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: button_pressed
@@ -44,6 +47,7 @@
 
 #Switch Nr. 4
   - alias: 'Enocean Handfernbedienung Taste 4'
+    initial_state: 'on'
     trigger:
       platform: event
       event_type: button_pressed

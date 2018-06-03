@@ -1,6 +1,7 @@
   #S20_4
   #Trigger firmware update if central update switch is pressed
   - alias: Update S20 firmware by central switch S20_4
+    initial_state: 'on'
     trigger:
      platform: state
      entity_id: input_boolean.update_s20
@@ -14,6 +15,7 @@
         
 # Trigger notification if outlet is off for more than 5 minute
   - alias: 'Steckdose offline S20_4'
+    initial_state: 'on'
     trigger:
       platform: state
       entity_id: binary_sensor.verbindungsstatus_s20_4

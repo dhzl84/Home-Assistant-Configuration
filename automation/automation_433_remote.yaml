@@ -2,6 +2,7 @@
 
 #Switch Nr. A
   - alias: '433 MHz Handfernbedienung Taste A On'
+    initial_state: 'on'
     trigger:
       platform: mqtt
       topic: "sensors/rf/receiver"
@@ -11,6 +12,7 @@
         entity_id: switch.steckdose_s20_1
         
   - alias: '433 MHz Handfernbedienung Taste A Off'
+    initial_state: 'on'
     trigger:
       platform: mqtt
       topic: "sensors/rf/receiver"
@@ -21,6 +23,7 @@
         
 #Switch Nr. B
   - alias: '433 MHz Handfernbedienung Taste B On'
+    initial_state: 'on'
     trigger:
       platform: mqtt
       topic: "sensors/rf/receiver"
@@ -30,6 +33,7 @@
         entity_id: switch.steckdose_s20_2
         
   - alias: '433 MHz Handfernbedienung Taste B Off'
+    initial_state: 'on'
     trigger:
       platform: mqtt
       topic: "sensors/rf/receiver"
@@ -40,6 +44,7 @@
         
 #Switch Nr. C
   - alias: '433 MHz Handfernbedienung Taste C On'
+    initial_state: 'on'
     trigger:
       platform: mqtt
       topic: "sensors/rf/receiver"
@@ -49,6 +54,7 @@
         entity_id: switch.steckdose_s20_3
         
   - alias: '433 MHz Handfernbedienung Taste C Off'
+    initial_state: 'on'
     trigger:
       platform: mqtt
       topic: "sensors/rf/receiver"
@@ -59,6 +65,7 @@
         
 #Switch Nr. D
   - alias: '433 MHz Handfernbedienung Taste D On'
+    initial_state: 'on'
     trigger:
       platform: mqtt
       topic: "sensors/rf/receiver"
@@ -68,6 +75,7 @@
         entity_id: switch.steckdose_s20_4
         
   - alias: '433 MHz Handfernbedienung Taste D Off'
+    initial_state: 'on'
     trigger:
       platform: mqtt
       topic: "sensors/rf/receiver"

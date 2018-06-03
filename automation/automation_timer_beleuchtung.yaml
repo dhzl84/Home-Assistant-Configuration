@@ -1,5 +1,6 @@
 # morgens an per Zeit
   - alias: 'Beleuchtung morgens an'
+    initial_state: 'on'
     trigger:
       platform: time
       minutes: '/1'
@@ -31,6 +32,7 @@
 
 # morgens aus per Zeit
   - alias: 'Beleuchtung morgens aus'
+    initial_state: 'on'
     trigger:
       platform: time
       minutes: '/1'
@@ -57,6 +59,7 @@
 
 # abends an per Zeit
   - alias: 'Beleuchtung abends an'
+    initial_state: 'on'
     trigger:
       platform: time
       minutes: '/1'
@@ -83,6 +86,7 @@
 
 # abends aus per Zeit
   - alias: 'Beleuchtung abends aus'
+    initial_state: 'on'
     trigger:
       platform: time
       minutes: '/1'
@@ -114,6 +118,7 @@
 
 # aus nach Sonnenaufgang
   - alias: 'Beleuchtung aus nach Sonnenaufgang'
+    initial_state: 'on'
     trigger:
       platform: sun
       event: sunrise
@@ -136,6 +141,7 @@
 
 # an vor Sonnenuntergang
   - alias: 'Beleuchtung an vor Sonnenuntergang'
+    initial_state: 'on'
     trigger:
       platform: sun
       event: sunset
