@@ -81,6 +81,20 @@
       
     sensor.sunset_time:
       icon: mdi:weather-sunset-down
+      
+    switch.duofern_pair:
+      icon: mdi:mixcloud
+      
+    switch.duofern_refresh:
+      icon: mdi:cloud-sync
+
+    sensor.duofern_paired_devices:
+      icon: mdi:garage
+      friendly_name: Paired Devices
+    
+    sensor.duofern_system_code:
+      icon: mdi:fingerprint
+      friendly_name: System Code
 
 # OctoPrint
     sensor.octoprint_actual_bed_temp:

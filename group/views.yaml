@@ -49,6 +49,7 @@
     view: yes
     entities:
       - group.general_admin_group
+      - group.duofern_admin_group
       - group.thermo_admin_all_group
       - group.s20_admin_all_group
       - group.prototype_admin_group

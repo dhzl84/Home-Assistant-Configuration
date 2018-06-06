@@ -1,0 +1,11 @@
+  - platform: command_line
+    switches:
+      duofern_pair:
+        command_on: "python3 /config/deps/bin/duofern_cli.py --pair --pairtime 60"
+        friendly_name: Start Pairing
+        
+  - platform: command_line
+    switches:
+      duofern_refresh:
+        command_on: "python3 /config/deps/bin/duofern_cli.py --refresh --refreshtime 60"
+        friendly_name: Refresh Paired

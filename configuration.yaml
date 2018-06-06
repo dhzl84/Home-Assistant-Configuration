@@ -16,7 +16,7 @@
   customize: !include customize.yaml
 
 camera: !include_dir_merge_list camera/
-media_player: !include_dir_merge_list media_player/
+#media_player: !include_dir_merge_list media_player/
 climate: !include_dir_merge_list climate/
 light: !include_dir_merge_list light/
 switch: !include_dir_merge_list switch/
@@ -30,6 +30,12 @@ input_boolean: !include_dir_merge_named input_boolean/
 group: !include_dir_merge_named group/
 scene: !include_dir_merge_list scenes/
 automation: !include_dir_merge_list automation/
+
+cover:
+  - platform: duofern
+    serial_port: /dev/ttyUSB1
+    config_file: dufoern.json
+    code: 1234
 
 vacuum:
   - platform: xiaomi_miio
@@ -141,12 +147,7 @@ history:
 
 # Track the sun
 sun:
-
-notify:
-  - name: dominik
-    platform: simplepush
-    device_key: !secret simplepush_device_key
-    
+  
 #MQTT
 mqtt:
   broker: !secret mqtt_broker
