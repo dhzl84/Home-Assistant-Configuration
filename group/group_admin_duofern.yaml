@@ -2,7 +2,5 @@
     name: DuoFern
     control: hidden
     entities:
-      - switch.duofern_pair
-      - switch.duofern_refresh
       - sensor.duofern_paired_devices
       - sensor.duofern_system_code

@@ -30,7 +30,7 @@
       payload: '1397073'
     action:
       - service: switch.turn_on
-        entity_id: switch.steckdose_s20_2
+        entity_id: switch.steckdose_s20_4
         
   - alias: '433 MHz Handfernbedienung Taste B Off'
     initial_state: 'on'
@@ -40,7 +40,7 @@
       payload: '1397076'
     action:
       - service: switch.turn_off
-        entity_id: switch.steckdose_s20_2
+        entity_id: switch.steckdose_s20_4
         
 #Switch Nr. C
   - alias: '433 MHz Handfernbedienung Taste C On'
@@ -71,8 +71,8 @@
       topic: "sensors/rf/receiver"
       payload: '1398033'
     action:
-      - service: switch.turn_on
-        entity_id: switch.steckdose_s20_4
+      - service: cover.open_cover
+        entity_id: cover.wohnzimmer
         
   - alias: '433 MHz Handfernbedienung Taste D Off'
     initial_state: 'on'
@@ -81,5 +81,5 @@
       topic: "sensors/rf/receiver"
       payload: '1398036'
     action:
-      - service: switch.turn_off
-        entity_id: switch.steckdose_s20_4
+      - service: cover.close_cover
+        entity_id: cover.wohnzimmer
