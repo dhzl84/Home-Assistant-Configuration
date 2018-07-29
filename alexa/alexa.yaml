@@ -1,0 +1,66 @@
+  smart_home:
+    filter:
+      include_entities:
+        - input_boolean.beleuchtung_scene
+        - input_boolean.fernsehabend_scene
+        - switch.funksteckdose_aussen
+        - switch.steckdose_hs100_1
+        - switch.steckdose_s20_1
+        - switch.steckdose_s20_2
+        - switch.steckdose_s20_3
+        - switch.steckdose_s20_4
+        - switch.steckdose_s20_5
+        - switch.steckdose_s20_6
+        - climate.buero
+        - climate.wohnzimmer
+        - cover.wohnzimmer
+#      include_domains:
+#        - climate
+#      exclude_entities:
+#        - switch.outside
+    entity_config:
+#scenes
+      input_boolean.beleuchtung_scene:
+        description: Ambiente Beleuchtung im Haus
+        display_categories: LIGHT
+
+      input_boolean.fernsehabend_scene:
+        description: Ambiente Beleuchtung im Wohnzimmer
+        display_categories: LIGHT
+#climate
+      climate.buero:
+        description: Heizung im Buero
+        display_categories: THERMOSTAT
+
+      climate.wohnzimmer:
+        description: Heizung im Wohnzimmer
+        display_categories: THERMOSTAT
+#switch 433 MHz
+      switch.funksteckdose_aussen:
+        display_categories: SWITCH
+# TP-Link HS100
+      switch.steckdose_hs100_1:
+        display_categories: LIGHT
+# Sonoff S20
+      switch.steckdose_s20_1:
+        display_categories: LIGHT
+  
+      switch.steckdose_s20_2:
+        display_categories: LIGHT
+        
+      switch.steckdose_s20_3:
+        display_categories: LIGHT
+        
+      switch.steckdose_s20_4:
+        display_categories: LIGHT
+  
+      switch.steckdose_s20_5:
+        display_categories: SWITCH
+  
+      switch.steckdose_s20_6:
+        display_categories: LIGHT
+
+      cover.wohnzimmer:
+        display_categories: DOOR
+        name: Rollladen
+        description: Rollladen im Wohnzimmer

@@ -1,0 +1,9 @@
+  motion_detected:
+    name: Bewegung erkannt
+    initial: off
+    icon: mdi:walk
+    
+  motion_based_action:
+    name: Bewegungsbasierte Ansteuerung
+    initial: off
+    icon: mdi:flash-circle

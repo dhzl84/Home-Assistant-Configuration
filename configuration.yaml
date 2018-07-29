@@ -14,6 +14,8 @@
   customize_glob: !include customize_glob.yaml
 
   customize: !include customize.yaml
+  
+  packages: !include_dir_named packages
 
 camera: !include_dir_merge_list camera/
 #media_player: !include_dir_merge_list media_player/
@@ -31,11 +33,9 @@ group: !include_dir_merge_named group/
 scene: !include_dir_merge_list scenes/
 automation: !include_dir_merge_list automation/
 
-cover:
-  - platform: duofern
-    serial_port: /dev/ttyUSB2
-    config_file: duofern.json
-    code: 1234
+alexa: !include alexa/alexa.yaml
+
+
 
 vacuum:
   - platform: xiaomi_miio
@@ -57,69 +57,6 @@ http:
   trusted_networks: !secret http_trusted_networks
   api_password: !secret http_api_password
 
-alexa:
-  smart_home:
-    filter:
-      include_entities:
-        - input_boolean.beleuchtung_scene
-        - input_boolean.fernsehabend_scene
-        - switch.funksteckdose_aussen
-        - switch.steckdose_hs100_1
-        - switch.steckdose_s20_1
-        - switch.steckdose_s20_2
-        - switch.steckdose_s20_3
-        - switch.steckdose_s20_4
-        - switch.steckdose_s20_5
-        - switch.steckdose_s20_6
-        - climate.thermostat_buero
-        - climate.thermostat_wohnzimmer
-#      include_domains:
-#        - climate
-#      exclude_entities:
-#        - switch.outside
-    entity_config:
-#scenes
-      input_boolean.beleuchtung_scene:
-        description: Ambiente Beleuchtung im Haus
-        display_categories: LIGHT
-
-      input_boolean.fernsehabend_scene:
-        description: Ambiente Beleuchtung im Wohnzimmer
-        display_categories: LIGHT
-#climate
-      climate.thermostat_buero:
-        description: Fussbodenheizung im Buero
-        display_categories: THERMOSTAT
-
-      climate.thermostat_wohnzimmer:
-        description: Fußbodenheizung im Wohnzimmer
-        display_categories: THERMOSTAT
-#switch 433 MHz
-      switch.funksteckdose_aussen:
-        display_categories: SWITCH
-# TP-Link HS100
-      switch.steckdose_hs100_1:
-        display_categories: LIGHT
-# Sonoff S20
-      switch.steckdose_s20_1:
-        display_categories: LIGHT
-  
-      switch.steckdose_s20_2:
-        display_categories: LIGHT
-        
-      switch.steckdose_s20_3:
-        display_categories: LIGHT
-        
-      switch.steckdose_s20_4:
-        display_categories: LIGHT
-  
-      switch.steckdose_s20_5:
-        display_categories: SWITCH
-  
-      switch.steckdose_s20_6:
-        display_categories: LIGHT
-
-
 # Checks for available updates
 # Note: This component will send some information about your system to
 # the developers to assist with development of Home Assistant.
@@ -133,14 +70,18 @@ updater:
 # Discover some devices automatically
 #discovery:
 
+# The recorder component is storing details in a database which then are handled by the history component.
 recorder:
   purge_interval: 1
-  purge_keep_days: 7
+  purge_keep_days: 180
 
-# Enables support for tracking state changes over time
+# The history component will track everything that is going on within Home Assistant and allows the user to browse through it. It depends on the recorder component for storing the data and uses the same database setting. If any entities are excluded from being recorded, no history will be available for these entities.
 history:
   include:
     entities: !include_dir_merge_list history/
+
+# The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order.
+logbook:
 
 # View all events in a logbook
 #logbook:
@@ -155,6 +96,8 @@ mqtt:
   client_id: !secret mqtt_client_id
   username: !secret mqtt_username
   password: !secret mqtt_password
+  discovery: true
+  discovery_prefix: homeassistant
 
 #Octoprint
 octoprint:
@@ -162,6 +105,33 @@ octoprint:
   api_key: !secret octoprint_api_key
   bed: True
   number_of_tools: 1
-  
+
+#hubs
 enocean:
-  device: /dev/ttyUSB0
+  device: /dev/ttyUSB1
+  
+zha:
+  usb_path: /dev/ttyUSB0
+  database_path: zigbee.db
+  baudrate: 57600
+  
+cover:
+  - platform: duofern
+    serial_port: /dev/ttyUSB2
+    config_file: duofern.json
+    code: 1234
+
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - key: qzdtjzt6vxzo892k
+
+###
+logger:
+  default: warn
+  logs:
+    homeassistant.components.zha: debug
+    bellows.ezsp: debug
+    bellows.uart: debug
+    zigpy.zdo: debug
+    zigpy.application: debug

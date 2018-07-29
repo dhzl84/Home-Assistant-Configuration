@@ -1,0 +1,7 @@
+  illuminance_threshold:
+    name: Dämmerungsgrenze
+    initial: 10
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: lx

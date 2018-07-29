@@ -1,0 +1,17 @@
+  zigbee_admin_group:
+    name: Xiaomi Zigbee
+    control: hidden
+    entities:
+      - binary_sensor.motion_sensor_158d000200ce5c
+      - sensor.illumination_158d000200ce5c
+      - binary_sensor.motion_sensor_158d0001fa3d9c
+      - sensor.illumination_158d0001fa3d9c
+      - binary_sensor.motion_sensor_158d000200ceec
+      - sensor.illumination_158d000200ceec
+      - input_boolean.motion_detected
+      - input_boolean.motion_based_action
+      - input_number.illuminance_threshold
+      - light.gateway_light_7811dc6c97d5
+      - sensor.illumination_7811dc6c97d5
+      - sensor.temperature_158d0002281a4e
+      - sensor.humidity_158d0002281a4e

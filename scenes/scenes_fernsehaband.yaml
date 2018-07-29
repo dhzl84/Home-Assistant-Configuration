@@ -3,7 +3,7 @@
       switch.steckdose_s20_1: on
       switch.steckdose_s20_2: on
       switch.steckdose_s20_4: on
-      
+
   - name: Fernsehabend aus
     entities:
       switch.steckdose_s20_1: off

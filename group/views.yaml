@@ -49,6 +49,9 @@
     view: yes
     entities:
       - group.general_admin_group
+      - group.zigbee_admin_group
+      - group.battery_alert
+      - group.battery_status
       - group.duofern_admin_group
       - group.thermo_admin_all_group
       - group.s20_admin_all_group
