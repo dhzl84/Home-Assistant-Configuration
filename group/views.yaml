@@ -5,7 +5,7 @@
     entities:
       - group.lights_group
       - group.lights_scenes_group
-      - group.custom_led_buero_group
+#      - group.custom_led_buero_group
 
 #Heizung
   heating_view:

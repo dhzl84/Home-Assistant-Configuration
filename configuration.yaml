@@ -40,7 +40,7 @@ alexa: !include alexa/alexa.yaml
 vacuum:
   - platform: xiaomi_miio
     host: 192.168.178.145
-    token: 6b72505a65675139754e59416c466669
+    token: !secret mi_robot_token
     name: Mi Robot Vacuum
     
 # Enables the frontend
@@ -48,6 +48,7 @@ frontend:
   javascript_version: latest
 # Enables configuration UI
 config:
+
 hassio:
 
 http:
@@ -83,8 +84,34 @@ history:
 # The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order.
 logbook:
 
-# View all events in a logbook
-#logbook:
+#iframes
+panel_iframe:
+  influxdb:
+    title: InfluxDB
+    icon: mdi:chart-areaspline
+    url: http://192.168.178.12:8888
+
+  grafana:
+    title: Grafana
+    icon: mdi:chart-timeline
+    url: http://192.168.178.12:3000
+
+
+#InfluxDB
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: !secret influxdb_dbname
+  username: !secret influxdb_username
+  password: !secret influxdb_password
+  max_retries: 3
+  default_measurement: state
+
+notify:
+  - name: slack_notify
+    platform: slack
+    api_key: !secret slack_api_key
+    default_channel: '#allgemein'
 
 # Track the sun
 sun:

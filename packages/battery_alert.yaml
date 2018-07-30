@@ -442,27 +442,27 @@ automation:
       data:
         notification_id: low_battery_alert
 
-#- alias: battery_notification_slack
-#  trigger:
-#    - platform: time
-#      at: '10:00:00'
-#    - platform: time
-#      at: '18:00:00'
-#    - platform: state
-#      entity_id:
-#        - input_number.battery_alert_threshold_min
-#        - input_number.battery_alert_threshold_max
-#  action:
-#    - condition: template
-#      value_template: *low_battery_check
-#    - service: notify.slack_notify
-#      data_template:
-#        message: "Low Battery Levels"
-#        data:
-#          attachments:
-#          - color: '#52c0f2'
-#            title: "These devices have low battery levels"
-#            text: *message
+- alias: battery_notification_slack
+  trigger:
+    - platform: time
+      at: '10:00:00'
+    - platform: time
+      at: '18:00:00'
+    - platform: state
+      entity_id:
+        - input_number.battery_alert_threshold_min
+        - input_number.battery_alert_threshold_max
+  action:
+    - condition: template
+      value_template: *low_battery_check
+    - service: notify.slack_notify
+      data_template:
+        message: "Low Battery Levels"
+        data:
+          attachments:
+          - color: '#52c0f2'
+            title: "These devices have low battery levels"
+            text: *message
 
 - alias: battery_sensor_from_battery_level_attribute
   trigger:
