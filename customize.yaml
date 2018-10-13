@@ -72,7 +72,7 @@
       #haaska_hidden: false
 
     switch.steckdose_s20_6:
-      icon: mdi:lightbulb-on-outline
+      icon: mdi:spotlight-beam
       friendly_name: Bürolampe
       #haaska_hidden: false
       
@@ -96,20 +96,6 @@
       icon: mdi:fingerprint
       friendly_name: System Code
 
-# OctoPrint
-    sensor.octoprint_actual_bed_temp:
-      friendly_name: Druckbett Temperatur
-    sensor.octoprint_target_bed_temp:
-      friendly_name: Druckbett Solltemperatur
-    sensor.octoprint_actual_tool0_temp:
-      friendly_name: Druckkopf Temperatur
-    sensor.octoprint_target_tool0_temp:
-      friendly_name: Druckkopf Solltemperatur
-    sensor.octoprint_current_state:
-      friendly_name: Status
-    sensor.octoprint_job_percentage:
-      friendly_name: Druckfortschritt
-      
 ### ZigBee
 
   ### Motion
@@ -140,3 +126,8 @@
     sensor.lumi_lumisensor_motionaq2_0200ce5c_1_1024:
       friendly_name: Helligkeitssensor
       device_class: illuminance
+
+### Shelly 1
+    switch.shelly1_01:
+      friendly_name: Büro
+      icon: mdi:lightbulb-on-outline

@@ -1,0 +1,370 @@
+title: Home
+views:
+  #view
+  - title: Home
+    icon: mdi:home-assistant
+    cards:
+      #card
+      - type: entities
+        title: Licht
+        show_header_toggle: true
+        entities:
+          - switch.steckdose_s20_1
+          - switch.steckdose_s20_2
+          - switch.steckdose_s20_3
+          - switch.steckdose_s20_4
+          - switch.shelly1_01
+      #card
+      - type: entities
+        title: Temperaturen
+        show_header_toggle: false
+        entities:
+          - sensor.temperature_158d0002281a4e
+          - climate.buero
+          - climate.wohnzimmer
+      #card
+      - type: entities
+        title: Staubsauger
+        show_header_toggle: true
+        entities:
+          - vacuum.mi_robot_vacuum
+      #card
+      - type: entities
+        title: Rollladen
+        show_header_toggle: false
+        entities:
+          - cover.wohnzimmer
+  #view
+  - title: Licht
+    icon: mdi:lightbulb-on-outline
+    cards:
+      #card
+      - type: entities
+        title: Licht
+        show_header_toggle: true
+        entities:
+          - switch.steckdose_s20_1
+          - switch.steckdose_s20_2
+          - switch.steckdose_s20_3
+          - switch.steckdose_s20_4
+          - switch.shelly1_01
+          - light.led_strip
+      #card
+      - type: entities
+        title: Licht Szenen
+        show_header_toggle: true
+        entities:
+          - input_boolean.beleuchtung_scene
+          - input_boolean.fernsehabend_scene
+
+  #view
+  - title: Heizung
+    icon: mdi:thermostat
+    cards:
+      #card
+      - type: entities
+        title: Buero
+        show_header_toggle: false
+        entities:
+          - climate.buero
+      #card
+      - type: entities
+        title: Wohnzimmer
+        show_header_toggle: false
+        entities:
+          - climate.wohnzimmer
+  #view
+  - title: Maker
+    icon: mdi:printer-3d
+    cards:
+      #card
+      - type: entities
+        title: Maker
+        show_header_toggle: false
+        entities:
+          - switch.steckdose_s20_5
+          - switch.steckdose_s20_6
+          - entity: sensor.octoprint_actual_bed_temp
+            name: Druckbett Temperatur
+          - entity: sensor.octoprint_target_bed_temp
+            name: Druckbett Solltemperatur
+          - entity: sensor.octoprint_actual_tool0_temp
+            name: Druckkopf Temperatur
+          - entity: sensor.octoprint_target_tool0_temp
+            name: Druckkopf Solltemperatur
+          - entity: sensor.octoprint_current_state
+            name: Status
+            icon: mdi:printer-alert
+          - entity: sensor.octoprint_job_percentage
+            name: Druckfortschritt
+            icon: mdi:progress-clock
+          - entity: input_boolean.drucker_nach_druck_aus
+            name: Drucker und Licht nach Druck Ausschalten
+            icon: mdi:progress-check
+
+      #card
+      - type: picture-entity
+        title: OctoPrint
+        entity: camera.octoprint
+        camera_image: camera.octoprint
+        show_info: true
+        tap_action: dialog
+  #view
+  - title: Outdoor
+    cards:
+      - type: entities
+        title: Outdoor
+        show_header_toggle: true
+        entities:
+          - switch.funksteckdose_aussen
+  #view
+  - title: Automation
+    cards:
+      #card
+      - type: entities
+        title: Zeitsteuerung Marderschreck
+        show_header_toggle: false
+        entities:
+          - input_boolean.aussensteckdose_automation
+      #card
+      - type: entities
+        title: Zeitsteuerung Szene Beleuchtung
+        show_header_toggle: false
+        entities:
+          - input_select.zeitsteuerung
+      #conditional
+      - type: conditional
+        conditions:
+          - entity: input_select.zeitsteuerung
+            state: "Zeit"
+        #card
+        card:
+          type: entities
+          title: Zeit
+          show_header_toggle: false
+          entities:
+            - input_datetime.beleuchtung_morgens_an
+            - input_datetime.beleuchtung_morgens_aus
+            - input_datetime.beleuchtung_abends_an
+            - input_datetime.beleuchtung_abends_aus
+      #conditional
+      - type: conditional
+        conditions:
+          - entity: input_select.zeitsteuerung
+            state: "Zeit und Sonne"
+        #card
+        card:
+          type: entities
+          title: Zeit und Sonne
+          show_header_toggle: false
+          entities:
+            - input_datetime.beleuchtung_morgens_an
+            - sensor.sunrise_time
+            - sensor.sunset_time
+            - input_datetime.beleuchtung_abends_aus
+
+  #view
+  - title: Admin
+    cards:
+      #card
+      - type: entities
+        title: Admin General
+        show_header_toggle: false
+        entities:
+          - sensor.time
+          - sensor.processor_use
+          - sensor.memory_free
+          - sensor.disk_free_
+          - sensor.last_boot
+          - input_boolean.update_thermostats
+          - input_boolean.update_s20
+          - sensor.speedtest_download
+          - sensor.speedtest_upload
+          - sensor.speedtest_ping
+          - sensor.rf_receiver
+          - entity: sensor.sunrise_time
+            name: Sonnenaufgang
+          - entity: sensor.sunset_time
+            name: Sonnenuntergang
+
+      #card
+      - type: entities
+        title: Xiaomi Zigbee
+        show_header_toggle: false
+        entities:
+          - binary_sensor.motion_sensor_158d000200ce5c
+          - sensor.illumination_158d000200ce5c
+          - binary_sensor.motion_sensor_158d0001fa3d9c
+          - sensor.illumination_158d0001fa3d9c
+          - binary_sensor.motion_sensor_158d000200ceec
+          - sensor.illumination_158d000200ceec
+          - input_boolean.motion_detected
+          - input_boolean.motion_based_action
+          - input_number.illuminance_threshold
+          - light.gateway_light_7811dc6c97d5
+          - sensor.illumination_7811dc6c97d5
+          - sensor.temperature_158d0002281a4e
+          - sensor.humidity_158d0002281a4e
+      #vertical stack
+      - type: vertical-stack
+        cards:
+        #card
+        - type: entities
+          title: Battery Alert
+          show_header_toggle: false
+          entities:
+            - input_number.battery_alert_threshold_min
+            - input_number.battery_alert_threshold_max
+            - automation.battery_notification
+            - automation.battery_notification_clear
+            - automation.battery_sensor_from_battery_level_attribute
+            - automation.battery_sensor_from_battery_attribute
+            - automation.battery_sensor_from_battery_numeric_attribute
+            - automation.update_battery_status_group_members
+        #card
+        - type: entities
+          title: Battery Status
+          show_header_toggle: false
+          entities:
+            - sensor.aussentemperatur_battery
+            - sensor.humidity_158d0002281a4e_battery
+            - sensor.illumination_158d0001fa3d9c_battery
+            - sensor.illumination_158d000200ce5c_battery
+            - sensor.illumination_158d000200ceec_battery
+            - sensor.mi_robot_vacuum_battery
+            - sensor.motion_sensor_158d0001fa3d9c_battery
+            - sensor.motion_sensor_158d000200ce5c_battery
+            - sensor.motion_sensor_158d000200ceec_battery
+      #card
+      - type: entities
+        title: DuoFern
+        show_header_toggle: false
+        entities:
+          - sensor.duofern_paired_devices
+          - sensor.duofern_system_code
+      #vertical stack
+      - type: vertical-stack
+        cards:
+        #card
+        - type: entities
+          title: Buero
+          show_header_toggle: false
+          entities:
+            - climate.buero
+            - sensor.temperatur_buero
+            - sensor.solltemperatur_buero
+            - sensor.luftfeuchtigkeit_buero
+            - binary_sensor.heizung_aktiv_buero
+            - binary_sensor.verbindungsstatus_buero
+            - binary_sensor.sensorfehler_buero
+            - sensor.firmware_buero
+            - switch.firmwareupdate_buero
+            - switch.neustart_buero
+            - sensor.ip_buero
+            - sensor.skalierung_buero
+            - sensor.offset_buero
+        #card
+        - type: entities
+          title: Wohnzimmer
+          show_header_toggle: false
+          entities:
+            - climate.wohnzimmer
+            - sensor.temperatur_wohnzimmer
+            - sensor.solltemperatur_wohnzimmer
+            - sensor.luftfeuchtigkeit_wohnzimmer
+            - binary_sensor.heizung_aktiv_wohnzimmer
+            - binary_sensor.verbindungsstatus_wohnzimmer
+            - binary_sensor.sensorfehler_wohnzimmer
+            - sensor.firmware_wohnzimmer
+            - switch.firmwareupdate_wohnzimmer
+            - switch.neustart_wohnzimmer
+            - sensor.ip_wohnzimmer
+            - sensor.skalierung_wohnzimmer
+            - sensor.offset_wohnzimmer
+        #card
+        - type: entities
+          title: Prototype
+          show_header_toggle: false
+          entities:
+            - climate.prototype
+            - sensor.temperatur_prototype
+            - sensor.solltemperatur_prototype
+            - sensor.luftfeuchtigkeit_prototype
+            - binary_sensor.heizung_aktiv_prototype
+            - binary_sensor.verbindungsstatus_prototype
+            - binary_sensor.sensorfehler_prototype
+            - sensor.firmware_prototype
+            - switch.firmwareupdate_prototype
+            - switch.neustart_prototype
+            - sensor.ip_prototype
+            - sensor.skalierung_prototype
+            - sensor.offset_prototype
+      #vertical stack
+      - type: vertical-stack
+        cards:
+        #card
+        - type: entities
+          title: S20_1
+          show_header_toggle: false
+          entities:
+            - switch.steckdose_s20_1
+            - sensor.firmware_s20_1
+            - switch.firmwareupdate_s20_1
+            - switch.neustart_s20_1
+            - binary_sensor.verbindungsstatus_s20_1
+            - sensor.ip_s20_1
+        #card
+        - type: entities
+          title: S20_2
+          show_header_toggle: false
+          entities:
+            - switch.steckdose_s20_2
+            - sensor.firmware_s20_2
+            - switch.firmwareupdate_s20_2
+            - switch.neustart_s20_2
+            - binary_sensor.verbindungsstatus_s20_2
+            - sensor.ip_s20_2
+        #card
+        - type: entities
+          title: S20_3
+          show_header_toggle: false
+          entities:
+            - switch.steckdose_s20_3
+            - sensor.firmware_s20_3
+            - switch.firmwareupdate_s20_3
+            - switch.neustart_s20_3
+            - binary_sensor.verbindungsstatus_s20_3
+            - sensor.ip_s20_3
+        #card
+        - type: entities
+          title: S20_4
+          show_header_toggle: false
+          entities:
+            - switch.steckdose_s20_4
+            - sensor.firmware_s20_4
+            - switch.firmwareupdate_s20_4
+            - switch.neustart_s20_4
+            - binary_sensor.verbindungsstatus_s20_4
+            - sensor.ip_s20_4
+        #card
+        - type: entities
+          title: S20_5
+          show_header_toggle: false
+          entities:
+            - switch.steckdose_s20_5
+            - sensor.firmware_s20_5
+            - switch.firmwareupdate_s20_5
+            - switch.neustart_s20_5
+            - binary_sensor.verbindungsstatus_s20_5
+            - sensor.ip_s20_5
+        #card
+        - type: entities
+          title: S20_6
+          show_header_toggle: false
+          entities:
+            - switch.steckdose_s20_6
+            - sensor.firmware_s20_6
+            - switch.firmwareupdate_s20_6
+            - switch.neustart_s20_6
+            - binary_sensor.verbindungsstatus_s20_6
+            - sensor.ip_s20_6

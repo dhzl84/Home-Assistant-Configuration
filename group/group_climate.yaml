@@ -1,9 +1,0 @@
-  #MK1
-  climate_group:
-    name: Thermostate
-    control: hidden
-    entities:
-      - sensor.temperature_158d0002281a4e
-      - climate.buero
-      - climate.wohnzimmer
-      #{{CLIMATE}}

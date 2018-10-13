@@ -1,29 +1,11 @@
-  - platform: mqtt_json
-    name: "Buerolicht"
-    state_topic: "licht/buero"
-    command_topic: "licht/buero/set"
-    effect: true
-    effect_list:
-      - bpm
-      - candy cane  
-      - confetti  
-      - cyclon rainbow  
-      - dots  
-      - fire  
-      - glitter  
-      - juggle  
-      - lightning
-      - noise  
-      - police all  
-      - police one  
-      - rainbow  
-      - rainbow with glitter  
-      - ripple  
-      - sinelon  
-      - solid  
-      - twinkle  
-    brightness: true
-    flash: true
-    rgb: true
+  - platform: mqtt
+    name: "LED Strip"
+    state_topic: 'light/ledStrip'
+    command_topic: 'light/ledStripCmd'
+    brightness_state_topic: 'light/ledStrip/brightness'
+    brightness_command_topic: 'light/ledStrip/brightnessCmd'
+    rgb_state_topic: 'light/ledStrip/rgb'
+    rgb_command_topic: 'light/ledStrip/rgbCmd'
+    brightness_scale: 100
     optimistic: false
-    qos: 0
+    retain: true

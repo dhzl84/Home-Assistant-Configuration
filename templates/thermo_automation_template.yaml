@@ -24,7 +24,7 @@
       for:
         hours: 12
     action:
-      service: notify.dominik
+      service: notify.slack_notify
       data:
         message: 'Heizung im {{NAME}} seit 12 Stunden an'
         
@@ -37,9 +37,9 @@
       from: 'on'
       to: 'off'
       for:
-        minutes: 5
+        minutes: 10
     action:
-      - service: notify.dominik
+      - service: notify.slack_notify
         data:
           message: 'Thermostat im {{NAME}} offline'
       - service: persistent_notification.create

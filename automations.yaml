@@ -1,0 +1,12 @@
+# Example automations.yaml entry
+- id: my_unique_id  # <-- Required for editor to work.
+  alias: Hello world
+  trigger:
+  - platform: state 
+    entity_id: sun.sun
+    from: below_horizon
+    to: above_horizon
+  action:
+    - service: notify.slack_notify
+      data_template:
+        message: "Test"

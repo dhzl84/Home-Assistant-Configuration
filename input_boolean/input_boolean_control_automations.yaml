@@ -3,6 +3,11 @@
     initial: on
     icon: mdi:home-automation
     
+  drucker_nach_druck_aus:
+    name: Drucker nach Druck ausschalten
+    initial: off
+    icon: mdi:toggle-switch-off
+    
 #  montag_automation:
 #    name: Montag
 #    initial: on

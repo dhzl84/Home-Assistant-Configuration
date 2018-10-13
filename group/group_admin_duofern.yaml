@@ -1,6 +1,0 @@
-  duofern_admin_group:
-    name: DuoFern
-    control: hidden
-    entities:
-      - sensor.duofern_paired_devices
-      - sensor.duofern_system_code

@@ -1,0 +1,32 @@
+  - alias: '3D Print Finished Notification'
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: sensor.octoprint_current_state
+      from: 'Printing'
+      to: 'Operational'
+    action:
+      service: notify.slack_notify
+      data:
+        message: '3D Print finished'
+        
+  - alias: '3D Print Finished - Switch Off Printer'
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: sensor.octoprint_current_state
+      from: 'Printing'
+      to: 'Operational'
+      for:
+        minutes: 5
+    condition:
+      condition: state
+      entity_id: input_boolean.drucker_nach_druck_aus
+      state: 'on'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.steckdose_s20_5
+      - service: switch.turn_off
+        entity_id: switch.steckdose_s20_6
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.drucker_nach_druck_aus

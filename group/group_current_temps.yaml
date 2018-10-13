@@ -1,8 +1,0 @@
-  current_temps_group:
-    name: Temperaturen
-    control: hidden
-    entities:
-      - sensor.temperatur_buero
-      - sensor.temperatur_wohnzimmer
-      - sensor.temperatur_prototype
-      #{{TEMP}}

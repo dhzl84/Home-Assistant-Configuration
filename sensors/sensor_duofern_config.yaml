@@ -1,9 +1,12 @@
   - platform: command_line
     name: DuoFern Paired Devices
     command: "cat /config/duofern.json"
-    value_template: '{{ value_json["devices"] }}'
+    value_template: >- 
+      {% for id in value_json.devices %}
+        {{ value_json.devices[loop.index-1].id }} : {{ value_json.devices[loop.index-1].name }}
+      {%- endfor %}
     
   - platform: command_line
     name: DuoFern System Code
     command: "cat /config/duofern.json"
-    value_template: '{{ value_json["system_code"] }}'
+    value_template: "{{ value_json.system_code }}"

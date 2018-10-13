@@ -22,9 +22,9 @@
       from: 'on'
       to: 'off'
       for:
-        minutes: 5
+        minutes: 10
     action:
-      - service: notify.dominik
+      - service: notify.slack_notify
         data:
           message: 'Steckdose {{NAME}} offline'
       - service: persistent_notification.create

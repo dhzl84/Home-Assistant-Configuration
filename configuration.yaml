@@ -12,30 +12,29 @@
   time_zone: Europe/Berlin
 
   customize_glob: !include customize_glob.yaml
+  customize:      !include customize.yaml
+  packages:       !include_dir_named packages
 
-  customize: !include customize.yaml
-  
-  packages: !include_dir_named packages
+#automation: !include automations.yaml
+automation old: !include_dir_merge_list    automation/
 
-camera: !include_dir_merge_list camera/
-#media_player: !include_dir_merge_list media_player/
-climate: !include_dir_merge_list climate/
-light: !include_dir_merge_list light/
-switch: !include_dir_merge_list switch/
-input_number: !include_dir_merge_named input_number/
-input_select: !include_dir_merge_named input_select/
-input_datetime: !include_dir_merge_named input_datetime/
-sensor: !include_dir_merge_list sensors/
-shell_command: !include_dir_merge_named shell_commands/
-binary_sensor: !include_dir_merge_list binary_sensors/
-input_boolean: !include_dir_merge_named input_boolean/
-group: !include_dir_merge_named group/
-scene: !include_dir_merge_list scenes/
-automation: !include_dir_merge_list automation/
+binary_sensor:  !include_dir_merge_list    binary_sensors/
+camera:         !include_dir_merge_list    camera/
+climate:        !include_dir_merge_list    climate/
+input_boolean:  !include_dir_merge_named   input_boolean/
+input_datetime: !include_dir_merge_named   input_datetime/
+input_number:   !include_dir_merge_named   input_number/
+input_select:   !include_dir_merge_named   input_select/
+light:          !include_dir_merge_list    light/
+#media_player: !include_dir_merge_list     media_player/
+sensor:         !include_dir_merge_list    sensors/
+shell_command:  !include_dir_merge_named   shell_commands/
+switch:         !include_dir_merge_list    switch/
 
-alexa: !include alexa/alexa.yaml
+#group:          !include_dir_merge_named group/
+scene:          !include_dir_merge_list scenes/
 
-
+alexa:          !include alexa/alexa.yaml
 
 vacuum:
   - platform: xiaomi_miio
@@ -51,12 +50,19 @@ config:
 
 hassio:
 
+discovery:
+  ignore:
+    - google_cast
+    - philips_hue
+    
 http:
   ssl_certificate: !secret http_ssl_certificate
   ssl_key: !secret http_ssl_key
   base_url: !secret http_base_url
-  trusted_networks: !secret http_trusted_networks
   api_password: !secret http_api_password
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
+
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -70,32 +76,24 @@ updater:
 
 # Discover some devices automatically
 #discovery:
+history:
+  include:
+    domains:
+      - climate
+  exclude:
+    entities:
+      - climate.prototype
 
 # The recorder component is storing details in a database which then are handled by the history component.
 recorder:
   purge_interval: 1
-  purge_keep_days: 180
-
-# The history component will track everything that is going on within Home Assistant and allows the user to browse through it. It depends on the recorder component for storing the data and uses the same database setting. If any entities are excluded from being recorded, no history will be available for these entities.
-history:
-  include:
-    entities: !include_dir_merge_list history/
+  purge_keep_days: 7
 
 # The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order.
 logbook:
 
 #iframes
-panel_iframe:
-  influxdb:
-    title: InfluxDB
-    icon: mdi:chart-areaspline
-    url: http://192.168.178.12:8888
-
-  grafana:
-    title: Grafana
-    icon: mdi:chart-timeline
-    url: http://192.168.178.12:3000
-
+panel_iframe: !include_dir_merge_named iframes/
 
 #InfluxDB
 influxdb:
@@ -149,16 +147,23 @@ cover:
     code: 1234
 
 xiaomi_aqara:
-  discovery_retry: 5
+  discovery_retry: 10
   gateways:
     - key: qzdtjzt6vxzo892k
+
+#openuv:
+#  api_key: !secret open_uv_token
+#  binary_sensors:
+#  sensors:
+
+
 
 ###
 logger:
   default: warn
-  logs:
-    homeassistant.components.zha: debug
-    bellows.ezsp: debug
-    bellows.uart: debug
-    zigpy.zdo: debug
-    zigpy.application: debug
+#  logs:
+#    homeassistant.components.zha: debug
+#    bellows.ezsp: debug
+#    bellows.uart: debug
+#    zigpy.zdo: debug
+#    zigpy.application: debug

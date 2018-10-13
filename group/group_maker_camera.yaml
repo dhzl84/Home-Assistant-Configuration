@@ -1,5 +1,0 @@
-  maker_camera_group:
-    name: Maker Camera
-    control: hidden
-    entities:
-      - camera.octoprint

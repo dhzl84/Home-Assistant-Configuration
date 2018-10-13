@@ -27,8 +27,8 @@
         which: 1
         onoff: 1
     action:
-      - service: switch.toggle
-        entity_id: switch.steckdose_s20_2
+      - service: cover.stop_cover
+        entity_id: cover.wohnzimmer
 
 #Switch Nr. 3
   - alias: 'Enocean Handfernbedienung Taste 3'
@@ -42,8 +42,8 @@
         which: 0
         onoff: 0
     action:
-      - service: switch.toggle
-        entity_id: switch.steckdose_s20_3
+      - service: cover.open_cover
+        entity_id: cover.wohnzimmer
 
 #Switch Nr. 4
   - alias: 'Enocean Handfernbedienung Taste 4'
@@ -57,5 +57,5 @@
         which: 0
         onoff: 1
     action:
-      - service: switch.toggle
-        entity_id: switch.steckdose_s20_4
+      - service: cover.close_cover
+        entity_id: cover.wohnzimmer

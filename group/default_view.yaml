@@ -1,8 +1,0 @@
-  default_view:
-    name: Home
-    view: yes
-    entities:
-      - group.lights_group
-      - group.climate_group
-      - vacuum.mi_robot_vacuum
-      - cover.wohnzimmer

@@ -1,0 +1,4 @@
+  grafana:
+    title: Grafana
+    icon: mdi:chart-timeline
+    url: https://extatic.duckdns.org:3000/d/KieUzQZgz/mydashboard
