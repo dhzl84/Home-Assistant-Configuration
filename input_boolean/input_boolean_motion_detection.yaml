@@ -7,3 +7,8 @@
     name: Bewegungsbasierte Ansteuerung
     initial: off
     icon: mdi:flash-circle
+
+  buero_light_on_by_motion:
+    name: Licht an wegen Bewegung
+    initial: off
+    icon: mdi:walk

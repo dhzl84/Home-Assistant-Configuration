@@ -1,6 +1,6 @@
   aussensteckdose_automation:
     name: Außensteckdose
-    initial: on
+    initial: off
     icon: mdi:home-automation
     
   drucker_nach_druck_aus:

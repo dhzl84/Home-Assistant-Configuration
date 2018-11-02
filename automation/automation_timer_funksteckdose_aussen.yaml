@@ -1,5 +1,5 @@
   - alias: 'Aussensteckdose Ein'
-    initial_state: 'on'
+    initial_state: 'off'
     trigger:
       platform: sun
       event: sunset
@@ -13,7 +13,7 @@
       entity_id: switch.funksteckdose_aussen
 
   - alias: 'Aussensteckdose Aus'
-    initial_state: 'on'
+    initial_state: 'off'
     trigger:
       platform: sun
       event: sunrise

@@ -1,0 +1,48 @@
+  - alias: buero licht an
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.motion_sensor_158d000200ceec
+      to: 'on'
+
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: '{{ states.sensor.illumination_158d000200ceec.state | int <= states.input_number.illuminance_threshold.state | int }}'
+        - condition: state
+          entity_id: switch.shelly1_01
+          state: "off"
+
+    action:
+      - service: switch.turn_on
+        entity_id: switch.shelly1_01
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.buero_light_on_by_motion
+
+##############################################################################################################################################################
+
+  - alias: buero licht aus
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.motion_sensor_158d000200ceec
+      to: 'off'
+      for:
+        seconds: 30
+
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: switch.shelly1_01
+          state: "on"
+        - condition: state
+          entity_id: input_boolean.buero_light_on_by_motion
+          state: "on"
+
+    action:
+      - service: switch.turn_off
+        entity_id: switch.shelly1_01
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.buero_light_on_by_motion

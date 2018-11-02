@@ -1,9 +1,0 @@
-  beleuchtung_scene:
-    name: Beleuchtung
-    initial: off
-    icon: mdi:home-variant
-
-  fernsehabend_scene:
-    name: Fernsehabend
-    initial: off
-    icon: mdi:television-box

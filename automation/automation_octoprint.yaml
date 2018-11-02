@@ -6,9 +6,9 @@
       from: 'Printing'
       to: 'Operational'
     action:
-      service: notify.slack_notify
-      data:
-        message: '3D Print finished'
+      - service: notify.slack_notify
+        data:
+          message: '3D Print finished'
         
   - alias: '3D Print Finished - Switch Off Printer'
     initial_state: 'on'

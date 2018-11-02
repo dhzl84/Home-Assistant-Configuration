@@ -16,12 +16,15 @@ views:
           - switch.shelly1_01
       #card
       - type: entities
-        title: Temperaturen
         show_header_toggle: false
         entities:
           - sensor.temperature_158d0002281a4e
-          - climate.buero
-          - climate.wohnzimmer
+      #card
+      - type: thermostat
+        entity: climate.buero
+      #card
+      - type: thermostat
+        entity:  climate.wohnzimmer
       #card
       - type: entities
         title: Staubsauger
@@ -47,15 +50,27 @@ views:
           - switch.steckdose_s20_2
           - switch.steckdose_s20_3
           - switch.steckdose_s20_4
-          - switch.shelly1_01
           - light.led_strip
+          - type: divider
+          - switch.shelly1_01
+          - entity: input_number.illuminance_threshold
+          - entity: sensor.illumination_158d000200ceec
+            name: Helligkeitssensor
+          - entity: binary_sensor.motion_sensor_158d000200ceec
+            name: Bewegungssensor
+          - input_boolean.buero_light_on_by_motion
+
+  #view
+  - title: Szenen
+    icon: mdi:arrow-decision-outline
+    cards:
       #card
       - type: entities
-        title: Licht Szenen
-        show_header_toggle: true
+        title: Szenes
+        show_header_toggle: false
         entities:
-          - input_boolean.beleuchtung_scene
-          - input_boolean.fernsehabend_scene
+          - entity: scene.fernsehabend
+            icon: mdi:television-box
 
   #view
   - title: Heizung
@@ -104,33 +119,29 @@ views:
 
       #card
       - type: picture-entity
-        title: OctoPrint
+        name: OctoPrint Cam
         entity: camera.octoprint
         camera_image: camera.octoprint
-        show_info: true
+        show_info: false
+        show_state: false
         tap_action: dialog
   #view
   - title: Outdoor
     cards:
       - type: entities
-        title: Outdoor
-        show_header_toggle: true
+        #title: Outdoor
+        show_header_toggle: false
         entities:
-          - switch.funksteckdose_aussen
+          - entity: switch.funksteckdose_aussen
+            name: Außensteckdose
   #view
   - title: Automation
     cards:
       #card
       - type: entities
-        title: Zeitsteuerung Marderschreck
         show_header_toggle: false
         entities:
           - input_boolean.aussensteckdose_automation
-      #card
-      - type: entities
-        title: Zeitsteuerung Szene Beleuchtung
-        show_header_toggle: false
-        entities:
           - input_select.zeitsteuerung
       #conditional
       - type: conditional

@@ -1,7 +1,0 @@
-  - name: Beleuchtung an
-    entities:
-      switch.steckdose_s20_3: on
-      
-  - name: Beleuchtung aus
-    entities:
-      switch.steckdose_s20_3: off
