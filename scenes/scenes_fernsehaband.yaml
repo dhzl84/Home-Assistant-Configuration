@@ -1,6 +1,6 @@
   - name: Fernsehabend
     entities:
-      switch.steckdose_s20_1: on
-      switch.steckdose_s20_2: on
+      switch.s20_1: on
+      switch.s20_2: on
       cover.wohnzimmer:
         state: closed

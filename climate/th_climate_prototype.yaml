@@ -2,14 +2,13 @@
   - platform: mqtt
     name: 'Prototype'
     modes:
-      - "on"
+      - "heat"
       - "off"
     min_temp: 15.0
     max_temp: 25.0
+    temp_step: 0.5
     current_temperature_topic: '/heating/prototype/temp'
     temperature_command_topic: '/heating/prototype/targetTempCmd'
     temperature_state_topic: '/heating/prototype/targetTempState'
     mode_command_topic: '/heating/prototype/heatingAllowedCmd'
     mode_state_topic: '/heating/prototype/heatingAllowedState'
-    payload_on: "on"
-    payload_off: "off"

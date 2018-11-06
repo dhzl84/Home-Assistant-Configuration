@@ -1,6 +1,6 @@
 title: Home
 views:
-  #view
+  #view Home
   - title: Home
     icon: mdi:home-assistant
     cards:
@@ -9,22 +9,27 @@ views:
         title: Licht
         show_header_toggle: true
         entities:
-          - switch.steckdose_s20_1
-          - switch.steckdose_s20_2
-          - switch.steckdose_s20_3
-          - switch.steckdose_s20_4
-          - switch.shelly1_01
-      #card
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - sensor.temperature_158d0002281a4e
-      #card
-      - type: thermostat
-        entity: climate.buero
-      #card
-      - type: thermostat
-        entity:  climate.wohnzimmer
+          - switch.s20_1
+          - switch.s20_2
+          - switch.s20_4
+          - entity: switch.shelly1_01
+            icon: mdi:ceiling-light
+
+      #card stack
+      - type: vertical-stack
+        cards:
+          #card
+          - type: entities
+            title: Temperatur
+            show_header_toggle: false
+            entities:
+              - sensor.temperature_158d0002281a4e
+          #card
+          - type: thermostat
+            entity: climate.buero
+          #card
+          - type: thermostat
+            entity:  climate.wohnzimmer
       #card
       - type: entities
         title: Staubsauger
@@ -37,22 +42,27 @@ views:
         show_header_toggle: false
         entities:
           - cover.wohnzimmer
-  #view
+  #view Licht
   - title: Licht
     icon: mdi:lightbulb-on-outline
     cards:
       #card
       - type: entities
-        title: Licht
+        title: Allgemein
         show_header_toggle: true
         entities:
-          - switch.steckdose_s20_1
-          - switch.steckdose_s20_2
-          - switch.steckdose_s20_3
-          - switch.steckdose_s20_4
+          - switch.s20_1
+          - switch.s20_2
+          - switch.s20_4
+      #card
+      - type: entities
+        title: Büro
+        show_header_toggle: true
+        entities:
           - light.led_strip
-          - type: divider
-          - switch.shelly1_01
+          - entity: switch.shelly1_01
+            name: Deckenlicht
+            icon: mdi:ceiling-light
           - entity: input_number.illuminance_threshold
           - entity: sensor.illumination_158d000200ceec
             name: Helligkeitssensor
@@ -60,7 +70,15 @@ views:
             name: Bewegungssensor
           - input_boolean.buero_light_on_by_motion
 
-  #view
+  #view Media
+  - title: Media
+    icon: mdi:audio-video
+    cards:
+      #card
+      - type: media-control
+        entity: media_player.denon_avr
+
+  #view Szenen
   - title: Szenen
     icon: mdi:arrow-decision-outline
     cards:
@@ -72,22 +90,30 @@ views:
           - entity: scene.fernsehabend
             icon: mdi:television-box
 
-  #view
+  #view Heizung
   - title: Heizung
     icon: mdi:thermostat
     cards:
-      #card
-      - type: entities
-        title: Buero
-        show_header_toggle: false
-        entities:
-          - climate.buero
-      #card
-      - type: entities
-        title: Wohnzimmer
-        show_header_toggle: false
-        entities:
-          - climate.wohnzimmer
+      #card stack
+      - type: vertical-stack
+        cards:
+          #card
+          - type: thermostat
+            entity: climate.buero
+          #card
+          - type: entities
+            entities:
+              - climate.buero
+      #card stack
+      - type: vertical-stack
+        cards:
+          #card
+          - type: thermostat
+            entity: climate.wohnzimmer
+          #card
+          - type: entities
+            entities:
+              - climate.wohnzimmer
   #view
   - title: Maker
     icon: mdi:printer-3d
@@ -97,8 +123,8 @@ views:
         title: Maker
         show_header_toggle: false
         entities:
-          - switch.steckdose_s20_5
-          - switch.steckdose_s20_6
+          - switch.s20_5
+          - switch.s20_6
           - entity: sensor.octoprint_actual_bed_temp
             name: Druckbett Temperatur
           - entity: sensor.octoprint_target_bed_temp
@@ -174,7 +200,7 @@ views:
             - sensor.sunset_time
             - input_datetime.beleuchtung_abends_aus
 
-  #view
+  #view Admin
   - title: Admin
     cards:
       #card
@@ -253,129 +279,58 @@ views:
         entities:
           - sensor.duofern_paired_devices
           - sensor.duofern_system_code
-      #vertical stack
-      - type: vertical-stack
-        cards:
-        #card
-        - type: entities
-          title: Buero
-          show_header_toggle: false
-          entities:
-            - climate.buero
-            - sensor.temperatur_buero
-            - sensor.solltemperatur_buero
-            - sensor.luftfeuchtigkeit_buero
-            - binary_sensor.heizung_aktiv_buero
-            - binary_sensor.verbindungsstatus_buero
-            - binary_sensor.sensorfehler_buero
-            - sensor.firmware_buero
-            - switch.firmwareupdate_buero
-            - switch.neustart_buero
-            - sensor.ip_buero
-            - sensor.skalierung_buero
-            - sensor.offset_buero
-        #card
-        - type: entities
-          title: Wohnzimmer
-          show_header_toggle: false
-          entities:
-            - climate.wohnzimmer
-            - sensor.temperatur_wohnzimmer
-            - sensor.solltemperatur_wohnzimmer
-            - sensor.luftfeuchtigkeit_wohnzimmer
-            - binary_sensor.heizung_aktiv_wohnzimmer
-            - binary_sensor.verbindungsstatus_wohnzimmer
-            - binary_sensor.sensorfehler_wohnzimmer
-            - sensor.firmware_wohnzimmer
-            - switch.firmwareupdate_wohnzimmer
-            - switch.neustart_wohnzimmer
-            - sensor.ip_wohnzimmer
-            - sensor.skalierung_wohnzimmer
-            - sensor.offset_wohnzimmer
-        #card
-        - type: entities
-          title: Prototype
-          show_header_toggle: false
-          entities:
-            - climate.prototype
-            - sensor.temperatur_prototype
-            - sensor.solltemperatur_prototype
-            - sensor.luftfeuchtigkeit_prototype
-            - binary_sensor.heizung_aktiv_prototype
-            - binary_sensor.verbindungsstatus_prototype
-            - binary_sensor.sensorfehler_prototype
-            - sensor.firmware_prototype
-            - switch.firmwareupdate_prototype
-            - switch.neustart_prototype
-            - sensor.ip_prototype
-            - sensor.skalierung_prototype
-            - sensor.offset_prototype
-      #vertical stack
-      - type: vertical-stack
-        cards:
-        #card
-        - type: entities
-          title: S20_1
-          show_header_toggle: false
-          entities:
-            - switch.steckdose_s20_1
-            - sensor.firmware_s20_1
-            - switch.firmwareupdate_s20_1
-            - switch.neustart_s20_1
-            - binary_sensor.verbindungsstatus_s20_1
-            - sensor.ip_s20_1
-        #card
-        - type: entities
-          title: S20_2
-          show_header_toggle: false
-          entities:
-            - switch.steckdose_s20_2
-            - sensor.firmware_s20_2
-            - switch.firmwareupdate_s20_2
-            - switch.neustart_s20_2
-            - binary_sensor.verbindungsstatus_s20_2
-            - sensor.ip_s20_2
-        #card
-        - type: entities
-          title: S20_3
-          show_header_toggle: false
-          entities:
-            - switch.steckdose_s20_3
-            - sensor.firmware_s20_3
-            - switch.firmwareupdate_s20_3
-            - switch.neustart_s20_3
-            - binary_sensor.verbindungsstatus_s20_3
-            - sensor.ip_s20_3
-        #card
-        - type: entities
-          title: S20_4
-          show_header_toggle: false
-          entities:
-            - switch.steckdose_s20_4
-            - sensor.firmware_s20_4
-            - switch.firmwareupdate_s20_4
-            - switch.neustart_s20_4
-            - binary_sensor.verbindungsstatus_s20_4
-            - sensor.ip_s20_4
-        #card
-        - type: entities
-          title: S20_5
-          show_header_toggle: false
-          entities:
-            - switch.steckdose_s20_5
-            - sensor.firmware_s20_5
-            - switch.firmwareupdate_s20_5
-            - switch.neustart_s20_5
-            - binary_sensor.verbindungsstatus_s20_5
-            - sensor.ip_s20_5
-        #card
-        - type: entities
-          title: S20_6
-          show_header_toggle: false
-          entities:
-            - switch.steckdose_s20_6
-            - sensor.firmware_s20_6
-            - switch.firmwareupdate_s20_6
-            - switch.neustart_s20_6
-            - binary_sensor.verbindungsstatus_s20_6
-            - sensor.ip_s20_6
+
+      #card
+      - type: entities
+        title: Buero
+        show_header_toggle: false
+        entities:
+          - climate.buero
+          - sensor.temperatur_buero
+          - sensor.solltemperatur_buero
+          - sensor.luftfeuchtigkeit_buero
+          - binary_sensor.heizung_aktiv_buero
+          - binary_sensor.verbindungsstatus_buero
+          - binary_sensor.sensorfehler_buero
+          - sensor.firmware_buero
+          - switch.firmwareupdate_buero
+          - switch.neustart_buero
+          - sensor.ip_buero
+          - sensor.skalierung_buero
+          - sensor.offset_buero
+      #card
+      - type: entities
+        title: Wohnzimmer
+        show_header_toggle: false
+        entities:
+          - climate.wohnzimmer
+          - sensor.temperatur_wohnzimmer
+          - sensor.solltemperatur_wohnzimmer
+          - sensor.luftfeuchtigkeit_wohnzimmer
+          - binary_sensor.heizung_aktiv_wohnzimmer
+          - binary_sensor.verbindungsstatus_wohnzimmer
+          - binary_sensor.sensorfehler_wohnzimmer
+          - sensor.firmware_wohnzimmer
+          - switch.firmwareupdate_wohnzimmer
+          - switch.neustart_wohnzimmer
+          - sensor.ip_wohnzimmer
+          - sensor.skalierung_wohnzimmer
+          - sensor.offset_wohnzimmer
+      #card
+      - type: entities
+        title: Prototype
+        show_header_toggle: false
+        entities:
+          - climate.prototype
+          - sensor.temperatur_prototype
+          - sensor.solltemperatur_prototype
+          - sensor.luftfeuchtigkeit_prototype
+          - binary_sensor.heizung_aktiv_prototype
+          - binary_sensor.verbindungsstatus_prototype
+          - binary_sensor.sensorfehler_prototype
+          - sensor.firmware_prototype
+          - switch.firmwareupdate_prototype
+          - switch.neustart_prototype
+          - sensor.ip_prototype
+          - sensor.skalierung_prototype
+          - sensor.offset_prototype

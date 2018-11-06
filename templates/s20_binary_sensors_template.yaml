@@ -1,7 +1,0 @@
-  #{{NAME}}
-  - platform: mqtt
-    state_topic: '/sonoff/{{ID}}/online'
-    name: 'Verbindungsstatus {{NAME}}'
-    payload_on: "online"
-    payload_off: "offline"
-    device_class: connectivity

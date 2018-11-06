@@ -5,12 +5,12 @@
         - input_boolean.fernsehabend_scene
         - switch.funksteckdose_aussen
         - switch.steckdose_hs100_1
-        - switch.steckdose_s20_1
-        - switch.steckdose_s20_2
-        - switch.steckdose_s20_3
-        - switch.steckdose_s20_4
-        - switch.steckdose_s20_5
-        - switch.steckdose_s20_6
+        - switch.s20_1
+        - switch.s20_2
+        - switch.s20_3
+        - switch.s20_4
+        - switch.s20_5
+        - switch.s20_6
         - climate.buero
         - climate.wohnzimmer
         - cover.wohnzimmer
@@ -42,22 +42,22 @@
       switch.steckdose_hs100_1:
         display_categories: LIGHT
 # Sonoff S20
-      switch.steckdose_s20_1:
+      switch.s20_1:
         display_categories: LIGHT
   
-      switch.steckdose_s20_2:
+      switch.s20_2:
         display_categories: LIGHT
         
-      switch.steckdose_s20_3:
-        display_categories: LIGHT
+      switch.s20_3:
+        display_categories: SWITCH
         
-      switch.steckdose_s20_4:
+      switch.s20_4:
         display_categories: LIGHT
   
-      switch.steckdose_s20_5:
+      switch.s20_5:
         display_categories: SWITCH
   
-      switch.steckdose_s20_6:
+      switch.s20_6:
         display_categories: LIGHT
 
       cover.wohnzimmer:

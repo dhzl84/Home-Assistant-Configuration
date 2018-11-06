@@ -13,7 +13,7 @@
         onoff: 0
     action:
       - service: switch.toggle
-        entity_id: switch.steckdose_s20_1
+        entity_id: switch.s20_1
         
 #Switch Nr. 2
   - alias: 'Enocean Handfernbedienung Taste 2'

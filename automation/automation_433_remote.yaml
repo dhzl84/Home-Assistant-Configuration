@@ -9,7 +9,7 @@
       payload: '1394001'
     action:
       - service: switch.turn_on
-        entity_id: switch.steckdose_s20_1
+        entity_id: switch.s20_1
         
   - alias: '433 MHz Handfernbedienung Taste A Off'
     initial_state: 'on'
@@ -19,7 +19,7 @@
       payload: '1394004'
     action:
       - service: switch.turn_off
-        entity_id: switch.steckdose_s20_1
+        entity_id: switch.s20_1
         
 #Switch Nr. B
   - alias: '433 MHz Handfernbedienung Taste B On'
@@ -30,7 +30,7 @@
       payload: '1397073'
     action:
       - service: switch.turn_on
-        entity_id: switch.steckdose_s20_4
+        entity_id: switch.s20_4
         
   - alias: '433 MHz Handfernbedienung Taste B Off'
     initial_state: 'on'
@@ -40,7 +40,7 @@
       payload: '1397076'
     action:
       - service: switch.turn_off
-        entity_id: switch.steckdose_s20_4
+        entity_id: switch.s20_4
         
 #Switch Nr. C
   - alias: '433 MHz Handfernbedienung Taste C On'
@@ -51,7 +51,7 @@
       payload: '1397841'
     action:
       - service: switch.turn_on
-        entity_id: switch.steckdose_s20_3
+        entity_id: switch.s20_3
         
   - alias: '433 MHz Handfernbedienung Taste C Off'
     initial_state: 'on'
@@ -61,7 +61,7 @@
       payload: '1397844'
     action:
       - service: switch.turn_off
-        entity_id: switch.steckdose_s20_3
+        entity_id: switch.s20_3
         
 #Switch Nr. D
   - alias: '433 MHz Handfernbedienung Taste D On'

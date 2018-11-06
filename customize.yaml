@@ -5,32 +5,32 @@
       #haaska_hidden: false
 
 # Sonoff S20
-    switch.steckdose_s20_1:
+    switch.s20_1:
       icon: mdi:lightbulb-on-outline
       friendly_name: Stehlampe Wohnzimmer
       #haaska_hidden: false
 
-    switch.steckdose_s20_2:
+    switch.s20_2:
       icon: mdi:lightbulb-on-outline
       friendly_name: Vitrine
       #haaska_hidden: false
       
-    switch.steckdose_s20_3:
-      icon: mdi:lightbulb-on-outline
-      friendly_name: Treppe
+    switch.s20_3:
+      icon: mdi:current-ac
+      friendly_name: S20_3
       #haaska_hidden: false
       
-    switch.steckdose_s20_4:
+    switch.s20_4:
       icon: mdi:lightbulb-on-outline
       friendly_name: Stehlampe Esszimmer
       #haaska_hidden: false
 
-    switch.steckdose_s20_5:
+    switch.s20_5:
       icon: mdi:printer-3d
       friendly_name: 3D-Drucker
       #haaska_hidden: false
 
-    switch.steckdose_s20_6:
+    switch.s20_6:
       icon: mdi:spotlight-beam
       friendly_name: Bürolampe
       #haaska_hidden: false

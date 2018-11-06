@@ -1,6 +1,10 @@
-*.project
 /known_devices.yaml
 /secrets.yaml
 /.pydevproject
 /deps/
 /entity_registry.yaml
+/.HA_VERSION
+/.uuid
+*.db
+/.storage/
+/.cloud/

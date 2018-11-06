@@ -28,9 +28,6 @@
       platform: state
       entity_id: binary_sensor.motion_sensor_158d000200ceec
       to: 'off'
-      for:
-        seconds: 30
-
     condition:
       condition: and
       conditions:
