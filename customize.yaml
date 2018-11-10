@@ -87,4 +87,8 @@
 ### Shelly 1
     switch.shelly1_01:
       friendly_name: Büro
-      icon: mdi:lightbulb-on-outline
+      icon: mdi:ceiling-light
+
+    switch.shelly1_02:
+      friendly_name: Treppe oben
+      icon: mdi:ceiling-light

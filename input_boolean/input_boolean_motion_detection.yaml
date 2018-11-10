@@ -1,14 +1,9 @@
-  motion_detected:
-    name: Bewegung erkannt
+  buero_licht_wegen_bewegung:
+    name: Licht an wegen Bewegung
     initial: off
     icon: mdi:walk
-    
-  motion_based_action:
-    name: Bewegungsbasierte Ansteuerung
-    initial: off
-    icon: mdi:flash-circle
 
-  buero_light_on_by_motion:
+  treppe_oben_licht_wegen_bewegung:
     name: Licht an wegen Bewegung
     initial: off
     icon: mdi:walk

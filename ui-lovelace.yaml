@@ -12,9 +12,11 @@ views:
           - switch.s20_1
           - switch.s20_4
           - switch.s20_2
-          - entity: switch.shelly1_01
-            icon: mdi:ceiling-light
-
+          - entity: switch.s20_3
+            name: Stern
+            icon: mdi:star
+          - switch.shelly1_01
+          - switch.shelly1_02
       #card
       - type: sensor
         entity: sensor.temperature_158d0002281a4e
@@ -57,18 +59,31 @@ views:
       #card
       - type: entities
         title: Büro
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - light.led_strip
           - entity: switch.shelly1_01
             name: Deckenlicht
             icon: mdi:ceiling-light
-          - entity: input_number.illuminance_threshold
+          - entity: input_number.illuminance_threshold_buero
           - entity: sensor.illumination_158d000200ceec
             name: Helligkeitssensor
           - entity: binary_sensor.motion_sensor_158d000200ceec
             name: Bewegungssensor
-          - input_boolean.buero_light_on_by_motion
+          - input_boolean.buero_licht_wegen_bewegung
+
+      #card
+      - type: entities
+        title: Treppe oben
+        show_header_toggle: false
+        entities:
+          - switch.shelly1_02
+          - entity: input_number.illuminance_threshold_treppe_oben
+          - entity: sensor.illumination_158d0001fa3d9c
+            name: Helligkeitssensor
+          - entity: binary_sensor.motion_sensor_158d0001fa3d9c
+            name: Bewegungssensor
+          - input_boolean.treppe_oben_licht_wegen_bewegung
 
   #view Media
   - title: Media
@@ -248,9 +263,6 @@ views:
           - sensor.illumination_158d0001fa3d9c
           - binary_sensor.motion_sensor_158d000200ceec
           - sensor.illumination_158d000200ceec
-          - input_boolean.motion_detected
-          - input_boolean.motion_based_action
-          - input_number.illuminance_threshold
           - light.gateway_light_7811dc6c97d5
           - sensor.illumination_7811dc6c97d5
           - sensor.temperature_158d0002281a4e
@@ -267,6 +279,7 @@ views:
             - input_number.battery_alert_threshold_max
             - automation.battery_notification
             - automation.battery_notification_clear
+            - automation.battery_notification_slack
             - automation.battery_sensor_from_battery_level_attribute
             - automation.battery_sensor_from_battery_attribute
             - automation.battery_sensor_from_battery_numeric_attribute
