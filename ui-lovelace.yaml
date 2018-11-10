@@ -12,6 +12,7 @@ views:
           - switch.s20_1
           - switch.s20_4
           - switch.s20_2
+          - switch.steckdose_hs100_1
           - entity: switch.s20_3
             name: Stern
             icon: mdi:star
@@ -53,6 +54,7 @@ views:
           - switch.s20_1
           - switch.s20_2
           - switch.s20_4
+          - switch.steckdose_hs100_1
           - entity: switch.s20_3
             name: Stern
             icon: mdi:star
