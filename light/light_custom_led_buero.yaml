@@ -6,6 +6,10 @@
     brightness_command_topic: 'light/ledStrip/brightnessCmd'
     rgb_state_topic: 'light/ledStrip/rgb'
     rgb_command_topic: 'light/ledStrip/rgbCmd'
-    brightness_scale: 100
+    effect_state_topic: "light/ledstrip/effect"
+    effect_command_topic: "light/ledstrip/effectCmd"
+    effect_list:
+      - none
+      - pulse white
     optimistic: false
     retain: true

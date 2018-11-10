@@ -1,7 +1,0 @@
-  #S20_5
-  - platform: mqtt
-    state_topic: '/sonoff/s20_5/online'
-    name: 'Verbindungsstatus S20_5'
-    payload_on: "online"
-    payload_off: "offline"
-    device_class: connectivity

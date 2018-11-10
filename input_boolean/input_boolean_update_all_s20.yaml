@@ -1,4 +1,0 @@
-  update_s20:
-    name: FW Update alle S20
-    initial: off
-    icon: mdi:cloud-upload

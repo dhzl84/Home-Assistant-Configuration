@@ -10,20 +10,17 @@ views:
         show_header_toggle: true
         entities:
           - switch.s20_1
-          - switch.s20_2
           - switch.s20_4
+          - switch.s20_2
           - entity: switch.shelly1_01
             icon: mdi:ceiling-light
 
+      #card
+      - type: sensor
+        entity: sensor.temperature_158d0002281a4e
       #card stack
       - type: vertical-stack
         cards:
-          #card
-          - type: entities
-            title: Temperatur
-            show_header_toggle: false
-            entities:
-              - sensor.temperature_158d0002281a4e
           #card
           - type: thermostat
             entity: climate.buero
@@ -54,6 +51,9 @@ views:
           - switch.s20_1
           - switch.s20_2
           - switch.s20_4
+          - entity: switch.s20_3
+            name: Stern
+            icon: mdi:star
       #card
       - type: entities
         title: Büro
@@ -101,9 +101,14 @@ views:
           - type: thermostat
             entity: climate.buero
           #card
-          - type: entities
-            entities:
-              - climate.buero
+          # - type: entities
+          #   entities:
+          #     - climate.buero
+          #card
+          - type: sensor
+            entity: sensor.temperatur_buero
+            name: Büro
+
       #card stack
       - type: vertical-stack
         cards:
@@ -111,9 +116,13 @@ views:
           - type: thermostat
             entity: climate.wohnzimmer
           #card
-          - type: entities
-            entities:
-              - climate.wohnzimmer
+          # - type: entities
+          #   entities:
+          #     - climate.wohnzimmer
+          #card
+          - type: sensor
+            entity: sensor.temperatur_wohnzimmer
+            name: Wohnzimmer
   #view
   - title: Maker
     icon: mdi:printer-3d
@@ -139,6 +148,10 @@ views:
           - entity: sensor.octoprint_job_percentage
             name: Druckfortschritt
             icon: mdi:progress-clock
+          - entity: sensor.octoprint_time_elapsed
+            name: Druckzeit
+          - entity: sensor.octoprint_time_remaining
+            name: Restzeit
           - entity: input_boolean.drucker_nach_druck_aus
             name: Drucker und Licht nach Druck Ausschalten
             icon: mdi:progress-check
@@ -208,13 +221,13 @@ views:
         title: Admin General
         show_header_toggle: false
         entities:
+          - sensor.current_version
           - sensor.time
           - sensor.processor_use
           - sensor.memory_free
           - sensor.disk_free_
           - sensor.last_boot
           - input_boolean.update_thermostats
-          - input_boolean.update_s20
           - sensor.speedtest_download
           - sensor.speedtest_upload
           - sensor.speedtest_ping

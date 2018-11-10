@@ -1,9 +1,0 @@
-  #S20_1
-  - platform: mqtt
-    state_topic: '/sonoff/s20_1/deviceIP'
-    name: 'IP S20_1'
-    value_template: '{{ value }}'
-  - platform: mqtt
-    state_topic: '/sonoff/s20_1/firmwareVersion'
-    name: 'Firmware S20_1'
-    value_template: '{{ value }}'
