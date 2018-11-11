@@ -4,7 +4,6 @@
       platform: state
       entity_id: binary_sensor.motion_sensor_158d0001fa3d9c
       to: 'on'
-
     condition:
       condition: and
       conditions:
@@ -13,7 +12,6 @@
         - condition: state
           entity_id: switch.shelly1_02
           state: "off"
-
     action:
       - service: switch.turn_on
         entity_id: switch.shelly1_02
@@ -26,7 +24,7 @@
     initial_state: 'on'
     trigger:
       platform: state
-      entity_id: binary_sensor.motion_sensor_158d000200ceec
+      entity_id: binary_sensor.motion_sensor_158d0001fa3d9c
       to: 'off'
     condition:
       condition: and
@@ -37,9 +35,24 @@
         - condition: state
           entity_id: input_boolean.treppe_oben_licht_wegen_bewegung
           state: "on"
-
     action:
       - service: switch.turn_off
         entity_id: switch.shelly1_02
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.treppe_oben_licht_wegen_bewegung
+
+##############################################################################################################################################################
+
+  - alias: treppe open licht aus
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.motion_sensor_158d0001fa3d9c
+      to: 'off'
+    condition:
+      - condition: state
+        entity_id: input_boolean.treppe_oben_licht_wegen_bewegung
+        state: "on"
+    action:
       - service: input_boolean.turn_off
         entity_id: input_boolean.treppe_oben_licht_wegen_bewegung

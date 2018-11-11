@@ -52,8 +52,8 @@ views:
         show_header_toggle: true
         entities:
           - switch.s20_1
-          - switch.s20_2
           - switch.s20_4
+          - switch.s20_2
           - switch.steckdose_hs100_1
           - entity: switch.s20_3
             name: Stern
@@ -63,7 +63,6 @@ views:
         title: Büro
         show_header_toggle: false
         entities:
-          - light.led_strip
           - entity: switch.shelly1_01
             name: Deckenlicht
             icon: mdi:ceiling-light
@@ -73,6 +72,7 @@ views:
           - entity: binary_sensor.motion_sensor_158d000200ceec
             name: Bewegungssensor
           - input_boolean.buero_licht_wegen_bewegung
+          - light.led_strip
 
       #card
       - type: entities
