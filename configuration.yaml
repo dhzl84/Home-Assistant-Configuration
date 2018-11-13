@@ -57,10 +57,10 @@ discovery:
     - igd
     
 http:
-#  ssl_certificate: !secret http_ssl_certificate
-#  ssl_key: !secret http_ssl_key
+  # ssl_certificate: !secret http_ssl_certificate
+  # ssl_key: !secret http_ssl_key
   base_url: !secret http_base_url
-  api_password: !secret http_api_password
+  # api_password: !secret http_api_password
   ip_ban_enabled: true
   login_attempts_threshold: 3
 

@@ -2,38 +2,31 @@
     switch.steckdose_hs100_1:
       icon: mdi:bowling
       friendly_name: Kugeln
-      #haaska_hidden: false
 
 # Sonoff S20
     switch.s20_1:
       icon: mdi:floor-lamp
       friendly_name: Stehlampe Wohnzimmer
-      #haaska_hidden: false
 
     switch.s20_2:
       icon: mdi:lava-lamp
       friendly_name: Vitrine
-      #haaska_hidden: false
       
     switch.s20_3:
       icon: mdi:star
       friendly_name: Stern
-      #haaska_hidden: false
       
     switch.s20_4:
       icon: mdi:floor-lamp
       friendly_name: Stehlampe Esszimmer
-      #haaska_hidden: false
 
     switch.s20_5:
       icon: mdi:printer-3d
       friendly_name: 3D-Drucker
-      #haaska_hidden: false
 
     switch.s20_6:
       icon: mdi:desk-lamp
       friendly_name: Bürolampe
-      #haaska_hidden: false
       
     sensor.sunrise_time:
       icon: mdi:weather-sunset-up

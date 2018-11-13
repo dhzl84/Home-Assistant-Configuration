@@ -1,32 +1,13 @@
   smart_home:
     filter:
-      include_entities:
-        - input_boolean.beleuchtung_scene
-        - input_boolean.fernsehabend_scene
-        - switch.funksteckdose_aussen
-        - switch.steckdose_hs100_1
-        - switch.s20_1
-        - switch.s20_2
-        - switch.s20_3
-        - switch.s20_4
-        - switch.s20_5
-        - switch.s20_6
-        - climate.buero
-        - climate.wohnzimmer
-        - cover.wohnzimmer
-#      include_domains:
-#        - climate
-#      exclude_entities:
-#        - switch.outside
+      include_domains:
+        - climate
+        - switch
+        - cover
+
     entity_config:
 #scenes
-      input_boolean.beleuchtung_scene:
-        description: Ambiente Beleuchtung im Haus
-        display_categories: LIGHT
 
-      input_boolean.fernsehabend_scene:
-        description: Ambiente Beleuchtung im Wohnzimmer
-        display_categories: LIGHT
 #climate
       climate.buero:
         description: Heizung im Buero
@@ -49,7 +30,7 @@
         display_categories: LIGHT
         
       switch.s20_3:
-        display_categories: SWITCH
+        display_categories: LIGHT
         
       switch.s20_4:
         display_categories: LIGHT
@@ -58,6 +39,12 @@
         display_categories: SWITCH
   
       switch.s20_6:
+        display_categories: LIGHT
+
+      switch.shelly1_01:
+        display_categories: LIGHT
+
+      switch.shelly1_02:
         display_categories: LIGHT
 
       cover.wohnzimmer:
