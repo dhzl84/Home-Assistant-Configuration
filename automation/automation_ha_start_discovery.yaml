@@ -1,0 +1,15 @@
+  - alias: 'request MQTT discovery after startup'
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+    - service: mqtt.publish
+      data:
+        topic: 'homeassistant/discover'
+        payload: '1'
+    - delay:
+        milliseconds: 100
+    - service: mqtt.publish
+      data:
+        topic: 'homeassistant/discover'
+        payload: '0'

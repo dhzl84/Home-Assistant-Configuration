@@ -21,17 +21,10 @@
     "sensor.luftfeuchtigkeit_*":
       icon: mdi:water-percent
       friendly_name: Luftfeuchtigkeit
-
-    "binary_sensor.heizung_aktiv*":
-      friendly_name: Heizung aktiv
-
-    "binary_sensor.verbindungsstatus_*":
-      icon: mdi:wifi
-      friendly_name: Verbindungsstatus
-      
+     
     "binary_sensor.sensorfehler_*":
       icon: mdi:comment-alert-outline
-      friendly_name: Sensorfehler
+      friendly_name: Sensorstatus
 
     "sensor.firmware_*":
       icon: mdi:matrix
