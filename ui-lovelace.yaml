@@ -315,10 +315,7 @@ views:
         entities:
           - climate.buero
           - sensor.temperatur_buero
-          - sensor.solltemperatur_buero
           - sensor.luftfeuchtigkeit_buero
-          - binary_sensor.heizung_aktiv_buero
-          - binary_sensor.verbindungsstatus_buero
           - binary_sensor.sensorfehler_buero
           - sensor.firmware_buero
           - switch.firmwareupdate_buero
@@ -333,10 +330,7 @@ views:
         entities:
           - climate.wohnzimmer
           - sensor.temperatur_wohnzimmer
-          - sensor.solltemperatur_wohnzimmer
           - sensor.luftfeuchtigkeit_wohnzimmer
-          - binary_sensor.heizung_aktiv_wohnzimmer
-          - binary_sensor.verbindungsstatus_wohnzimmer
           - binary_sensor.sensorfehler_wohnzimmer
           - sensor.firmware_wohnzimmer
           - switch.firmwareupdate_wohnzimmer
@@ -349,12 +343,10 @@ views:
         title: Prototype
         show_header_toggle: false
         entities:
-          - climate.prototype
+          - entity: climate.prototype
+            name: Prototype
           - sensor.temperatur_prototype
-          - sensor.solltemperatur_prototype
           - sensor.luftfeuchtigkeit_prototype
-          - binary_sensor.heizung_aktiv_prototype
-          - binary_sensor.verbindungsstatus_prototype
           - binary_sensor.sensorfehler_prototype
           - sensor.firmware_prototype
           - switch.firmwareupdate_prototype
@@ -362,3 +354,4 @@ views:
           - sensor.ip_prototype
           - sensor.skalierung_prototype
           - sensor.offset_prototype
+#{{ADMINCARD}}
