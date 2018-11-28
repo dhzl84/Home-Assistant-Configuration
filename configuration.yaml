@@ -62,7 +62,7 @@ http:
   base_url: !secret http_base_url
   # api_password: !secret http_api_password
   ip_ban_enabled: true
-  login_attempts_threshold: 3
+  login_attempts_threshold: 10
 
 
 # Checks for available updates

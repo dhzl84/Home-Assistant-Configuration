@@ -28,7 +28,7 @@
     action:
       - service: switch.turn_on
         data:
-          entity_id: switch.s20_3
+          entity_id: switch.steckdose_hs100_1
 
 # morgens aus per Zeit
   - alias: 'Beleuchtung morgens aus'
@@ -55,7 +55,7 @@
     action:
       - service: switch.turn_off
         data:
-          entity_id: switch.s20_3
+          entity_id: switch.steckdose_hs100_1
 
 # abends an per Zeit
   - alias: 'Beleuchtung abends an'
@@ -82,7 +82,7 @@
     action:
       - service: switch.turn_on
         data:
-          entity_id: switch.s20_3
+          entity_id: switch.steckdose_hs100_1
 
 # abends aus per Zeit
   - alias: 'Beleuchtung abends aus'
@@ -114,7 +114,7 @@
     action:
       - service: switch.turn_off
         data:
-          entity_id: switch.s20_3
+          entity_id: switch.steckdose_hs100_1
 
 # aus nach Sonnenaufgang
   - alias: 'Beleuchtung aus nach Sonnenaufgang'
@@ -137,7 +137,7 @@
             - fri
     action:
       - service: switch.turn_off
-        entity_id: switch.s20_3
+        entity_id: switch.steckdose_hs100_1
 
 # an vor Sonnenuntergang
   - alias: 'Beleuchtung an vor Sonnenuntergang'
@@ -160,4 +160,4 @@
             - fri
     action:
       service: switch.turn_on
-      entity_id: switch.s20_3
+      entity_id: switch.steckdose_hs100_1

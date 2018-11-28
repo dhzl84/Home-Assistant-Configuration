@@ -12,10 +12,7 @@ views:
           - switch.s20_1
           - switch.s20_4
           - switch.s20_2
-          - switch.steckdose_hs100_1
-          # - entity: switch.s20_3
-          #   name: Stern
-          #   icon: mdi:star
+          - switch.s20_3
           - switch.shelly1_01
           - switch.shelly1_02
       #card
@@ -54,10 +51,7 @@ views:
           - switch.s20_1
           - switch.s20_4
           - switch.s20_2
-          - switch.steckdose_hs100_1
-          # - entity: switch.s20_3
-          #   name: Stern
-          #   icon: mdi:star
+          - switch.s20_3
       #card
       - type: entities
         title: Büro

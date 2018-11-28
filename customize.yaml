@@ -1,7 +1,7 @@
 # TP-Link HS100
     switch.steckdose_hs100_1:
-      icon: mdi:bowling
-      friendly_name: Kugeln
+      icon: mdi:star
+      friendly_name: Stern
 
 # Sonoff S20
     switch.s20_1:
@@ -13,8 +13,8 @@
       friendly_name: Vitrine
       
     switch.s20_3:
-      icon: mdi:star
-      friendly_name: Stern
+      icon: mdi:bowling
+      friendly_name: Kugeln
       
     switch.s20_4:
       icon: mdi:floor-lamp
