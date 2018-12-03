@@ -54,7 +54,6 @@ discovery:
   ignore:
     - google_cast
     - philips_hue
-    - igd
     
 http:
   # ssl_certificate: !secret http_ssl_certificate
@@ -114,16 +113,6 @@ notify:
 
 # Track the sun
 sun:
-  
-#MQTT
-# mqtt:
-#   broker: !secret mqtt_broker
-#   port: !secret mqtt_port
-#   client_id: !secret mqtt_client_id
-#   username: !secret mqtt_username
-#   password: !secret mqtt_password
-#   discovery: true
-#   discovery_prefix: homeassistant
 
 #Octoprint
 octoprint:
