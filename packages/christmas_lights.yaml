@@ -1,3 +1,100 @@
+# 433 MHz switches
+switch:
+  - platform: rpi_rf
+    gpio: 17
+    switches:
+      funksteckdose_aussen:
+        code_on: 4433
+        code_off: 4436
+      christmas:
+        code_on: 4539729
+        code_off: 4539732
+
+  # see switches folder, only mentioned here for completeness
+  # - platform: tplink
+  #   host: 192.168.178.134
+  #   name: "switch.steckdose_hs100_1"
+
+
+# day restriction conditions for automation; to be done
+#input_boolean:
+#  montag_automation:
+#    name: Montag
+#    initial: on
+#    icon: mdi:calendar-clock
+#    
+#  dienstag_automation:
+#    name: Dienstag
+#    initial: on
+#    icon: mdi:calendar-clock
+#
+#  mitwoch_automation:
+#    name: Mittwoch
+#    initial: on
+#    icon: mdi:calendar-clock
+#
+#  donnerstag_automation:
+#    name: Donnerstag
+#    initial: on
+#    icon: mdi:calendar-clock
+#
+#  freitag_automation:
+#    name: Freitag
+#    initial: on
+#    icon: mdi:calendar-clock
+#
+#  samstag_automation:
+#    name: Samstag
+#    initial: off
+#    icon: mdi:calendar-clock
+#
+#  sonntag_automation:
+#    name: Sonntag
+#    initial: off
+#    icon: mdi:calendar-clock
+
+# select automation conditions time or sun or off
+input_select:
+  zeitsteuerung:
+    name: Beleuchtungssteuerung
+    options:
+    - aus
+    - Zeit
+    - Zeit und Sonne
+    initial: aus
+    icon: mdi:home-automation
+
+# times for automation conditions
+input_datetime:
+  beleuchtung_morgens_an:
+    name: Beleuchtung morgens an
+    has_time: true
+    has_date: false
+    initial: '05:45'
+    icon: mdi:lightbulb-on-outline
+
+  beleuchtung_morgens_aus:
+    name: Beleuchtung morgens aus
+    has_time: true
+    has_date: false
+    initial: '07:00'
+    icon: mdi:lightbulb-outline
+
+  beleuchtung_abends_an:
+    name: Beleuchtung abends an
+    has_time: true
+    has_date: false
+    initial: '17:00'
+    icon: mdi:lightbulb-on-outline
+
+  beleuchtung_abends_aus:
+    name: Beleuchtung abends aus
+    has_time: true
+    has_date: false
+    initial: '22:30'
+    icon: mdi:lightbulb-outline
+
+automation:
 # morgens an per Zeit
   - alias: 'Beleuchtung morgens an'
     initial_state: 'on'
@@ -25,10 +122,12 @@
             - wed
             - thu
             - fri
+            - sat
+            - sun
     action:
-      - service: switch.turn_on
-        data:
-          entity_id: switch.steckdose_hs100_1
+      - service: script.turn_on
+        entity_id: script.christmas_lights_on
+
 
 # morgens aus per Zeit
   - alias: 'Beleuchtung morgens aus'
@@ -52,10 +151,11 @@
             - wed
             - thu
             - fri
+            - sat
+            - sun
     action:
-      - service: switch.turn_off
-        data:
-          entity_id: switch.steckdose_hs100_1
+      - service: script.turn_on
+        entity_id: script.christmas_lights_off
 
 # abends an per Zeit
   - alias: 'Beleuchtung abends an'
@@ -79,10 +179,11 @@
             - wed
             - thu
             - fri
+            - sat
+            - sun
     action:
-      - service: switch.turn_on
-        data:
-          entity_id: switch.steckdose_hs100_1
+      - service: script.turn_on
+        entity_id: script.christmas_lights_on
 
 # abends aus per Zeit
   - alias: 'Beleuchtung abends aus'
@@ -111,10 +212,11 @@
             - wed
             - thu
             - fri
+            - sat
+            - sun
     action:
-      - service: switch.turn_off
-        data:
-          entity_id: switch.steckdose_hs100_1
+      - service: script.turn_on
+        entity_id: script.christmas_lights_off
 
 # aus nach Sonnenaufgang
   - alias: 'Beleuchtung aus nach Sonnenaufgang'
@@ -135,9 +237,11 @@
             - wed
             - thu
             - fri
+            - sat
+            - sun
     action:
-      - service: switch.turn_off
-        entity_id: switch.steckdose_hs100_1
+      - service: script.turn_on
+        entity_id: script.christmas_lights_off
 
 # an vor Sonnenuntergang
   - alias: 'Beleuchtung an vor Sonnenuntergang'
@@ -158,6 +262,8 @@
             - wed
             - thu
             - fri
+            - sat
+            - sun
     action:
-      service: switch.turn_on
-      entity_id: switch.steckdose_hs100_1
+      - service: script.turn_on
+        entity_id: script.christmas_lights_on

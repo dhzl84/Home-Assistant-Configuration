@@ -7,8 +7,8 @@
     "automation.push_*":
       icon: mdi:signal-variant
 
-    # "climate.*":
-    #   target_temp_step: 0.5
+    "climate.*":
+      target_temp_step: 0.5
 
     "sensor.temperatur_*":
       icon: mdi:thermometer
@@ -49,3 +49,7 @@
     "sensor.ip_*":
       icon: mdi:fingerprint
       friendly_name: IP
+
+    "sensor.hysteresis_*":
+      icon: mdi:thermostat-box
+      friendly_name: Hysterese

@@ -30,6 +30,7 @@ media_player:   !include_dir_merge_list    media_player/
 sensor:         !include_dir_merge_list    sensors/
 shell_command:  !include_dir_merge_named   shell_commands/
 switch:         !include_dir_merge_list    switch/
+script:         !include_dir_merge_named   scripts/
 
 #group:          !include_dir_merge_named group/
 scene:          !include_dir_merge_list scenes/
@@ -45,6 +46,11 @@ vacuum:
 # Enables the frontend
 frontend:
   javascript_version: latest
+  themes: !include_dir_merge_named themes
+
+lovelace:
+  mode: yaml
+
 # Enables configuration UI
 config:
 
@@ -56,12 +62,7 @@ discovery:
     - philips_hue
     
 http:
-  # ssl_certificate: !secret http_ssl_certificate
-  # ssl_key: !secret http_ssl_key
   base_url: !secret http_base_url
-  # api_password: !secret http_api_password
-  ip_ban_enabled: true
-  login_attempts_threshold: 10
 
 
 # Checks for available updates
@@ -102,8 +103,7 @@ influxdb:
   database: !secret influxdb_dbname
   username: !secret influxdb_username
   password: !secret influxdb_password
-  max_retries: 10
-  default_measurement: state
+  max_retries: 99
 
 notify:
   - name: slack_notify
@@ -123,25 +123,26 @@ octoprint:
 
 #hubs
 enocean:
-  device: /dev/ttyUSB1
-  
-zha:
-  usb_path: /dev/ttyUSB0
-  database_path: zigbee.db
-  baudrate: 57600
-  
+  device: /dev/ttyUSB0
+
 cover:
   - platform: duofern
-    serial_port: /dev/ttyUSB2
+    serial_port: /dev/ttyUSB1
     config_file: duofern.json
-    code: 1234
+    code: !secret duofern_code
+
+zha:
+  usb_path: /dev/ttyUSB2
+  database_path: zigbee.db
+  baudrate: 57600
 
 xiaomi_aqara:
   discovery_retry: 10
   gateways:
-    - key: qzdtjzt6vxzo892k
+    - key: !secret aqara_key
 
 logger:
   default: warn
   # logs:
-  #   homeassistant.components.mqtt: debug
+    # homeassistant.components.mqtt: debug
+    # homeassistant.components.zha: debug

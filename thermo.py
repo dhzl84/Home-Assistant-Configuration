@@ -30,13 +30,15 @@ newAdminGroupString = \
 '            name: ' + NAME + '\n' \
 '          - sensor.temperatur_' + ID + '\n' \
 '          - sensor.luftfeuchtigkeit_' + ID + '\n' \
+'          - binary_sensor.state_' + ID + '\n' \
 '          - binary_sensor.sensorfehler_' + ID + '\n' \
 '          - sensor.firmware_' + ID + '\n' \
 '          - switch.firmwareupdate_' + ID + '\n' \
 '          - switch.neustart_' + ID + '\n' \
 '          - sensor.ip_' + ID + '\n' \
 '          - sensor.skalierung_' + ID + '\n' \
-'          - sensor.offset_' + ID
+'          - sensor.offset_' + ID + '\n' \
+'          - sensor_hysteresis_' + ID
 
 writeFile           = False
 

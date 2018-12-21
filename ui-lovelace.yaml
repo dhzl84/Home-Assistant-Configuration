@@ -15,9 +15,22 @@ views:
           - switch.s20_3
           - switch.shelly1_01
           - switch.shelly1_02
+          - switch.steckdose_hs100_1
+      #card
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: script.christmas_lights_on
+            name: Weihnachtsbeleuchtung an
+            icon: mdi:pine-tree
+          - entity: script.christmas_lights_off
+            name: Weihnachtsbeleuchtung aus
+            icon: mdi:pine-tree-box
       #card
       - type: sensor
         entity: sensor.temperature_158d0002281a4e
+        graph: line
+        detail: 2
       #card stack
       - type: vertical-stack
         cards:
@@ -30,7 +43,7 @@ views:
       #card
       - type: entities
         title: Staubsauger
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - vacuum.mi_robot_vacuum
       #card
@@ -52,6 +65,7 @@ views:
           - switch.s20_4
           - switch.s20_2
           - switch.s20_3
+          - switch.steckdose_hs100_1
       #card
       - type: entities
         title: Büro
@@ -65,7 +79,8 @@ views:
             name: Helligkeitssensor
           - entity: binary_sensor.motion_sensor_158d000200ceec
             name: Bewegungssensor
-          - input_boolean.buero_licht_wegen_bewegung
+          - entity: input_boolean.automation_licht_buero
+            icon: mdi:auto-fix
           - light.led_strip
 
       #card
@@ -79,7 +94,8 @@ views:
             name: Helligkeitssensor
           - entity: binary_sensor.motion_sensor_158d0001fa3d9c
             name: Bewegungssensor
-          - input_boolean.treppe_oben_licht_wegen_bewegung
+          - entity: input_boolean.automation_licht_treppe_oben
+            icon: mdi:auto-fix
 
   #view Media
   - title: Media
@@ -111,13 +127,10 @@ views:
           #card
           - type: thermostat
             entity: climate.buero
-          #card
-          # - type: entities
-          #   entities:
-          #     - climate.buero
-          #card
           - type: sensor
             entity: sensor.temperatur_buero
+            graph: line
+            detail: 2
             name: Büro
 
       #card stack
@@ -126,13 +139,10 @@ views:
           #card
           - type: thermostat
             entity: climate.wohnzimmer
-          #card
-          # - type: entities
-          #   entities:
-          #     - climate.wohnzimmer
-          #card
           - type: sensor
             entity: sensor.temperatur_wohnzimmer
+            graph: line
+            detail: 2
             name: Wohnzimmer
   #view
   - title: Maker
@@ -191,7 +201,6 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - input_boolean.aussensteckdose_automation
           - input_select.zeitsteuerung
       #conditional
       - type: conditional
@@ -253,8 +262,6 @@ views:
         title: Xiaomi Zigbee
         show_header_toggle: false
         entities:
-          - binary_sensor.motion_sensor_158d000200ce5c
-          - sensor.illumination_158d000200ce5c
           - binary_sensor.motion_sensor_158d0001fa3d9c
           - sensor.illumination_158d0001fa3d9c
           - binary_sensor.motion_sensor_158d000200ceec
@@ -286,14 +293,8 @@ views:
           show_header_toggle: false
           entities:
             - sensor.aussentemperatur_battery
-            - sensor.humidity_158d0002281a4e_battery
-            - sensor.illumination_158d0001fa3d9c_battery
-            - sensor.illumination_158d000200ce5c_battery
-            - sensor.illumination_158d000200ceec_battery
-            - sensor.mi_robot_vacuum_battery
-            - sensor.motion_sensor_158d0001fa3d9c_battery
-            - sensor.motion_sensor_158d000200ce5c_battery
-            - sensor.motion_sensor_158d000200ceec_battery
+            - sensor.buro_battery
+            - sensor.treppe_oben_battery
       #card
       - type: entities
         title: DuoFern
@@ -310,6 +311,7 @@ views:
           - climate.buero
           - sensor.temperatur_buero
           - sensor.luftfeuchtigkeit_buero
+          - binary_sensor.state_buero
           - binary_sensor.sensorfehler_buero
           - sensor.firmware_buero
           - switch.firmwareupdate_buero
@@ -317,6 +319,7 @@ views:
           - sensor.ip_buero
           - sensor.skalierung_buero
           - sensor.offset_buero
+          - sensor.hysteresis_buero
       #card
       - type: entities
         title: Wohnzimmer
@@ -325,6 +328,7 @@ views:
           - climate.wohnzimmer
           - sensor.temperatur_wohnzimmer
           - sensor.luftfeuchtigkeit_wohnzimmer
+          - binary_sensor.state_wohnzimmer
           - binary_sensor.sensorfehler_wohnzimmer
           - sensor.firmware_wohnzimmer
           - switch.firmwareupdate_wohnzimmer
@@ -332,6 +336,7 @@ views:
           - sensor.ip_wohnzimmer
           - sensor.skalierung_wohnzimmer
           - sensor.offset_wohnzimmer
+          - sensor.hysteresis_wohnzimmer
       #card
       - type: entities
         title: Prototype
@@ -341,6 +346,7 @@ views:
             name: Prototype
           - sensor.temperatur_prototype
           - sensor.luftfeuchtigkeit_prototype
+          - binary_sensor.state_prototype
           - binary_sensor.sensorfehler_prototype
           - sensor.firmware_prototype
           - switch.firmwareupdate_prototype
@@ -348,4 +354,5 @@ views:
           - sensor.ip_prototype
           - sensor.skalierung_prototype
           - sensor.offset_prototype
+          - sensor.hysteresis_prototype
 #{{ADMINCARD}}

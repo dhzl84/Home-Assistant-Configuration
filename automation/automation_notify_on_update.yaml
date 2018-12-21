@@ -6,4 +6,13 @@
     action:
       - service: notify.slack_notify
         data:
-          message: 'Update for Home Assistant is available.'
+          message: ""
+          data: {
+          "attachments": [
+              {
+                  "color": "good",
+                  "title": "Home Assistant update available.",
+                  "title_link": "https://www.home-assistant.io/",
+              }
+            ]
+          }

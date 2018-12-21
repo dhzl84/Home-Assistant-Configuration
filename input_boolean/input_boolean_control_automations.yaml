@@ -1,44 +1,12 @@
-  aussensteckdose_automation:
-    name: Außensteckdose
-    initial: off
-    icon: mdi:home-automation
-    
   drucker_nach_druck_aus:
     name: Drucker nach Druck ausschalten
     initial: off
     icon: mdi:toggle-switch-off
-    
-#  montag_automation:
-#    name: Montag
-#    initial: on
-#    icon: mdi:calendar-clock
-#    
-#  dienstag_automation:
-#    name: Dienstag
-#    initial: on
-#    icon: mdi:calendar-clock
-#
-#  mitwoch_automation:
-#    name: Mittwoch
-#    initial: on
-#    icon: mdi:calendar-clock
-#
-#  donnerstag_automation:
-#    name: Donnerstag
-#    initial: on
-#    icon: mdi:calendar-clock
-#
-#  freitag_automation:
-#    name: Freitag
-#    initial: on
-#    icon: mdi:calendar-clock
-#
-#  samstag_automation:
-#    name: Samstag
-#    initial: off
-#    icon: mdi:calendar-clock
-#
-#  sonntag_automation:
-#    name: Sonntag
-#    initial: off
-#    icon: mdi:calendar-clock
+  
+  automation_licht_buero:
+    name: Bewegungssteuerung
+    initial: on
+
+  automation_licht_treppe_oben:
+    name: Bewegungssteuerung
+    initial: on

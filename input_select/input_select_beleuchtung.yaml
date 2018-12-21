@@ -1,8 +1,0 @@
-zeitsteuerung:
-  name: Beleuchtungssteuerung
-  options:
-   - aus
-   - Zeit
-   - Zeit und Sonne
-  initial: aus
-  icon: mdi:home-automation
