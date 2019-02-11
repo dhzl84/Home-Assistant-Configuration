@@ -17,16 +17,6 @@ views:
           - switch.shelly1_02
           - switch.steckdose_hs100_1
       #card
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: script.christmas_lights_on
-            name: Weihnachtsbeleuchtung an
-            icon: mdi:pine-tree
-          - entity: script.christmas_lights_off
-            name: Weihnachtsbeleuchtung aus
-            icon: mdi:pine-tree-box
-      #card
       - type: sensor
         entity: sensor.temperature_158d0002281a4e
         graph: line
@@ -82,7 +72,6 @@ views:
           - entity: input_boolean.automation_licht_buero
             icon: mdi:auto-fix
           - light.led_strip
-
       #card
       - type: entities
         title: Treppe oben
@@ -144,7 +133,7 @@ views:
             graph: line
             detail: 2
             name: Wohnzimmer
-  #view
+  #view Maker
   - title: Maker
     icon: mdi:printer-3d
     cards:
@@ -185,8 +174,9 @@ views:
         show_info: false
         show_state: false
         tap_action: dialog
-  #view
+  #view Outdoor
   - title: Outdoor
+    icon: mdi:tree
     cards:
       - type: entities
         #title: Outdoor
@@ -194,8 +184,9 @@ views:
         entities:
           - entity: switch.funksteckdose_aussen
             name: Außensteckdose
-  #view
+  #view Automation
   - title: Automation
+    icon: mdi:auto-fix
     cards:
       #card
       - type: entities
@@ -235,8 +226,9 @@ views:
 
   #view Admin
   - title: Admin
+    icon: mdi:wrench
     cards:
-      #card
+      #card Admin General
       - type: entities
         title: Admin General
         show_header_toggle: false
@@ -245,7 +237,7 @@ views:
           - sensor.time
           - sensor.processor_use
           - sensor.memory_free
-          - sensor.disk_free_
+          - sensor.disk_free
           - sensor.last_boot
           - input_boolean.update_thermostats
           - sensor.speedtest_download
@@ -262,14 +254,16 @@ views:
         title: Xiaomi Zigbee
         show_header_toggle: false
         entities:
+          - sensor.temperature_158d0002281a4e
+          - sensor.humidity_158d0002281a4e
           - binary_sensor.motion_sensor_158d0001fa3d9c
           - sensor.illumination_158d0001fa3d9c
           - binary_sensor.motion_sensor_158d000200ceec
           - sensor.illumination_158d000200ceec
+          - binary_sensor.motion_sensor_158d000200ce5c
+          - sensor.illumination_158d000200ce5c
           - light.gateway_light_7811dc6c97d5
           - sensor.illumination_7811dc6c97d5
-          - sensor.temperature_158d0002281a4e
-          - sensor.humidity_158d0002281a4e
       #vertical stack
       - type: vertical-stack
         cards:
@@ -278,23 +272,13 @@ views:
           title: Battery Alert
           show_header_toggle: false
           entities:
-            - input_number.battery_alert_threshold_min
-            - input_number.battery_alert_threshold_max
-            - automation.battery_notification
-            - automation.battery_notification_clear
-            - automation.battery_notification_slack
-            - automation.battery_sensor_from_battery_level_attribute
-            - automation.battery_sensor_from_battery_attribute
-            - automation.battery_sensor_from_battery_numeric_attribute
-            - automation.update_battery_status_group_members
+            - group.battery_alert
         #card
         - type: entities
-          title: Battery Status
+          title: Battery View
           show_header_toggle: false
           entities:
-            - sensor.aussentemperatur_battery
-            - sensor.buro_battery
-            - sensor.treppe_oben_battery
+            - group.battery_view
       #card
       - type: entities
         title: DuoFern
@@ -337,6 +321,9 @@ views:
           - sensor.skalierung_wohnzimmer
           - sensor.offset_wohnzimmer
           - sensor.hysteresis_wohnzimmer
+      #card
+      - type: thermostat
+        entity: climate.prototype
       #card
       - type: entities
         title: Prototype

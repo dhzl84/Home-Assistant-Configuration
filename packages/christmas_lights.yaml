@@ -99,7 +99,7 @@ automation:
   - alias: 'Beleuchtung morgens an'
     initial_state: 'on'
     trigger:
-      platform: time
+      platform: time_pattern
       minutes: '/1'
       seconds: 0
     condition:
@@ -133,7 +133,7 @@ automation:
   - alias: 'Beleuchtung morgens aus'
     initial_state: 'on'
     trigger:
-      platform: time
+      platform: time_pattern
       minutes: '/1'
       seconds: 0
     condition:
@@ -161,7 +161,7 @@ automation:
   - alias: 'Beleuchtung abends an'
     initial_state: 'on'
     trigger:
-      platform: time
+      platform: time_pattern
       minutes: '/1'
       seconds: 0
     condition:
@@ -189,7 +189,7 @@ automation:
   - alias: 'Beleuchtung abends aus'
     initial_state: 'on'
     trigger:
-      platform: time
+      platform: time_pattern
       minutes: '/1'
       seconds: 0
     condition:

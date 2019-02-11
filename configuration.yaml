@@ -20,7 +20,7 @@ automation old: !include_dir_merge_list    automation/
 
 binary_sensor:  !include_dir_merge_list    binary_sensors/
 camera:         !include_dir_merge_list    camera/
-climate:        !include_dir_merge_list    climate/
+device_tracker: !include_dir_merge_list    device_tracker/
 input_boolean:  !include_dir_merge_named   input_boolean/
 input_datetime: !include_dir_merge_named   input_datetime/
 input_number:   !include_dir_merge_named   input_number/
@@ -36,6 +36,10 @@ script:         !include_dir_merge_named   scripts/
 scene:          !include_dir_merge_list scenes/
 
 alexa:          !include alexa/alexa.yaml
+
+panel_iframe: !include_dir_merge_named iframes/
+
+system_health:
 
 vacuum:
   - platform: xiaomi_miio
@@ -64,19 +68,9 @@ discovery:
 http:
   base_url: !secret http_base_url
 
-
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
   reporting: False
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
 
-# Discover some devices automatically
-#discovery:
 history:
   include:
     domains:
@@ -87,14 +81,12 @@ history:
 
 # The recorder component is storing details in a database which then are handled by the history component.
 recorder:
+  db_url: !secret mariaDB_url
   purge_interval: 1
   purge_keep_days: 7
 
 # The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order.
 logbook:
-
-#iframes
-panel_iframe: !include_dir_merge_named iframes/
 
 #InfluxDB
 influxdb:
@@ -125,16 +117,16 @@ octoprint:
 enocean:
   device: /dev/ttyUSB0
 
+# zha:
+#   usb_path: /dev/ttyUSB1
+#   database_path: zigbee.db
+#   baudrate: 57600
+
 cover:
   - platform: duofern
-    serial_port: /dev/ttyUSB1
+    serial_port: /dev/ttyUSB2
     config_file: duofern.json
     code: !secret duofern_code
-
-zha:
-  usb_path: /dev/ttyUSB2
-  database_path: zigbee.db
-  baudrate: 57600
 
 xiaomi_aqara:
   discovery_retry: 10
@@ -143,6 +135,5 @@ xiaomi_aqara:
 
 logger:
   default: warn
-  # logs:
-    # homeassistant.components.mqtt: debug
-    # homeassistant.components.zha: debug
+  logs:
+    homeassistant.components.zha: debug

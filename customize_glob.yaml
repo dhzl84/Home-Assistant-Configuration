@@ -53,3 +53,6 @@
     "sensor.hysteresis_*":
       icon: mdi:thermostat-box
       friendly_name: Hysterese
+
+    "sensor.illumination_*":
+      device_class: illuminance

@@ -48,36 +48,7 @@
       icon: mdi:fingerprint
       friendly_name: System Code
 
-### ZigBee
-  ### Motion 
-  #Xiaomi Aqara 02 00 CE EC
-    binary_sensor.lumi_lumisensor_motionaq2_0200ceec_1_1280:
-      friendly_name: Bewegungssensor
-      device_class: motion
-    
-    sensor.lumi_lumisensor_motionaq2_0200ceec_1_1024:
-      friendly_name: Helligkeitssensor
-      device_class: illuminance
-      
-  #Xiaomi Aqara 01 FA 3D 9C
-    binary_sensor.lumi_lumisensor_motionaq2_01fa3d9c_1_1280:
-      friendly_name: Bewegungssensor
-      device_class: motion
-      
-    sensor.lumi_lumisensor_motionaq2_01fa3d9c_1_1024:
-      friendly_name: Helligkeitssensor
-      device_class: illuminance
-      
-  #Xiaomi Aqara 02 00 CE 5C
-    binary_sensor.lumi_lumisensor_motionaq2_0200ce5c_1_1280:
-      friendly_name: Bewegungssensor
-      device_class: motion
-      
-    sensor.lumi_lumisensor_motionaq2_0200ce5c_1_1024:
-      friendly_name: Helligkeitssensor
-      device_class: illuminance
-
-### Shelly 1
+#### Shelly 1
     switch.shelly1_01:
       friendly_name: Büro
       icon: mdi:ceiling-light

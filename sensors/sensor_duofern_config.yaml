@@ -3,7 +3,7 @@
     command: "cat /config/duofern.json"
     value_template: >- 
       {% for id in value_json.devices %}
-        {{ value_json.devices[loop.index-1].id }} : {{ value_json.devices[loop.index-1].name }}
+      ID: {{ value_json.devices[loop.index-1].id }} {{'\n'}}Name: {{ value_json.devices[loop.index-1].name }} {{'\n'}}
       {%- endfor %}
     
   - platform: command_line
