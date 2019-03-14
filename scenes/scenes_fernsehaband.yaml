@@ -2,5 +2,5 @@
     entities:
       switch.s20_1: on
       switch.s20_2: on
-      cover.wohnzimmer:
+      cover.40d522:
         state: closed

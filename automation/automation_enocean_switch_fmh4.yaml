@@ -28,7 +28,7 @@
         onoff: 1
     action:
       - service: cover.stop_cover
-        entity_id: cover.wohnzimmer
+        entity_id: cover.40d522
 
 #Switch Nr. 3
   - alias: 'Enocean Handfernbedienung Taste 3'
@@ -43,7 +43,7 @@
         onoff: 0
     action:
       - service: cover.open_cover
-        entity_id: cover.wohnzimmer
+        entity_id: cover.40d522
 
 #Switch Nr. 4
   - alias: 'Enocean Handfernbedienung Taste 4'
@@ -58,4 +58,4 @@
         onoff: 1
     action:
       - service: cover.close_cover
-        entity_id: cover.wohnzimmer
+        entity_id: cover.40d522

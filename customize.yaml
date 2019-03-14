@@ -1,58 +1,43 @@
-# TP-Link HS100
-    switch.steckdose_hs100_1:
-      icon: mdi:star
-      friendly_name: Stern
-
-# Sonoff S20
-    switch.s20_1:
-      icon: mdi:floor-lamp
-      friendly_name: Stehlampe Wohnzimmer
-
-    switch.s20_2:
-      icon: mdi:lava-lamp
-      friendly_name: Vitrine
-      
-    switch.s20_3:
-      icon: mdi:bowling
-      friendly_name: Kugeln
-      
-    switch.s20_4:
-      icon: mdi:floor-lamp
-      friendly_name: Stehlampe Esszimmer
-
-    switch.s20_5:
-      icon: mdi:printer-3d
-      friendly_name: 3D-Drucker
-
-    switch.s20_6:
-      icon: mdi:desk-lamp
-      friendly_name: Bürolampe
-      
-    sensor.sunrise_time:
-      icon: mdi:weather-sunset-up
-      
-    sensor.sunset_time:
-      icon: mdi:weather-sunset-down
-      
-    switch.duofern_pair:
-      icon: mdi:mixcloud
-      
-    switch.duofern_refresh:
-      icon: mdi:cloud-sync
-
-    sensor.duofern_paired_devices:
-      icon: mdi:garage
-      friendly_name: Paired Devices
-    
-    sensor.duofern_system_code:
-      icon: mdi:fingerprint
-      friendly_name: System Code
-
-#### Shelly 1
-    switch.shelly1_01:
-      friendly_name: Büro
-      icon: mdi:ceiling-light
-
-    switch.shelly1_02:
-      friendly_name: Treppe oben
-      icon: mdi:ceiling-light
+switch.steckdose_hs100_1:
+  icon: mdi:star
+  friendly_name: Stern
+switch.s20_1:
+  icon: mdi:floor-lamp
+  friendly_name: Stehlampe Wohnzimmer
+switch.s20_2:
+  icon: mdi:lava-lamp
+  friendly_name: Vitrine
+switch.s20_3:
+  icon: mdi:bowling
+  friendly_name: Kugeln
+switch.s20_4:
+  icon: mdi:floor-lamp
+  friendly_name: Stehlampe Esszimmer
+switch.s20_5:
+  icon: mdi:printer-3d
+  friendly_name: 3D-Drucker
+switch.s20_6:
+  icon: mdi:desk-lamp
+  friendly_name: Bürolampe
+sensor.sunrise_time:
+  icon: mdi:weather-sunset-up
+sensor.sunset_time:
+  icon: mdi:weather-sunset-down
+switch.duofern_pair:
+  icon: mdi:mixcloud
+switch.duofern_refresh:
+  icon: mdi:cloud-sync
+sensor.duofern_paired_devices:
+  icon: mdi:garage
+  friendly_name: Paired Devices
+sensor.duofern_system_code:
+  icon: mdi:fingerprint
+  friendly_name: System Code
+switch.shelly1_01:
+  friendly_name: Büro
+  icon: mdi:ceiling-light
+switch.shelly1_02:
+  friendly_name: Treppe oben
+  icon: mdi:ceiling-light
+cover.40d522:
+  friendly_name: Wohnzimmer

@@ -15,7 +15,7 @@ views:
           - switch.s20_3
           - switch.shelly1_01
           - switch.shelly1_02
-          - switch.steckdose_hs100_1
+          # - switch.hs100
       #card
       - type: sensor
         entity: sensor.temperature_158d0002281a4e
@@ -41,7 +41,7 @@ views:
         title: Rollladen
         show_header_toggle: false
         entities:
-          - cover.wohnzimmer
+          - cover.40d522
   #view Licht
   - title: Licht
     icon: mdi:lightbulb-on-outline
@@ -55,7 +55,7 @@ views:
           - switch.s20_4
           - switch.s20_2
           - switch.s20_3
-          - switch.steckdose_hs100_1
+          # - switch.hs100
       #card
       - type: entities
         title: Büro
@@ -71,7 +71,7 @@ views:
             name: Bewegungssensor
           - entity: input_boolean.automation_licht_buero
             icon: mdi:auto-fix
-          - light.led_strip
+          # - light.led_strip
       #card
       - type: entities
         title: Treppe oben
@@ -85,6 +85,62 @@ views:
             name: Bewegungssensor
           - entity: input_boolean.automation_licht_treppe_oben
             icon: mdi:auto-fix
+
+  #view Raumklima
+  - title: Raumklima
+    icon: mdi:thermometer
+    cards:
+      #card
+      - type: glance
+        title: Büro
+        show_name: false
+        columns: 2
+        entities:
+          - sensor.temperatur_buero
+          - sensor.luftfeuchtigkeit_buero
+      #card
+      - type: glance
+        title: Wohnzimmer
+        show_name: false
+        columns: 2
+        entities:
+          - sensor.temperatur_wohnzimmer
+          - sensor.luftfeuchtigkeit_wohnzimmer
+      #card
+      - type: glance
+        title: Außen
+        show_name: false
+        columns: 2
+        entities:
+          - sensor.temperature_158d0002281a4e
+          - sensor.humidity_158d0002281a4e
+      #card
+      - type: glance
+        title: Schlafzimmer
+        show_name: false
+        columns: 3
+        entities:
+          - sensor.temperature_158d0002d7abbe
+          - sensor.humidity_158d0002d7abbe
+          - sensor.pressure_158d0002d7abbe
+      #card
+      - type: glance
+        title: Kinderzimmer
+        show_name: false
+        columns: 3
+        entities:
+          - sensor.temperature_158d000309b387
+          - sensor.humidity_158d000309b387
+          - sensor.pressure_158d000309b387
+      #card
+      - type: glance
+        title: Bad
+        show_name: false
+        columns: 3
+        entities:
+          - sensor.temperature_158d000309b567
+          - sensor.humidity_158d000309b567
+          - sensor.pressure_158d000309b567
 
   #view Media
   - title: Media
@@ -121,6 +177,24 @@ views:
             graph: line
             detail: 2
             name: Büro
+          - type: entities
+            show_header_toggle: false
+            title: heute
+            entities:
+              - sensor.heizungsansteuerung_buro_heute
+              - sensor.heizzyklen_buro_heute
+          - type: entities
+            show_header_toggle: false
+            title: letzte 7 Tage
+            entities:
+              - sensor.heizungsansteuerung_buro_letzte_7_tage
+              - sensor.heizzyklen_buro_letzte_7_tage
+          - type: entities
+            show_header_toggle: false
+            title: letzte 30 Tage
+            entities:
+              - sensor.heizungsansteuerung_buro_letzte_30_tage
+              - sensor.heizzyklen_buro_letzte_30_tage
 
       #card stack
       - type: vertical-stack
@@ -133,6 +207,25 @@ views:
             graph: line
             detail: 2
             name: Wohnzimmer
+          - type: entities
+            show_header_toggle: false
+            title: heute
+            entities:
+              - sensor.heizungsansteuerung_wohnzimmer_heute
+              - sensor.heizzyklen_wohnzimmer_heute
+          - type: entities
+            show_header_toggle: false
+            title: letzte 7 Tage
+            entities:
+              - sensor.heizungsansteuerung_wohnzimmer_letzte_7_tage
+              - sensor.heizzyklen_wohnzimmer_letzte_7_tage
+          - type: entities
+            show_header_toggle: false
+            title: letzte 30 Tage
+            entities:
+              - sensor.heizungsansteuerung_wohnzimmer_letzte_30_tage
+              - sensor.heizzyklen_wohnzimmer_letzte_30_tage
+
   #view Maker
   - title: Maker
     icon: mdi:printer-3d
@@ -173,7 +266,7 @@ views:
         camera_image: camera.octoprint
         show_info: false
         show_state: false
-        tap_action: dialog
+
   #view Outdoor
   - title: Outdoor
     icon: mdi:tree
@@ -275,17 +368,16 @@ views:
             - group.battery_alert
         #card
         - type: entities
-          title: Battery View
+          title: Battery Status
           show_header_toggle: false
           entities:
-            - group.battery_view
+            - group.battery_status
       #card
       - type: entities
         title: DuoFern
         show_header_toggle: false
         entities:
           - sensor.duofern_paired_devices
-          - sensor.duofern_system_code
 
       #card
       - type: entities

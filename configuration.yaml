@@ -29,7 +29,7 @@ light:          !include_dir_merge_list    light/
 media_player:   !include_dir_merge_list    media_player/
 sensor:         !include_dir_merge_list    sensors/
 shell_command:  !include_dir_merge_named   shell_commands/
-switch:         !include_dir_merge_list    switch/
+# switch:         !include_dir_merge_list    switch/
 script:         !include_dir_merge_named   scripts/
 
 #group:          !include_dir_merge_named group/
@@ -37,9 +37,21 @@ scene:          !include_dir_merge_list scenes/
 
 alexa:          !include alexa/alexa.yaml
 
+tplink:
+  switch:
+    - host: 192.168.178.134
+
 panel_iframe: !include_dir_merge_named iframes/
 
 system_health:
+
+speedtestdotnet:
+  scan_interval:
+    days: 1
+  monitored_conditions:
+    - ping
+    - download
+    - upload
 
 vacuum:
   - platform: xiaomi_miio
@@ -71,19 +83,19 @@ http:
 updater:
   reporting: False
 
-history:
-  include:
-    domains:
-      - climate
-  exclude:
-    entities:
-      - climate.prototype
+# history:
+#   include:
+#     domains:
+#       - climate
+#   exclude:
+#     entities:
+#       - climate.prototype
 
 # The recorder component is storing details in a database which then are handled by the history component.
 recorder:
   db_url: !secret mariaDB_url
   purge_interval: 1
-  purge_keep_days: 7
+  purge_keep_days: 30
 
 # The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order.
 logbook:
@@ -122,11 +134,10 @@ enocean:
 #   database_path: zigbee.db
 #   baudrate: 57600
 
-cover:
-  - platform: duofern
-    serial_port: /dev/ttyUSB2
-    config_file: duofern.json
-    code: !secret duofern_code
+duofern:
+  serial_port: /dev/ttyUSB1
+  config_file: duofern.json
+  code: !secret duofern_code
 
 xiaomi_aqara:
   discovery_retry: 10

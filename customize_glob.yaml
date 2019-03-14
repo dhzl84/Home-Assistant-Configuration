@@ -56,3 +56,21 @@
 
     "sensor.illumination_*":
       device_class: illuminance
+
+    "sensor.heizungsansteuerung_*_heute":
+      friendly_name: Heizungsansteuerung
+
+    "sensor.heizungsansteuerung_*_letzte_7_tage":
+      friendly_name: Heizungsansteuerung
+
+    "sensor.heizungsansteuerung_*_letzte_30_tage":
+      friendly_name: Heizungsansteuerung
+
+    "sensor.heizzyklen_*_heute":
+      friendly_name: Heizzyklen
+
+    "sensor.heizzyklen_*_letzte_7_tage":
+      friendly_name: Heizzyklen
+
+    "sensor.heizzyklen_*_letzte_30_tage":
+      friendly_name: Heizzyklen

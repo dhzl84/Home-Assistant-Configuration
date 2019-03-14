@@ -1,3 +1,0 @@
-  - platform: tplink
-    host: 192.168.178.134
-    name: "steckdose_hs100_1"

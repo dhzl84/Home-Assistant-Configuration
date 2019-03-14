@@ -47,7 +47,7 @@
       switch.shelly1_02:
         display_categories: LIGHT
 
-      cover.wohnzimmer:
+      cover.40d522:
         display_categories: DOOR
         name: Rollladen
         description: Rollladen im Wohnzimmer

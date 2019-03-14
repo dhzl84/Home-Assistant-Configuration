@@ -1,59 +1,40 @@
 import logging
 
 # from homeassistant.const import 'serial_port', 'config_file', 'code'
-import homeassistant.helpers.config_validation as cv
-import voluptuous as vol
 # found advice in the homeassistant creating components manual
 # https://home-assistant.io/developers/creating_components/
 # Import the device class from the component that you want to support
-from homeassistant.components.cover import ATTR_POSITION, CoverDevice, PLATFORM_SCHEMA
+from homeassistant.components.cover import ATTR_POSITION, CoverDevice
+
+from .const import DOMAIN
+
+# Home Assistant depends on 3rd party packages for API specific code.
 
 _LOGGER = logging.getLogger(__name__)
 
-# Validation of the user's configuration
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    vol.Optional('serial_port', default=None): cv.string,
-    vol.Optional('config_file', default=None): cv.string,
-    vol.Optional('code', default=None): cv.string,
-})
-
-    # Home Assistant depends on 3rd party packages for API specific code.
-REQUIREMENTS = ['https://github.com/gluap/pyduofern/archive/master.zip#pyduofern']
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
-
-    from pyduofern.duofern_stick import DuofernStickThreaded
-
     """Setup the Awesome Light platform."""
 
-    # Assign configuration variables. The configuration check takes care they are
-    # present.
-    serial_port = config.get('serial_port')
-    code = config.get('code')
-    configfile = config.get('config_file')
-
-    if 'duofern' not in hass.data:
-        hass.data['duofern'] = {
-            'stick': DuofernStickThreaded(serial_port=serial_port, system_code=code, config_file_json=configfile)}
-        hass.data['duofern']['stick'].start()
-
-    # Setup connection with devices/cloud
-    stick = hass.data["duofern"]['stick']
+    stick = hass.data[DOMAIN]['stick']
 
     # Add devices
-    add_devices(DuofernShutter(device['id'], device['name'], stick) for device in stick.config['devices'] if
-                not device['id'].startswith('46'))
+    to_add = [DuofernShutter(device['id'], device['name'], stick, hass) for device in stick.config['devices'] if
+              not device['id'].startswith('46') and not device['id'] in hass.data[DOMAIN]['devices'].keys()]
+    add_devices(to_add)
+
 
 class DuofernShutter(CoverDevice):
     """Representation of Duofern cover type device."""
 
-    def __init__(self, id, desc, stick):
+    def __init__(self, id, desc, stick, hass):
         """Initialize the shutter."""
         self._id = id
         self._name = desc
         self._state = None
         self._brightness = None
         self._stick = stick
+        hass.data[DOMAIN]['devices'][id] = self
 
     @property
     def name(self):

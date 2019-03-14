@@ -72,7 +72,7 @@
       payload: '1398033'
     action:
       - service: cover.open_cover
-        entity_id: cover.wohnzimmer
+        entity_id: cover.40d522
         
   - alias: '433 MHz Handfernbedienung Taste D Off'
     initial_state: 'on'
@@ -82,4 +82,4 @@
       payload: '1398036'
     action:
       - service: cover.close_cover
-        entity_id: cover.wohnzimmer
+        entity_id: cover.40d522
