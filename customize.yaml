@@ -1,4 +1,4 @@
-switch.steckdose_hs100_1:
+switch.hs100:
   icon: mdi:star
   friendly_name: Stern
 switch.s20_1:
@@ -23,10 +23,6 @@ sensor.sunrise_time:
   icon: mdi:weather-sunset-up
 sensor.sunset_time:
   icon: mdi:weather-sunset-down
-switch.duofern_pair:
-  icon: mdi:mixcloud
-switch.duofern_refresh:
-  icon: mdi:cloud-sync
 sensor.duofern_paired_devices:
   icon: mdi:garage
   friendly_name: Paired Devices
@@ -39,5 +35,5 @@ switch.shelly1_01:
 switch.shelly1_02:
   friendly_name: Treppe oben
   icon: mdi:ceiling-light
-cover.40d522:
-  friendly_name: Wohnzimmer
+sensor.cpu_temperature:
+  icon: mdi:bug

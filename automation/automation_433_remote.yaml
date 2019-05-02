@@ -4,9 +4,8 @@
   - alias: '433 MHz Handfernbedienung Taste A On'
     initial_state: 'on'
     trigger:
-      platform: mqtt
-      topic: "sensors/rf/receiver"
-      payload: '1394001'
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '1394001') %}true{% endif %}"
     action:
       - service: switch.turn_on
         entity_id: switch.s20_1
@@ -14,9 +13,8 @@
   - alias: '433 MHz Handfernbedienung Taste A Off'
     initial_state: 'on'
     trigger:
-      platform: mqtt
-      topic: "sensors/rf/receiver"
-      payload: '1394004'
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '1394004') %}true{% endif %}"
     action:
       - service: switch.turn_off
         entity_id: switch.s20_1
@@ -25,9 +23,8 @@
   - alias: '433 MHz Handfernbedienung Taste B On'
     initial_state: 'on'
     trigger:
-      platform: mqtt
-      topic: "sensors/rf/receiver"
-      payload: '1397073'
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '1397073') %}true{% endif %}"
     action:
       - service: switch.turn_on
         entity_id: switch.s20_4
@@ -35,9 +32,8 @@
   - alias: '433 MHz Handfernbedienung Taste B Off'
     initial_state: 'on'
     trigger:
-      platform: mqtt
-      topic: "sensors/rf/receiver"
-      payload: '1397076'
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '1397076') %}true{% endif %}"
     action:
       - service: switch.turn_off
         entity_id: switch.s20_4
@@ -46,9 +42,8 @@
   - alias: '433 MHz Handfernbedienung Taste C On'
     initial_state: 'on'
     trigger:
-      platform: mqtt
-      topic: "sensors/rf/receiver"
-      payload: '1397841'
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '1397841') %}true{% endif %}"
     action:
       - service: switch.turn_on
         entity_id: switch.s20_3
@@ -56,9 +51,8 @@
   - alias: '433 MHz Handfernbedienung Taste C Off'
     initial_state: 'on'
     trigger:
-      platform: mqtt
-      topic: "sensors/rf/receiver"
-      payload: '1397844'
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '1397844') %}true{% endif %}"
     action:
       - service: switch.turn_off
         entity_id: switch.s20_3
@@ -67,9 +61,8 @@
   - alias: '433 MHz Handfernbedienung Taste D On'
     initial_state: 'on'
     trigger:
-      platform: mqtt
-      topic: "sensors/rf/receiver"
-      payload: '1398033'
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '1398033') %}true{% endif %}"
     action:
       - service: cover.open_cover
         entity_id: cover.40d522
@@ -77,9 +70,8 @@
   - alias: '433 MHz Handfernbedienung Taste D Off'
     initial_state: 'on'
     trigger:
-      platform: mqtt
-      topic: "sensors/rf/receiver"
-      payload: '1398036'
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '1398036') %}true{% endif %}"
     action:
       - service: cover.close_cover
         entity_id: cover.40d522

@@ -2,13 +2,13 @@
     initial_state: 'on'
     trigger:
       platform: state
-      entity_id: binary_sensor.motion_sensor_158d000200ceec
+      entity_id: binary_sensor.0x00158d000200ceec_occupancy
       to: 'on'
     condition:
       condition: and
       conditions:
         - condition: template
-          value_template: '{{ states.sensor.illumination_158d000200ceec.state | int <= states.input_number.illuminance_threshold_buero.state | int }}'
+          value_template: '{{ (states.sensor["0x00158d000200ceec_illuminance"].state) | int <= states.input_number.illuminance_threshold_buero.state | int }}'
         - condition: state
           entity_id: switch.shelly1_01
           state: "off"
@@ -27,7 +27,7 @@
     initial_state: 'on'
     trigger:
       platform: state
-      entity_id: binary_sensor.motion_sensor_158d000200ceec
+      entity_id: binary_sensor.0x00158d000200ceec_occupancy
       to: 'off'
     condition:
       condition: and
@@ -53,7 +53,7 @@
     initial_state: 'on'
     trigger:
       platform: state
-      entity_id: binary_sensor.motion_sensor_158d000200ceec
+      entity_id: binary_sensor.0x00158d000200ceec_occupancy
       to: 'off'
     condition:
       - condition: state

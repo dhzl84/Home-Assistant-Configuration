@@ -1,14 +1,14 @@
 # 433 MHz switches
-switch:
-  - platform: rpi_rf
-    gpio: 17
-    switches:
-      funksteckdose_aussen:
-        code_on: 4433
-        code_off: 4436
-      christmas:
-        code_on: 4539729
-        code_off: 4539732
+# switch:
+#   - platform: rpi_rf
+#     gpio: 17
+#     switches:
+#       funksteckdose_aussen:
+#         code_on: 4433
+#         code_off: 4436
+#       christmas:
+#         code_on: 4539729
+#         code_off: 4539732
 
   # see switches folder, only mentioned here for completeness
   # - platform: tplink

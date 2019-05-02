@@ -31,17 +31,14 @@ sensor:         !include_dir_merge_list    sensors/
 shell_command:  !include_dir_merge_named   shell_commands/
 # switch:         !include_dir_merge_list    switch/
 script:         !include_dir_merge_named   scripts/
-
 #group:          !include_dir_merge_named group/
 scene:          !include_dir_merge_list scenes/
-
+panel_iframe:   !include_dir_merge_named iframes/
 alexa:          !include alexa/alexa.yaml
 
 tplink:
   switch:
-    - host: 192.168.178.134
-
-panel_iframe: !include_dir_merge_named iframes/
+    - host: !secret hs100_ip
 
 system_health:
 
@@ -55,7 +52,7 @@ speedtestdotnet:
 
 vacuum:
   - platform: xiaomi_miio
-    host: 192.168.178.145
+    host: !secret mi_robot_ip
     token: !secret mi_robot_token
     name: Mi Robot Vacuum
     
@@ -64,8 +61,8 @@ frontend:
   javascript_version: latest
   themes: !include_dir_merge_named themes
 
-lovelace:
-  mode: yaml
+# lovelace:
+#   mode: yaml
 
 # Enables configuration UI
 config:
@@ -103,7 +100,7 @@ logbook:
 #InfluxDB
 influxdb:
   host: a0d7b954-influxdb
-  port: 8086
+  port: !secret influxdb_port
   database: !secret influxdb_dbname
   username: !secret influxdb_username
   password: !secret influxdb_password
@@ -121,30 +118,29 @@ sun:
 #Octoprint
 octoprint:
   host: !secret octoprint_host
+  port: !secret octoprint_port
   api_key: !secret octoprint_api_key
   bed: True
   number_of_tools: 1
 
 #hubs
+duofern:
+  serial_port: /dev/ttyUSB0
+  config_file: duofern.json
+  code: !secret duofern_code
+
 enocean:
-  device: /dev/ttyUSB0
+  device: /dev/ttyUSB1
 
 # zha:
 #   usb_path: /dev/ttyUSB1
 #   database_path: zigbee.db
 #   baudrate: 57600
 
-duofern:
-  serial_port: /dev/ttyUSB1
-  config_file: duofern.json
-  code: !secret duofern_code
-
-xiaomi_aqara:
-  discovery_retry: 10
-  gateways:
-    - key: !secret aqara_key
+# xiaomi_aqara:
+#   discovery_retry: 10
+#   gateways:
+#     - key: !secret aqara_key
 
 logger:
   default: warn
-  logs:
-    homeassistant.components.zha: debug

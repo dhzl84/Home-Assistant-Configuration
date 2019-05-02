@@ -5,3 +5,9 @@
       - type: memory_free
       - type: processor_use
       - type: last_boot
+
+  - platform: command_line
+    name: CPU Temperature
+    command: "cat /sys/class/thermal/thermal_zone2/temp"
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) | round(1) }}'

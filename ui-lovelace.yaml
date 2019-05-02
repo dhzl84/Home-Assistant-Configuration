@@ -67,7 +67,7 @@ views:
           - entity: input_number.illuminance_threshold_buero
           - entity: sensor.illumination_158d000200ceec
             name: Helligkeitssensor
-          - entity: binary_sensor.motion_sensor_158d000200ceec
+          - entity: binary_sensor.0x00158d000200ceec_occupancy
             name: Bewegungssensor
           - entity: input_boolean.automation_licht_buero
             icon: mdi:auto-fix
@@ -79,9 +79,9 @@ views:
         entities:
           - switch.shelly1_02
           - entity: input_number.illuminance_threshold_treppe_oben
-          - entity: sensor.illumination_158d0001fa3d9c
+          - entity: sensor.0x00158d0001fa3d9c_illuminance
             name: Helligkeitssensor
-          - entity: binary_sensor.motion_sensor_158d0001fa3d9c
+          - entity: binary_sensor.0x00158d0001fa3d9c_occupancy
             name: Bewegungssensor
           - entity: input_boolean.automation_licht_treppe_oben
             icon: mdi:auto-fix
@@ -349,9 +349,9 @@ views:
         entities:
           - sensor.temperature_158d0002281a4e
           - sensor.humidity_158d0002281a4e
-          - binary_sensor.motion_sensor_158d0001fa3d9c
-          - sensor.illumination_158d0001fa3d9c
-          - binary_sensor.motion_sensor_158d000200ceec
+          - binary_sensor.0x00158d0001fa3d9c_occupancy
+          - sensor.0x00158d0001fa3d9c_illuminance
+          - binary_sensor.0x00158d000200ceec_occupancy
           - sensor.illumination_158d000200ceec
           - binary_sensor.motion_sensor_158d000200ce5c
           - sensor.illumination_158d000200ce5c
