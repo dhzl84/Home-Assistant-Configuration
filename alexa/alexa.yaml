@@ -4,6 +4,7 @@
         - climate
         - switch
         - cover
+        - vacuum
 
     entity_config:
 #scenes

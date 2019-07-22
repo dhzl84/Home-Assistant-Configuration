@@ -1,15 +1,23 @@
   illuminance_threshold_buero:
     name: Helligkeitsschwelle
-    initial: 3
     min: 0
     max: 20
     step: 1
     unit_of_measurement: lx
+    mode: "box"
 
   illuminance_threshold_treppe_oben:
     name: Helligkeitsschwelle
-    initial: 3
     min: 0
     max: 20
     step: 1
     unit_of_measurement: lx
+    mode: "box"
+
+  illuminance_threshold_treppe_unten:
+    name: Helligkeitsschwelle
+    min: 0
+    max: 20
+    step: 1
+    unit_of_measurement: lx
+    mode: "box"

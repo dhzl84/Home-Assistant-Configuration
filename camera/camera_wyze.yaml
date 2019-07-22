@@ -1,0 +1,11 @@
+  - platform: ffmpeg
+    name: Wyze Cam
+    input: !secret wyze_ffmpeg
+
+#untested
+  # - platform: generic
+  #   name: Wyze Cam
+  #   still_image_url: "null"
+  #   username: !secret wyze_user
+  #   password: !secret wyze_pwd
+  #   stream_source: !secret wyze_generic

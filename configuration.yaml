@@ -6,7 +6,6 @@
   longitude: !secret long
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: !secret ele
-  # metric for Metric, imperial for Imperial
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Berlin
@@ -36,6 +35,10 @@ scene:          !include_dir_merge_list scenes/
 panel_iframe:   !include_dir_merge_named iframes/
 alexa:          !include alexa/alexa.yaml
 
+# camera
+ffmpeg:
+stream:
+
 tplink:
   switch:
     - host: !secret hs100_ip
@@ -49,6 +52,11 @@ speedtestdotnet:
     - ping
     - download
     - upload
+
+hacs:
+  token: fbebd3b4d45e7b0b853d1ca0358fc0d8a9a88717
+
+breaking_changes:
 
 vacuum:
   - platform: xiaomi_miio

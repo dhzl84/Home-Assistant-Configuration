@@ -35,5 +35,8 @@ switch.shelly1_01:
 switch.shelly1_02:
   friendly_name: Treppe oben
   icon: mdi:ceiling-light
+switch.shelly1_03_2:
+  friendly_name: Treppe unten
+  icon: mdi:ceiling-light
 sensor.cpu_temperature:
   icon: mdi:bug

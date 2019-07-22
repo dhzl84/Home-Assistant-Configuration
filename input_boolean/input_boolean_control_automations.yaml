@@ -1,12 +1,12 @@
   drucker_nach_druck_aus:
     name: Drucker nach Druck ausschalten
-    initial: off
     icon: mdi:toggle-switch-off
-  
+ 
   automation_licht_buero:
     name: Bewegungssteuerung
-    initial: on
 
   automation_licht_treppe_oben:
     name: Bewegungssteuerung
-    initial: on
+
+  automation_licht_treppe_unten:
+    name: Bewegungssteuerung

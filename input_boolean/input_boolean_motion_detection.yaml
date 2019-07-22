@@ -7,3 +7,8 @@
     name: Licht an wegen Bewegung
     initial: off
     icon: mdi:walk
+
+  treppe_unten_licht_wegen_bewegung:
+    name: Licht an wegen Bewegung
+    initial: off
+    icon: mdi:walk
