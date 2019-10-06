@@ -1,0 +1,34 @@
+binary_sensor:
+  - platform: ping
+    host: www.heise.de
+    count: 10
+    scan_interval: 60
+    name: Heise Ping
+  - platform: ping
+    host: www.nexiu.de
+    count: 10
+    scan_interval: 60
+    name: Nexiu Ping
+  - platform: ping
+    host: www.google.de
+    count: 10
+    scan_interval: 60
+    name: Google Ping
+
+sensor:
+  - platform: template
+    sensors:
+      heise_ping_avg:
+        value_template: '{{ states.binary_sensor.heise_ping.attributes.round_trip_time_avg|int }}'  
+        friendly_name: 'Heise Ping' 
+        unit_of_measurement: 'ms'
+
+      nexiu_ping_avg:
+        value_template: '{{ states.binary_sensor.nexiu_ping.attributes.round_trip_time_avg|int }}'  
+        friendly_name: 'Nexiu Ping' 
+        unit_of_measurement: 'ms'
+
+      google_ping_avg:
+        value_template: '{{ states.binary_sensor.google_ping.attributes.round_trip_time_avg|int }}'  
+        friendly_name: 'Google Ping' 
+        unit_of_measurement: 'ms'

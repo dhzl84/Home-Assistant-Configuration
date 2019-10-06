@@ -1,0 +1,7 @@
+  - alias: 'Speedtest'
+    initial_state: 'on'
+    trigger:
+      platform: time
+      at: '03:00:00'
+    action:
+      - service: speedtestdotnet.speedtest

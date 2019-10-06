@@ -1,6 +1,6 @@
 switch.hs100:
-  icon: mdi:star
-  friendly_name: Stern
+  icon: mdi:lamp
+  friendly_name: Wickellicht
 switch.s20_1:
   icon: mdi:floor-lamp
   friendly_name: Stehlampe Wohnzimmer
@@ -40,3 +40,7 @@ switch.shelly1_03_2:
   icon: mdi:ceiling-light
 sensor.cpu_temperature:
   icon: mdi:bug
+group.battery_view:
+  entity_picture: ''
+  friendly_name: Battery Alert
+  icon: mdi:battery-alert

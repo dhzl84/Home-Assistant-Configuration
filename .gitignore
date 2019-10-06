@@ -10,3 +10,4 @@
 /.cloud/
 *.pyc
 /duofern.json
+/custom_components/

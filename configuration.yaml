@@ -1,4 +1,4 @@
-﻿homeassistant:
+homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
@@ -35,6 +35,8 @@ scene:          !include_dir_merge_list scenes/
 panel_iframe:   !include_dir_merge_named iframes/
 alexa:          !include alexa/alexa.yaml
 
+person:
+
 # camera
 ffmpeg:
 stream:
@@ -46,8 +48,8 @@ tplink:
 system_health:
 
 speedtestdotnet:
-  scan_interval:
-    days: 1
+  server_id: 18488 #MK Netzdienste
+  manual: true
   monitored_conditions:
     - ping
     - download
@@ -55,8 +57,8 @@ speedtestdotnet:
 
 hacs:
   token: fbebd3b4d45e7b0b853d1ca0358fc0d8a9a88717
-
-breaking_changes:
+  theme: true
+  python_script: true
 
 vacuum:
   - platform: xiaomi_miio
@@ -87,6 +89,8 @@ http:
 
 updater:
   reporting: False
+
+webhook: #for zigbee2mqtt network map
 
 # history:
 #   include:
@@ -133,22 +137,15 @@ octoprint:
 
 #hubs
 duofern:
-  serial_port: /dev/ttyUSB0
+  serial_port: /dev/serial/by-id/usb-Rademacher_DuoFern_USB-Stick_WR06IAWA-if00-port0
   config_file: duofern.json
   code: !secret duofern_code
 
 enocean:
-  device: /dev/ttyUSB1
+  device: /dev/serial/by-id/usb-EnOcean_GmbH_EnOcean_USB_300_DB_FT1M2KBN-if00-port0
 
-# zha:
-#   usb_path: /dev/ttyUSB1
-#   database_path: zigbee.db
-#   baudrate: 57600
-
-# xiaomi_aqara:
-#   discovery_retry: 10
-#   gateways:
-#     - key: !secret aqara_key
+zigbee2mqtt_networkmap:
+  #topic: your topic (optional, default zigbee2mqtt)
 
 logger:
   default: warn

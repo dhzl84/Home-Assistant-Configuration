@@ -1,6 +1,5 @@
-#433 MHz Remote
-
-#Switch Nr. A
+#10000 (Wohnzimmer)
+  #Switch Nr. A
   - alias: '433 MHz Handfernbedienung Taste A On'
     initial_state: 'on'
     trigger:
@@ -18,8 +17,8 @@
     action:
       - service: switch.turn_off
         entity_id: switch.s20_1
-        
-#Switch Nr. B
+
+  #Switch Nr. B
   - alias: '433 MHz Handfernbedienung Taste B On'
     initial_state: 'on'
     trigger:
@@ -37,8 +36,8 @@
     action:
       - service: switch.turn_off
         entity_id: switch.s20_4
-        
-#Switch Nr. C
+
+  #Switch Nr. C
   - alias: '433 MHz Handfernbedienung Taste C On'
     initial_state: 'on'
     trigger:
@@ -56,8 +55,8 @@
     action:
       - service: switch.turn_off
         entity_id: switch.s20_3
-        
-#Switch Nr. D
+
+  #Switch Nr. D
   - alias: '433 MHz Handfernbedienung Taste D On'
     initial_state: 'on'
     trigger:
@@ -75,3 +74,80 @@
     action:
       - service: cover.close_cover
         entity_id: cover.40d522
+
+#11000 (Kinderzimmer)
+  #Switch Nr. A
+  - alias: '433 MHz Handfernbedienung Kind Taste A On'
+    initial_state: 'on'
+    trigger:
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '345425') %}true{% endif %}"
+    action:
+      - service: switch.turn_on
+        entity_id: switch.hs100
+        
+  - alias: '433 MHz Handfernbedienung Kind Taste A Off'
+    initial_state: 'on'
+    trigger:
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '345428') %}true{% endif %}"
+    action:
+      - service: switch.turn_off
+        entity_id: switch.hs100
+
+  #Switch Nr. B
+  - alias: '433 MHz Handfernbedienung Kind Taste B On'
+    initial_state: 'on'
+    trigger:
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '348497') %}true{% endif %}"
+    action:
+      - service: switch.turn_on
+        entity_id: switch.hs100
+        
+  - alias: '433 MHz Handfernbedienung Kind Taste B Off'
+    initial_state: 'on'
+    trigger:
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '348500') %}true{% endif %}"
+    action:
+      - service: switch.turn_off
+        entity_id: switch.hs100
+
+  #Switch Nr. C
+  - alias: '433 MHz Handfernbedienung Kind Taste C On'
+    initial_state: 'on'
+    trigger:
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '349265') %}true{% endif %}"
+    action:
+      - service: switch.turn_on
+        entity_id: switch.hs100
+        
+  - alias: '433 MHz Handfernbedienung Kind Taste C Off'
+    initial_state: 'on'
+    trigger:
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '349268') %}true{% endif %}"
+    action:
+      - service: switch.turn_off
+        entity_id: switch.hs100
+
+  #Switch Nr. D
+  - alias: '433 MHz Handfernbedienung Kind Taste D On'
+    initial_state: 'on'
+    trigger:
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '349457') %}true{% endif %}"
+    action:
+      - service: switch.turn_on
+        entity_id: switch.hs100
+        
+  - alias: '433 MHz Handfernbedienung Kind Taste D Off'
+    initial_state: 'on'
+    trigger:
+      platform: template
+      value_template: "{% if is_state('sensor.rf2mqtt', '349460') %}true{% endif %}"
+    action:
+      - service: switch.turn_off
+        entity_id: switch.hs100
