@@ -1,0 +1,28 @@
+# convert switches to lights
+  - platform: switch
+    entity_id: switch.shelly1_01
+    name: shelly1_01
+  - platform: switch
+    entity_id: switch.shelly1_02
+    name: shelly1_02
+  - platform: switch
+    entity_id: switch.shelly1_03_2
+    name: shelly1_03_02
+  - platform: switch
+    entity_id: switch.hs100
+    name: hs100
+  - platform: switch
+    entity_id: switch.s20_1
+    name: s20_1
+  - platform: switch
+    entity_id: switch.s20_2
+    name: s20_2
+  - platform: switch
+    entity_id: switch.s20_3
+    name: s20_3
+  - platform: switch
+    entity_id: switch.s20_4
+    name: s20_4
+  - platform: switch
+    entity_id: switch.s20_6
+    name: s20_6

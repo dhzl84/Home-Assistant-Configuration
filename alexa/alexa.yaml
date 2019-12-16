@@ -5,10 +5,26 @@
         - switch
         - cover
         - vacuum
+        - light
+        - scene
+      
+      exclude_entities:
+        - switch.shelly1_01
+        - switch.shelly1_02
+        - switch.shelly1_03_02
+        - switch.s20_1
+        - switch.s20_2
+        - switch.s20_3
+        - switch.s20_4
+        - switch.s20_6
+        - switch.hs100
 
     entity_config:
 #scenes
 
+#light
+      light.shelly1_01:
+        description: Licht im Büro
 #climate
       climate.buero:
         description: Heizung im Buero
@@ -17,36 +33,6 @@
       climate.wohnzimmer:
         description: Heizung im Wohnzimmer
         display_categories: THERMOSTAT
-#switch 433 MHz
-      switch.funksteckdose_aussen:
-        display_categories: SWITCH
-# TP-Link HS100
-      switch.steckdose_hs100_1:
-        display_categories: LIGHT
-# Sonoff S20
-      switch.s20_1:
-        display_categories: LIGHT
-  
-      switch.s20_2:
-        display_categories: LIGHT
-        
-      switch.s20_3:
-        display_categories: LIGHT
-        
-      switch.s20_4:
-        display_categories: LIGHT
-  
-      switch.s20_5:
-        display_categories: SWITCH
-  
-      switch.s20_6:
-        display_categories: LIGHT
-
-      switch.shelly1_01:
-        display_categories: LIGHT
-
-      switch.shelly1_02:
-        display_categories: LIGHT
 
       cover.40d522:
         display_categories: DOOR

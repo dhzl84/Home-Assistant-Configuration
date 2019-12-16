@@ -2,6 +2,6 @@
     initial_state: 'on'
     trigger:
       platform: time
-      at: '03:00:00'
+      at: '03:16:45'
     action:
       - service: speedtestdotnet.speedtest

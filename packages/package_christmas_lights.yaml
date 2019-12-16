@@ -1,20 +1,156 @@
-# 433 MHz switches
-# switch:
-#   - platform: rpi_rf
-#     gpio: 17
-#     switches:
-#       funksteckdose_aussen:
-#         code_on: 4433
-#         code_off: 4436
-#       christmas:
-#         code_on: 4539729
-#         code_off: 4539732
+# SWITCH
+switch:
+  - platform: mqtt
+    name: christmas
+    command_topic: "homeassistant/sensor/382d7e/rf2mqtt/rfCmd"
+    payload_on: "4539729"
+    payload_off: "4539732"
 
-  # see switches folder, only mentioned here for completeness
-  # - platform: tplink
-  #   host: 192.168.178.134
-  #   name: "switch.steckdose_hs100_1"
+# SCRIPT
+script:
+  christmas_lights_on:
+    sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_on
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_on
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_on
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_on
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_on
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_on
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_on
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_on
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_on
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_on
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_on
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_on
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_on
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_on
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_on
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_on
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_on
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_on
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_on
+        data:
+          entity_id: switch.funksteckdose_aussen
 
+  christmas_lights_off:
+    sequence:
+      - service: switch.turn_off
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_off
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_off
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_off
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_off
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_off
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_off
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_off
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_off
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_off
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_off
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_off
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_off
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_off
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_off
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_off
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_off
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_off
+        data:
+          entity_id: switch.funksteckdose_aussen
+      - delay: 0:00:01
+      - service: switch.turn_off
+        data:
+          entity_id: switch.christmas
+      - service: switch.turn_off
+        data:
+          entity_id: switch.funksteckdose_aussen
 
 # day restriction conditions for automation; to be done
 #input_boolean:
@@ -56,12 +192,11 @@
 # select automation conditions time or sun or off
 input_select:
   zeitsteuerung:
-    name: Beleuchtungssteuerung
+    name: Steuerung Weihnachtsbeleuchtung
     options:
     - aus
     - Zeit
     - Zeit und Sonne
-    initial: aus
     icon: mdi:home-automation
 
 # times for automation conditions
@@ -94,6 +229,7 @@ input_datetime:
     initial: '22:30'
     icon: mdi:lightbulb-outline
 
+# AUTOMATION
 automation:
 # morgens an per Zeit
   - alias: 'Beleuchtung morgens an'

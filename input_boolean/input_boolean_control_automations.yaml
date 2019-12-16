@@ -10,3 +10,8 @@
 
   automation_licht_treppe_unten:
     name: Bewegungssteuerung
+
+  automation_starte_staubsauger:
+    name: Starten wenn allein
+    initial: off
+    icon: mdi:account-arrow-right

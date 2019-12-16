@@ -1,0 +1,28 @@
+  - alias: Starte Staubsauger
+    initial_state: "on"
+    trigger:
+      - platform: state
+        entity_id: person.dominik
+        from: "home"
+        to: "not_home"
+      - platform: state
+        entity_id: person.juliane
+        from: "home"
+        to: "not_home"
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: person.dominik
+          state: "not_home"
+        - condition: state
+          entity_id: person.juliane
+          state: "not_home"
+        - condition: state
+          entity_id: input_boolean.automation_starte_staubsauger
+          state: "on"
+    action:
+      - service: vacuum.start
+        entity_id: vacuum.mi_robot_vacuum
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.automation_starte_staubsauger

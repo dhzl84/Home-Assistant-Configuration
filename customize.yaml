@@ -1,24 +1,3 @@
-switch.hs100:
-  icon: mdi:lamp
-  friendly_name: Wickellicht
-switch.s20_1:
-  icon: mdi:floor-lamp
-  friendly_name: Stehlampe Wohnzimmer
-switch.s20_2:
-  icon: mdi:lava-lamp
-  friendly_name: Vitrine
-switch.s20_3:
-  icon: mdi:bowling
-  friendly_name: Kugeln
-switch.s20_4:
-  icon: mdi:floor-lamp
-  friendly_name: Stehlampe Esszimmer
-switch.s20_5:
-  icon: mdi:printer-3d
-  friendly_name: 3D-Drucker
-switch.s20_6:
-  icon: mdi:desk-lamp
-  friendly_name: Bürolampe
 sensor.sunrise_time:
   icon: mdi:weather-sunset-up
 sensor.sunset_time:
@@ -29,18 +8,48 @@ sensor.duofern_paired_devices:
 sensor.duofern_system_code:
   icon: mdi:fingerprint
   friendly_name: System Code
-switch.shelly1_01:
-  friendly_name: Büro
-  icon: mdi:ceiling-light
-switch.shelly1_02:
-  friendly_name: Treppe oben
-  icon: mdi:ceiling-light
-switch.shelly1_03_2:
-  friendly_name: Treppe unten
-  icon: mdi:ceiling-light
 sensor.cpu_temperature:
   icon: mdi:bug
 group.battery_view:
   entity_picture: ''
   friendly_name: Battery Alert
   icon: mdi:battery-alert
+switch.s20_5:
+  icon: mdi:printer-3d
+  friendly_name: 3D-Drucker
+
+script.christmas_lights_on:
+  icon: mdi:pine-tree
+  friendly_name: "Weihnachtsbeleuchtung AN"
+script.christmas_lights_off:
+  icon: mdi:pine-tree-box
+  friendly_name: "Weihnachtsbeleuchtung AUS"
+
+# switches converted to lights
+light.hs100:
+  icon: mdi:lamp
+  friendly_name: Wickellicht
+light.s20_1:
+  icon: mdi:floor-lamp
+  friendly_name: Stehlampe Wohnzimmer
+light.s20_2:
+  icon: mdi:lava-lamp
+  friendly_name: Vitrine
+light.s20_3:
+  icon: mdi:bowling
+  friendly_name: Kugeln
+light.s20_4:
+  icon: mdi:floor-lamp
+  friendly_name: Stehlampe Esszimmer
+light.s20_6:
+  icon: mdi:desk-lamp
+  friendly_name: Bürolampe
+light.shelly1_01:
+  friendly_name: Büro
+  icon: mdi:ceiling-light
+light.shelly1_02:
+  friendly_name: Treppe oben
+  icon: mdi:ceiling-light
+light.shelly1_03_02:
+  friendly_name: Treppe unten
+  icon: mdi:ceiling-light

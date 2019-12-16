@@ -8,3 +8,7 @@
         friendly_name: "Upstream"
         unit_of_measurement: 'Mbit/s'
         value_template: "{{ ((states('sensor.internetgatewaydevicev2_fritz_box_7590_kbyte_sec_sent') | float) * 0.008) | round(1) }}"
+
+  - platform: fritzbox_callmonitor
+    username: !secret fritz_user
+    password: !secret fritz_pass
