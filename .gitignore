@@ -11,3 +11,5 @@
 *.pyc
 /duofern.json
 /custom_components/
+/esphome
+/.vscode

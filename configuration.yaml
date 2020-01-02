@@ -57,8 +57,6 @@ speedtestdotnet:
 
 hacs:
   token: fbebd3b4d45e7b0b853d1ca0358fc0d8a9a88717
-  theme: true
-  python_script: true
 
 vacuum:
   - platform: xiaomi_miio

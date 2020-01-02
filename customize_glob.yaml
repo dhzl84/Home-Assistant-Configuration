@@ -21,7 +21,10 @@
     "sensor.luftfeuchtigkeit_*":
       icon: mdi:water-percent
       friendly_name: Luftfeuchtigkeit
-     
+
+    "binary_sensor.state_*":
+      friendly_name: Betriebszustand
+      
     "binary_sensor.sensorfehler_*":
       icon: mdi:comment-alert-outline
       friendly_name: Sensorstatus

@@ -1,3 +1,0 @@
-  - platform: fritz
-    new_device_defaults:
-      track_new_devices: false
