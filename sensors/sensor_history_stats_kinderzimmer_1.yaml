@@ -1,0 +1,57 @@
+  - platform: history_stats
+    name: Heizungsansteuerung Kinderzimmer 1 heute
+    entity_id: binary_sensor.state_kinderzimmer_1
+    state: 'on'
+    type: ratio
+    start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    end: '{{ now() }}'
+    # end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    # duration:
+    #   days: 1
+
+  - platform: history_stats
+    name: Heizungsansteuerung Kinderzimmer 1 letzte 7 Tage
+    entity_id: binary_sensor.state_kinderzimmer_1
+    state: 'on'
+    type: ratio
+    end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    duration:
+      days: 7
+
+  - platform: history_stats
+    name: Heizungsansteuerung Kinderzimmer 1 letzte 30 Tage
+    entity_id: binary_sensor.state_kinderzimmer_1
+    state: 'on'
+    type: ratio
+    end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    duration:
+      days: 30
+
+  - platform: history_stats
+    name: Heizzyklen Kinderzimmer 1 heute
+    entity_id: binary_sensor.state_kinderzimmer_1
+    state: 'on'
+    type: count
+    start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    end: '{{ now() }}'
+    # end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    # duration:
+    #   days: 1
+
+  - platform: history_stats
+    name: Heizzyklen Kinderzimmer 1 letzte 7 Tage
+    entity_id: binary_sensor.state_kinderzimmer_1
+    state: 'on'
+    type: count
+    end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    duration:
+      days: 7
+
+  - platform: history_stats
+    name: Heizzyklen Kinderzimmer 1 letzte 30 Tage
+    entity_id: binary_sensor.state_kinderzimmer_1
+    state: 'on'
+    type: count
+    end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    duration:
+      days: 30
