@@ -1,0 +1,10 @@
+  - alias: 'Notify on Vacuum State Changes'
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: vacuum.mi_robot_vacuum
+    action:
+      - service: notify.mobile_app_dhzl_p30
+        data:
+          title: "Xiaomi: {{states.vacuum.mi_robot_vacuum.state}}"
+          message: "Status: {{states.vacuum.mi_robot_vacuum.attributes.status}}"

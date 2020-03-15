@@ -103,7 +103,7 @@
       value_template: "{% if is_state('sensor.rf2mqtt', '348497') %}true{% endif %}"
     action:
       - service: light.turn_on
-        entity_id: light.hs100
+        entity_id: light.0x7cb03eaa00b01f80_light
         
   - alias: '433 MHz Handfernbedienung Kind Taste B Off'
     initial_state: 'on'
@@ -112,7 +112,7 @@
       value_template: "{% if is_state('sensor.rf2mqtt', '348500') %}true{% endif %}"
     action:
       - service: light.turn_off
-        entity_id: light.hs100
+        entity_id: light.0x7cb03eaa00b01f80_light
 
   #Switch Nr. C
   - alias: '433 MHz Handfernbedienung Kind Taste C On'
@@ -141,7 +141,7 @@
       value_template: "{% if is_state('sensor.rf2mqtt', '349457') %}true{% endif %}"
     action:
       - service: light.turn_on
-        entity_id: group.all_lights
+        entity_id: all
         
   - alias: '433 MHz Handfernbedienung Kind Taste D Off'
     initial_state: 'on'
@@ -150,6 +150,6 @@
       value_template: "{% if is_state('sensor.rf2mqtt', '349460') %}true{% endif %}"
     action:
       - service: light.turn_off
-        entity_id: group.all_lights
+        entity_id: all
       - service: script.turn_on
         entity_id: script.christmas_lights_off

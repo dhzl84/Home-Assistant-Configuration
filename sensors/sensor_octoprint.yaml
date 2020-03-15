@@ -5,3 +5,61 @@
       - Current State
       - Temperatures
       - Job Percentage
+
+  - platform: template
+    sensors:
+      template_druckzeit:
+        friendly_name: Druckzeit
+        value_template: >-
+          {% set time = (states.sensor.octoprint_time_elapsed.state | int) %}
+          {% set minutes = ((time % 3600) / 60) | int %}
+          {% set hours = ((time % 86400) / 3600) | int %}
+          {% set days = (time / 86400) | int %}
+        
+          {%- if time < 60 -%}
+            {{time}}s
+            {%- else -%}
+            {%- if days > 0 -%}
+              {{ days }}d
+            {%- endif -%}
+            {%- if hours > 0 -%}
+              {%- if days > 0 -%}
+                {{ ' ' }}
+              {%- endif -%}
+              {{ hours }}h
+            {%- endif -%}
+            {%- if minutes > 0 -%}
+              {%- if days > 0 or hours > 0 -%}
+                {{ ' ' }}
+              {%- endif -%}
+              {{ minutes }}m
+            {%- endif -%}
+          {%- endif -%}
+
+      template_restzeit:
+        friendly_name: Restzeit
+        value_template: >-
+          {% set time = (states.sensor.octoprint_time_remaining.state | int) %}
+          {% set minutes = ((time % 3600) / 60) | int %}
+          {% set hours = ((time % 86400) / 3600) | int %}
+          {% set days = (time / 86400) | int %}
+        
+          {%- if time < 60 -%}
+            {{time}}s
+            {%- else -%}
+            {%- if days > 0 -%}
+              {{ days }}d
+            {%- endif -%}
+            {%- if hours > 0 -%}
+              {%- if days > 0 -%}
+                {{ ' ' }}
+              {%- endif -%}
+              {{ hours }}h
+            {%- endif -%}
+            {%- if minutes > 0 -%}
+              {%- if days > 0 or hours > 0 -%}
+                {{ ' ' }}
+              {%- endif -%}
+              {{ minutes }}m
+            {%- endif -%}
+          {%- endif -%}

@@ -29,7 +29,8 @@ clear_dark:
   paper-card-header-color: 'var(--text-color)'                                    # Title in settings
   primary-background-color: 'var(--background-color)'                             # Background (also title background in left menu)
   mdc-theme-primary: 'var(--accent-medium-color)'                                 # Action Buttons (save, restart etc.)
-  
+  card-background-color: 'var(--background-card-color)'                           # Entity Registry Background
+
   # Card
   paper-card-background-color: "rgba(56,60,69, .4)"
   # paper-card-background-color: 'var(--background-card-color)'                     # Background
@@ -47,17 +48,22 @@ clear_dark:
   paper-item-icon-active-color: 'var(--accent-color)'                             # On
   
   # Switches
-  paper-toggle-button-checked-button-color: 'var(--text-medium-light-color)'      # Knob On
-  paper-toggle-button-checked-bar-color: '#009FFF'                                # Background On
-  paper-toggle-button-unchecked-button-color: 'var(--text-medium-light-color)'    # Knob Off
-  paper-toggle-button-unchecked-bar-color: '#767682'                              # Background Off
-  
+  switch-checked-button-color: 'var(--text-medium-light-color)'                   # Knob On
+  switch-unchecked-button-color: 'var(--text-medium-light-color)'                 # Knob Off
+  switch-checked-track-color: '#009FFF'                                           # Background On
+  switch-unchecked-track-color: '#767682'                                         # Background Off
+
+  # Slider
+  paper-slider-active-color: 'var(--accent-color)'                                # Line On
+  paper-slider-knob-color: 'var(--text-medium-light-color)'                       # Knob On
+  paper-slider-container-color: 'var(--text-dark-color)'                          # Line Off
+  paper-slider-knob-start-color: 'var(--text-medium-light-color)'                 # Knob Off
+
   # Shadows
-  shadow-elevation-2dp_-_box-shadow: 'inset 0px 0px 0px 1px var(--border-color)'
-  shadow-elevation-4dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-6dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-8dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-10dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-12dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-14dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
-  shadow-elevation-16dp_-_box-shadow: '0px 0px 0px 3px var(--text-dark-color)'
+  ha-card-box-shadow: 'inset 0px 0px 0px 1px var(--border-color)'
+
+  # HACS
+  hacs-badge-color: 'var(--accent-color)'                                         # New Badge
+  hacs-status-installed: 'var(--text-color)'                                      # Installed Icon
+  hacs-status-pending-restart: 'var(--text-dark-color)'                           # Restart Icon
+  hacs-status-pending-update: 'var(--accent-color)'                               # Update Icon

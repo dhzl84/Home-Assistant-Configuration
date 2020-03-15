@@ -4,15 +4,10 @@
       platform: state
       entity_id: updater.updater
     action:
-      - service: notify.slack_notify
+      - service: notify.mobile_app_dhzl_p30
         data:
           message: ""
           data: {
-          "attachments": [
-              {
-                  "color": "good",
-                  "title": "Home Assistant update available.",
-                  "title_link": "https://www.home-assistant.io/",
-              }
-            ]
+            "title": "Home Assistant update available.",
+            "message": "https://www.home-assistant.io/"
           }

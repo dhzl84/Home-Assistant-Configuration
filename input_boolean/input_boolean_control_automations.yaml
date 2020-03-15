@@ -2,9 +2,6 @@
     name: Drucker nach Druck ausschalten
     icon: mdi:toggle-switch-off
  
-  automation_licht_buero:
-    name: Bewegungssteuerung
-
   automation_licht_treppe_oben:
     name: Bewegungssteuerung
 

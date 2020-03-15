@@ -17,15 +17,12 @@ group.battery_view:
 switch.s20_5:
   icon: mdi:printer-3d
   friendly_name: 3D-Drucker
-
 script.christmas_lights_on:
   icon: mdi:pine-tree
-  friendly_name: "Weihnachtsbeleuchtung AN"
+  friendly_name: Weihnachtsbeleuchtung AN
 script.christmas_lights_off:
   icon: mdi:pine-tree-box
-  friendly_name: "Weihnachtsbeleuchtung AUS"
-
-# switches converted to lights
+  friendly_name: Weihnachtsbeleuchtung AUS
 light.hs100:
   icon: mdi:lamp
   friendly_name: Wickellicht
@@ -41,9 +38,6 @@ light.s20_3:
 light.s20_4:
   icon: mdi:floor-lamp
   friendly_name: Stehlampe Esszimmer
-light.s20_6:
-  icon: mdi:desk-lamp
-  friendly_name: Bürolampe
 light.shelly1_01:
   friendly_name: Büro
   icon: mdi:ceiling-light
@@ -53,3 +47,17 @@ light.shelly1_02:
 light.shelly1_03_02:
   friendly_name: Treppe unten
   icon: mdi:ceiling-light
+light.0x7cb03eaa00b01e2e_light:
+  friendly_name: Lichtstreifen
+  icon: mdi:led-strip-variant
+switch.s20_6:
+  friendly_name: Lichterkette außen
+  icon: mdi:led-strip
+light.0x7cb03eaa00b01f80_light:
+  friendly_name: Lichtstreifen Schlafzimmer
+  icon: mdi:led-strip-variant
+light.s20_6:
+  friendly_name: Lichterkette außen
+  icon: mdi:led-strip-variant
+input_boolean.drucker_nach_druck_aus:
+  friendly_name: Drucker nach Druck ausschalten

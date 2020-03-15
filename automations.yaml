@@ -1,0 +1,121 @@
+- id: '1581093269218'
+  alias: Tradfri 2 Button Remote ON
+  description: ''
+  trigger:
+  - entity_id: sensor.0x14b457fffec569bb_click
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - device_id: 985139327aed42fc959b3a74b555b27e
+    domain: light
+    entity_id: light.0x7cb03eaa00b01e2e_light
+    type: turn_on
+- id: '1581093346807'
+  alias: Tradfri 2 Button Remote OFF
+  description: ''
+  trigger:
+  - entity_id: sensor.0x14b457fffec569bb_click
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - device_id: 985139327aed42fc959b3a74b555b27e
+    domain: light
+    entity_id: light.0x7cb03eaa00b01e2e_light
+    type: turn_off
+- id: '1581093795227'
+  alias: Tradfri 2 Button Remote ON long
+  description: ''
+  trigger:
+  - entity_id: sensor.0x14b457fffec569bb_click
+    platform: state
+    to: brightness_up
+  condition: []
+  action:
+  - device_id: 985139327aed42fc959b3a74b555b27e
+    domain: light
+    entity_id: light.0x7cb03eaa00b01e2e_light
+    type: turn_on
+- id: '1581093840274'
+  alias: Tradfri 2 Button Remote OFF long
+  description: ''
+  trigger:
+  - entity_id: sensor.0x14b457fffec569bb_click
+    platform: state
+    to: brightness_down
+  condition: []
+  action:
+  - device_id: 985139327aed42fc959b3a74b555b27e
+    domain: light
+    entity_id: light.0x7cb03eaa00b01e2e_light
+    type: turn_off
+- id: '1581230011701'
+  alias: Tradfri 5 Button Remote TOGGLE
+  description: ''
+  trigger:
+  - entity_id: sensor.0xec1bbdfffe40423a_action
+    platform: state
+    to: toggle
+  condition: []
+  action:
+  - device_id: 985139327aed42fc959b3a74b555b27e
+    domain: light
+    entity_id: light.0x7cb03eaa00b01e2e_light
+    type: toggle
+- id: '1581230301181'
+  alias: Tradfri 5 Button Remote LEFT CLICK
+  description: ''
+  trigger:
+  - entity_id: sensor.0xec1bbdfffe40423a_action
+    platform: state
+    to: arrow_left_click
+  condition: []
+  action:
+  - device_id: 1443324cb68d49bbab64fc79587c8e97
+    domain: switch
+    entity_id: switch.s20_1
+    type: toggle
+- id: '1581230397368'
+  alias: Tradfri 5 Button Remote RIGHT CLICK
+  description: ''
+  trigger:
+  - entity_id: sensor.0xec1bbdfffe40423a_action
+    platform: state
+    to: arrow_right_click
+  condition: []
+  action:
+  - device_id: 369ec5a4fb9349de96eb9e897762bc0b
+    domain: switch
+    entity_id: switch.s20_4
+    type: toggle
+- id: '1581231200746'
+  alias: Tradfri 5 Button Remote BRIGHTNESS UP
+  description: ''
+  trigger:
+  - entity_id: sensor.0xec1bbdfffe40423a_action
+    platform: state
+    to: brightness_up_click
+  condition: []
+  action:
+  - data_template:
+      brightness: "{% set bri = state_attr('light.0x7cb03eaa00b01e2e_light', 'brightness')\
+        \ | int %} \n  {{ bri+20}}\n{% if (bri > 255) %}\n  {% set bri = 255 | int\
+        \ %}\n{% endif %}"
+    entity_id: light.0x7cb03eaa00b01e2e_light
+    service: light.turn_on
+- id: '1581232584376'
+  alias: Tradfri 5 Button Remote BRIGHTNESS DOWN
+  description: ''
+  trigger:
+  - entity_id: sensor.0xec1bbdfffe40423a_action
+    platform: state
+    to: brightness_down_click
+  condition: []
+  action:
+  - data_template:
+      brightness: "{% set bri = state_attr('light.0x7cb03eaa00b01e2e_light', 'brightness')\
+        \ | int %} \n  {{ bri-20}}\n{% if (bri < 0) %}\n  {% set bri = 0 | int %}\n\
+        {% endif %}"
+    entity_id: light.0x7cb03eaa00b01e2e_light
+    service: light.turn_on

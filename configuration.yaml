@@ -1,20 +1,9 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Home
-  # Location required to calculate the time the sun rises and sets
-  latitude:  !secret lat
-  longitude: !secret long
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: !secret ele
-  unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: Europe/Berlin
-
   customize_glob: !include customize_glob.yaml
   customize:      !include customize.yaml
   packages:       !include_dir_named packages
 
-#automation: !include automations.yaml
+automation:     !include automations.yaml
 automation old: !include_dir_merge_list    automation/
 
 binary_sensor:  !include_dir_merge_list    binary_sensors/
@@ -29,15 +18,14 @@ media_player:   !include_dir_merge_list    media_player/
 sensor:         !include_dir_merge_list    sensors/
 shell_command:  !include_dir_merge_named   shell_commands/
 switch:         !include_dir_merge_list    switch/
-script:         !include_dir_merge_named   scripts/
-#group:          !include_dir_merge_named group/
+script:         !include scripts.yaml
 scene:          !include_dir_merge_list scenes/
 panel_iframe:   !include_dir_merge_named iframes/
 alexa:          !include alexa/alexa.yaml
 
 person:
 
-# camera
+# for camera
 ffmpeg:
 stream:
 
@@ -48,7 +36,6 @@ tplink:
 system_health:
 
 speedtestdotnet:
-  #server_id: 18488 #MK Netzdienste
   manual: true
   monitored_conditions:
     - ping
@@ -68,9 +55,6 @@ vacuum:
 frontend:
   javascript_version: latest
   themes: !include_dir_merge_named themes
-
-# lovelace:
-#   mode: yaml
 
 # Enables configuration UI
 config:
@@ -92,24 +76,13 @@ updater:
 
 webhook: #for zigbee2mqtt network map
 
-# history:
-#   include:
-#     domains:
-#       - climate
-#   exclude:
-#     entities:
-#       - climate.prototype
-
-# The recorder component is storing details in a database which then are handled by the history component.
 recorder:
   db_url: !secret mariaDB_url
   purge_interval: 1
   purge_keep_days: 30
 
-# The logbook component provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order.
 logbook:
 
-#InfluxDB
 influxdb:
   host: a0d7b954-influxdb
   port: !secret influxdb_port
@@ -119,21 +92,18 @@ influxdb:
   max_retries: 99
 
 notify:
-  - name: slack_notify
-    platform: slack
-    api_key: !secret slack_api_key
-    default_channel: '#allgemein'
 
-# Track the sun
 sun:
 
-#Octoprint
 octoprint:
   host: !secret octoprint_host
   port: !secret octoprint_port
   api_key: !secret octoprint_api_key
   bed: True
   number_of_tools: 1
+
+logger:
+  default: warn
 
 #hubs
 duofern:
@@ -146,6 +116,3 @@ enocean:
 
 zigbee2mqtt_networkmap:
   #topic: your topic (optional, default zigbee2mqtt)
-
-logger:
-  default: warn

@@ -44,12 +44,25 @@
     action:
       - service: switch.turn_off
         entity_id: switch.shelly1_03_2
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.treppe_unten_licht_wegen_bewegung
 
 ##############################################################################################################################################################
 
-  - alias: reset input_boolean.treppe_unten_licht_wegen_bewegung
+  - alias: reset input_boolean.treppe_unten_licht_wegen_bewegung_1
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: switch.shelly1_03_2
+      from: 'on'
+      to: 'off'
+    condition:
+      - condition: state
+        entity_id: input_boolean.treppe_unten_licht_wegen_bewegung_1
+        state: "on"
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.treppe_unten_licht_wegen_bewegung_1
+
+  - alias: reset input_boolean.treppe_unten_licht_wegen_bewegung_2
     initial_state: 'on'
     trigger:
       platform: state

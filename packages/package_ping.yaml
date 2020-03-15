@@ -32,3 +32,55 @@ sensor:
         value_template: '{{ states.binary_sensor.google_ping.attributes.round_trip_time_avg|int }}'  
         friendly_name: 'Google Ping' 
         unit_of_measurement: 'ms'
+
+  - platform: history_stats
+    name: Connectivity Google heute
+    entity_id: binary_sensor.google_ping
+    state: 'on'
+    type: ratio
+    start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    end: '{{ now() }}'
+
+  - platform: history_stats
+    name: Connectivity Google letzte 7 Tage
+    entity_id: binary_sensor.google_ping
+    state: 'on'
+    type: ratio
+    end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    duration:
+      days: 7
+
+  - platform: history_stats
+    name: Connectivity Google letzte 30 Tage
+    entity_id: binary_sensor.google_ping
+    state: 'on'
+    type: ratio
+    end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    duration:
+      days: 30
+
+  - platform: history_stats
+    name: Connectivity nexiu heute
+    entity_id: binary_sensor.nexiu_ping
+    state: 'on'
+    type: ratio
+    start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    end: '{{ now() }}'
+
+  - platform: history_stats
+    name: Connectivity nexiu letzte 7 Tage
+    entity_id: binary_sensor.nexiu_ping
+    state: 'on'
+    type: ratio
+    end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    duration:
+      days: 7
+
+  - platform: history_stats
+    name: Connectivity nexiu letzte 30 Tage
+    entity_id: binary_sensor.nexiu_ping
+    state: 'on'
+    type: ratio
+    end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    duration:
+      days: 30

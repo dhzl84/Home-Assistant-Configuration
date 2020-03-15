@@ -1,0 +1,172 @@
+'1578219023385':
+  alias: speedtest
+  sequence:
+  - data: {}
+    service: speedtestdotnet.speedtest
+'1578219081323':
+  alias: rollladen_60
+  sequence:
+  - data:
+      position: 60
+    entity_id: cover.40d522
+    service: cover.set_cover_position
+'1578219119023':
+  alias: rollladen_23
+  sequence:
+  - data:
+      position: 23
+    entity_id: cover.40d522
+    service: cover.set_cover_position
+christmas_lights_on:
+  alias: Weihnachtsbeleuchtung AN
+  sequence:
+  - entity_id: light.s20_6
+    service: light.turn_on
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_on
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_on
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_on
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_on
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_on
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_on
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_on
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_on
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_on
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_on
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_on
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_on
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_on
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_on
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_on
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_on
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_on
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_on
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_on
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_on
+christmas_lights_off:
+  alias: Weihnachtsbeleuchtung AUS
+  sequence:
+  - entity_id: light.s20_6
+    service: light.turn_off
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_off
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_off
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_off
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_off
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_off
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_off
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_off
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_off
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_off
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_off
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_off
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_off
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_off
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_off
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_off
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_off
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_off
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_off
+  - delay: 0:00:01
+  - data: {}
+    entity_id: switch.christmas
+    service: switch.turn_off
+  - data: {}
+    entity_id: switch.funksteckdose_aussen
+    service: switch.turn_off
+'1581153837894':
+  alias: Licht aus
+  sequence:
+  - entity_id: all
+    service: light.turn_off

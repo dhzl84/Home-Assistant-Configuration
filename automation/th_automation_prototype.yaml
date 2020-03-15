@@ -24,7 +24,7 @@
       for:
         hours: 12
     action:
-      service: notify.slack_notify
+      service: notify.mobile_app_dhzl_p30
       data:
         message: 'Heizung im Prototype seit 12 Stunden an'
         
@@ -38,6 +38,6 @@
       for:
         minutes: 10
     action:
-      service: notify.slack_notify
+      service: notify.mobile_app_dhzl_p30
       data:
         message: 'Thermostat im Prototype offline'

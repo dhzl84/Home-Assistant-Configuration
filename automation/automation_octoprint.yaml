@@ -6,7 +6,7 @@
       from: 'Printing'
       to: 'Operational'
     action:
-      - service: notify.slack_notify
+      - service: notify.mobile_app_dhzl_p30
         data:
           message: '3D Print finished'
         
@@ -26,7 +26,5 @@
     action:
       - service: switch.turn_off
         entity_id: switch.s20_5
-      - service: switch.turn_off
-        entity_id: switch.s20_6
       - service: input_boolean.turn_off
         entity_id: input_boolean.drucker_nach_druck_aus

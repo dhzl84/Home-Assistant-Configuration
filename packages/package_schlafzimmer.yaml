@@ -1,0 +1,106 @@
+input_boolean:
+  automation_licht_schlafzimmer:
+    name: Bewegungssteuerung
+
+  licht_wegen_bewegung_schlafzimmer:
+    name: Licht an wegen Bewegung
+    initial: off
+    icon: mdi:walk
+
+input_number:
+  illuminance_threshold_schlafzimmer:
+    name: Helligkeitsschwelle
+    min: 0
+    max: 20
+    step: 1
+    unit_of_measurement: lx
+    mode: "box"
+
+  light_brightness_schlafzimmer:
+    name: Helligkeit bei Bewegung
+    min: 0
+    max: 255
+    step: 1
+    mode: "box"
+
+automation:
+## AN
+  - alias: schlafzimmer licht an
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.0x00158d000200ceec_occupancy
+      to: 'on'
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: '{{ (states.sensor["0x00158d000200ceec_illuminance"].state) | int <= states.input_number.illuminance_threshold_schlafzimmer.state | int }}'
+        - condition: state
+          entity_id: light.0x7cb03eaa00b01f80_light
+          state: "off"
+        - condition: state
+          entity_id: input_boolean.automation_licht_schlafzimmer
+          state: "on"
+    action:
+      - service: light.turn_on
+        entity_id: light.0x7cb03eaa00b01f80_light
+        data_template:
+          brightness: '{{states.input_number.light_brightness_schlafzimmer.state | int}}'
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.licht_wegen_bewegung_schlafzimmer
+## AUS
+  - alias: schlafzimmer licht aus
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.0x00158d000200ceec_occupancy
+      to: 'off'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: light.0x7cb03eaa00b01f80_light
+          state: "on"
+        - condition: state
+          entity_id: input_boolean.licht_wegen_bewegung_schlafzimmer
+          state: "on"
+        - condition: state
+          entity_id: input_boolean.automation_licht_schlafzimmer
+          state: "on"
+    action:
+      - service: light.turn_off
+        entity_id: light.0x7cb03eaa00b01f80_light
+
+## RESET by light off
+
+  - alias: reset input_boolean.licht_wegen_bewegung_schlafzimmer_1
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: light.0x7cb03eaa00b01f80_light
+      from: 'on'
+      to: 'off'
+    condition:
+      - condition: state
+        entity_id: input_boolean.licht_wegen_bewegung_schlafzimmer
+        state: "on"
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.licht_wegen_bewegung_schlafzimmer
+
+## RESET by sensor
+
+  - alias: reset input_boolean.licht_wegen_bewegung_schlafzimmer_2
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.0x00158d000200ceec_occupancy
+      to: 'off'
+    condition:
+      - condition: state
+        entity_id: input_boolean.licht_wegen_bewegung_schlafzimmer
+        state: "on"
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.licht_wegen_bewegung_schlafzimmer
