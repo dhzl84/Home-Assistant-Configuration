@@ -170,3 +170,9 @@ christmas_lights_off:
   sequence:
   - entity_id: all
     service: light.turn_off
+'1585466295156':
+  alias: Update Thermostate
+  icon: mdi:cloud-upload
+  sequence:
+  - event: event_update_thermostats
+    event_data: {}

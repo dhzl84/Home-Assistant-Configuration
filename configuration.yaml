@@ -16,6 +16,7 @@ input_select:   !include_dir_merge_named   input_select/
 light:          !include_dir_merge_list    light/
 media_player:   !include_dir_merge_list    media_player/
 sensor:         !include_dir_merge_list    sensors/
+script:         !include_dir_merge_list    scripts/
 shell_command:  !include_dir_merge_named   shell_commands/
 switch:         !include_dir_merge_list    switch/
 script:         !include scripts.yaml
@@ -74,11 +75,8 @@ http:
 updater:
   reporting: False
 
-webhook: #for zigbee2mqtt network map
-
 recorder:
   db_url: !secret mariaDB_url
-  purge_interval: 1
   purge_keep_days: 30
 
 logbook:
@@ -113,6 +111,3 @@ duofern:
 
 enocean:
   device: /dev/serial/by-id/usb-EnOcean_GmbH_EnOcean_USB_300_DB_FT1M2KBN-if00-port0
-
-zigbee2mqtt_networkmap:
-  #topic: your topic (optional, default zigbee2mqtt)

@@ -1,46 +1,37 @@
   #{{NAME}}
   #Trigger firmware update if central update switch is pressed
-  - alias: Update thermostat firmware by central switch {{NAME}}
+  - alias: Update Thermostat Firmware {{NAME}}
     initial_state: 'on'
     trigger:
-     platform: state
-     entity_id: input_boolean.update_thermostats
-     from: 'off'
-     to: 'on'
+      platform: event
+      event_type: event_update_thermostats
     action:
       - service: switch.turn_on
         entity_id: switch.firmwareupdate_{{ID}}
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.update_thermostats
-        
+
 # Trigger notification if heating is on for more than 12h
-  - alias: 'heating anomaly {{NAME}}'
+  - alias: 'Heizung ungewöhnlich lange an {{NAME}}'
     initial_state: 'on'
     trigger:
-      platform: state
-      entity_id: binary_sensor.heizung_aktiv_{{ID}}
-      from: 'off'
-      to: 'on'
+      platform: template
+      value_template: "{{ is_state_attr('climate.{{ID}}', 'state', 'on') }}"
       for:
         hours: 12
     action:
       service: notify.mobile_app_dhzl_p30
       data:
         message: 'Heizung im {{NAME}} seit 12 Stunden an'
-        
+
 # Trigger notification if thermostat is off for more than 5 minute
   - alias: 'thermostat offline {{NAME}}'
     initial_state: 'on'
     trigger:
       platform: state
-      entity_id: binary_sensor.state_{{ID}}
+      entity_id: climate.{{ID}}
       to: 'unavailable'
       for:
         minutes: 10
     action:
-      - service: notify.mobile_app_dhzl_p30
-        data:
-          message: 'Thermostat im {{NAME}} offline'
-      - service: persistent_notification.create
-        data:
-          message: 'Thermostat im {{NAME}} offline'
+      service: notify.mobile_app_dhzl_p30
+      data:
+        message: 'Thermostat im {{NAME}} offline'

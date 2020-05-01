@@ -119,3 +119,14 @@
         {% endif %}"
     entity_id: light.0x7cb03eaa00b01e2e_light
     service: light.turn_on
+- id: '1585053686052'
+  alias: Set Theme on HA Start
+  description: ''
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - data:
+      name: clear_dark
+    service: frontend.set_theme

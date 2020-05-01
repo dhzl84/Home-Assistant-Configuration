@@ -3,6 +3,7 @@
     trigger:
       platform: state
       entity_id: vacuum.mi_robot_vacuum
+      to: 'error'
     action:
       - service: notify.mobile_app_dhzl_p30
         data:

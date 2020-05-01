@@ -1,0 +1,13 @@
+  - platform: template
+    sensors:
+      germany_coronavirus_mortality_rate:
+        friendly_name: COVID-19 Mortalitätsrate Deutschland
+        value_template: "{{ (100 / states('sensor.germany_coronavirus_recovered') | float * states('sensor.germany_coronavirus_deaths') | float) | round(2) }}"
+        unit_of_measurement: '%'
+
+  - platform: template
+    sensors:
+      worldwide_coronavirus_mortality_rate:
+        friendly_name: COVID-19 Mortalitätsrate Weltweit
+        value_template: "{{ (100 / states('sensor.worldwide_coronavirus_recovered') | float * states('sensor.worldwide_coronavirus_deaths') | float) | round(2) }}"
+        unit_of_measurement: '%'
